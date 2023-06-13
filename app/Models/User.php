@@ -50,7 +50,7 @@ class User extends Authenticatable
     {
         // Generate the verification link based on your logic
         // For example, you can generate a signed URL using the `url` helper
-        return url('/verify-email/' . $this->id . '/' . sha1($this->remember_token));
+        return url('/verify-email/' . $this->id . '/' . $this->remember_token);
     }
 
     public function items(): HasMany

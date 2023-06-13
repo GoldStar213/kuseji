@@ -21,6 +21,8 @@ class VerifyController extends Controller
         } else {
             $user->email_verified_at = now();
 
+            $user->save();
+
             Auth::login($user);
 
             return redirect()->route('myItem.index');

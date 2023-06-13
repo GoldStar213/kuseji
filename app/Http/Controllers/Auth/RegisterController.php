@@ -3,20 +3,15 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
+use App\Mail\Mailer;
 use App\Models\User;
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Http\Request;
-
-use Str;
 use Mail;
-
-use App\Mail\Mailer;
+use Str;
 
 class RegisterController extends Controller
 {
@@ -29,7 +24,7 @@ class RegisterController extends Controller
     | validation and creation. By default this controller uses a trait to
     | provide this functionality without requiring any additional code.
     |
-    */
+     */
 
     use RegistersUsers;
 
@@ -65,17 +60,17 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'terms' => ['accepted'],
         ],
-        $messages = [
-            'firstname.required' => '姓は必須項目です。',
-            'lastname.required' => '名は必須項目です。',
-            'email.required' => 'メールアドレスは必須項目です。',
-            'email.email' => 'メールアドレスの形式が正しくありません。',
-            'email.unique' => '入力したメールアドレスは既に使用されています。',
-            'password.required' => 'パスワードは必須項目です。',
-            'password.min' => 'パスワードは8文字以上で入力してください。',
-            'password.confirmed' => 'パスワードとパスワード確認が一致しません。',
-            'terms.accepted' => '登録するには利用規約に同意する必要があります。',
-        ]);
+            $messages = [
+                'firstname.required' => '姓は必須項目です。',
+                'lastname.required' => '名は必須項目です。',
+                'email.required' => 'メールアドレスは必須項目です。',
+                'email.email' => 'メールアドレスの形式が正しくありません。',
+                'email.unique' => '入力したメールアドレスは既に使用されています。',
+                'password.required' => 'パスワードは必須項目です。',
+                'password.min' => 'パスワードは8文字以上で入力してください。',
+                'password.confirmed' => 'パスワードとパスワード確認が一致しません。',
+                'terms.accepted' => '登録するには利用規約に同意する必要があります。',
+            ]);
     }
 
     /**
@@ -102,7 +97,8 @@ class RegisterController extends Controller
         return view('auth.verify');
     }
 
-    public function register(Request $request) {
+    public function register(Request $request)
+    {
         $request->validate([
             'firstname' => ['required', 'string', 'max:255'],
             'lastname' => ['required', 'string', 'max:255'],
@@ -110,28 +106,36 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'terms' => ['accepted'],
         ],
-        $messages = [
-            'firstname.required' => '姓は必須項目です。',
-            'lastname.required' => '名は必須項目です。',
-            'email.required' => 'メールアドレスは必須項目です。',
-            'email.email' => 'メールアドレスの形式が正しくありません。',
-            'email.unique' => '入力したメールアドレスは既に使用されています。',
-            'password.required' => 'パスワードは必須項目です。',
-            'password.min' => 'パスワードは8文字以上で入力してください。',
-            'password.confirmed' => 'パスワードとパスワード確認が一致しません。',
-            'terms.accepted' => '登録するには利用規約に同意する必要があります。',
-        ]);
+            $messages = [
+                'firstname.required' => '姓は必須項目です。',
+                'lastname.required' => '名は必須項目です。',
+                'email.required' => 'メールアドレスは必須項目です。',
+                'email.email' => 'メールアドレスの形式が正しくありません。',
+                'email.unique' => '入力したメールアドレスは既に使用されています。',
+                'password.required' => 'パスワードは必須項目です。',
+                'password.min' => 'パスワードは8文字以上で入力してください。',
+                'password.confirmed' => 'パスワードとパスワード確認が一致しません。',
+                'terms.accepted' => '登録するには利用規約に同意する必要があります。',
+            ]);
 
-        $user = User::create([
-            'firstname' => $request->firstname,
-            'lastname' => $request->lastname,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'remember_token' => Str::random(64),
-        ]);
+        // $user = User::create([
+        //     'firstname' => $request->firstname,
+        //     'lastname' => $request->lastname,
+        //     'email' => $request->email,
+        //     'password' => Hash::make($request->password),
+        //     'remember_token' => "wer"
+        // ]);
+
+        $user = new User();
+        $user->firstname = $request->firstname;
+        $user->lastname = $request->lastname;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->remember_token = Str::random(64);
+        $user->save();
 
         Mail::to($user->email)->send(new Mailer($user));
 
-        return redirect()->route('sent_verify');
+        return view('sent_verify');
     }
 }
