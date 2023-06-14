@@ -81,7 +81,7 @@
                                     $second_user = User::find($second_item->user_id);
                                 @endphp
                                 <tr>
-                                    <td class="text-muted fw-semibold text-center col-auto">{{ $i ++; }}</td>
+                                    <td class="text-muted fw-semibold text-center col-auto">{{ $i ++ }}</td>
                                     <td>
                                         <div class="d-flex align-items-center">
                                             <div class="symbol symbol-100px me-5">
