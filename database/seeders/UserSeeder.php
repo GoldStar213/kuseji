@@ -29,6 +29,9 @@ class UserSeeder extends Seeder
             'email_verified_at' => now(),
             'password' => Hash::make('superadmin'),
             'remember_token' => Str::random(64),
+            'twitter' => 'https://twitter.com/example',
+            'instagram' => 'https://www.instagram.com/example/',
+            'tiktok' => 'https://www.tiktok.com/@example',
             'created_at' => now(),
             'updated_at' => now(),
         ]);

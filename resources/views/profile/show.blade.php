@@ -69,7 +69,7 @@ License: For each use you must have a valid license purchased only from above li
 <body>
 
     <!--begin::Basic info-->
-    <div class="card mb-5 mb-xl-10 w-xl-75 mx-auto">
+    <div class="card mb-5 mb-xl-10 w-xl-75 mx-auto" style="margin-top: 10vh;">
         <!--begin::Card header-->
         <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_profile_details" aria-expanded="true" aria-controls="kt_account_profile_details">
             <!--begin::Card title-->
@@ -304,6 +304,63 @@ License: For each use you must have a valid license purchased only from above li
                         <div class="col-lg-8 fv-row">
                             <input type="tel" name="phone_number" class="form-control form-control-lg form-control-solid" placeholder="" value="{{ old('phone_number') }}" />
                             @error('phone_number')
+                                <span class="invalid-feedback d-block" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <!--end::Col-->
+                    </div>
+                    <!--end::Input group-->
+
+                    <!--begin::Input group-->
+                    <div class="row mb-6">
+                        <!--begin::Label-->
+                        <label class="col-lg-4 col-form-label fw-semibold fs-6 required">ツイッター</label>
+                        <!--end::Label-->
+
+                        <!--begin::Col-->
+                        <div class="col-lg-8 fv-row">
+                            <input type="text" name="twitter" class="form-control form-control-lg form-control-solid" placeholder="" value="{{ Auth::user()->twitter }}" />
+                            @error('twitter')
+                                <span class="invalid-feedback d-block" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <!--end::Col-->
+                    </div>
+                    <!--end::Input group-->
+
+                    <!--begin::Input group-->
+                    <div class="row mb-6">
+                        <!--begin::Label-->
+                        <label class="col-lg-4 col-form-label fw-semibold fs-6 required">インスタ</label>
+                        <!--end::Label-->
+
+                        <!--begin::Col-->
+                        <div class="col-lg-8 fv-row">
+                            <input type="text" name="instagram" class="form-control form-control-lg form-control-solid" placeholder="" value="{{ Auth::user()->instagram }}" />
+                            @error('instagram')
+                                <span class="invalid-feedback d-block" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <!--end::Col-->
+                    </div>
+                    <!--end::Input group-->
+
+                    <!--begin::Input group-->
+                    <div class="row mb-6">
+                        <!--begin::Label-->
+                        <label class="col-lg-4 col-form-label fw-semibold fs-6 required">TikTok</label>
+                        <!--end::Label-->
+
+                        <!--begin::Col-->
+                        <div class="col-lg-8 fv-row">
+                            <input type="text" name="tiktok" class="form-control form-control-lg form-control-solid" placeholder="" value="{{ Auth::user()->tiktok }}" />
+                            @error('tiktok')
                                 <span class="invalid-feedback d-block" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>

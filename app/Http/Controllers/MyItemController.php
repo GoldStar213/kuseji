@@ -102,7 +102,7 @@ class MyItemController extends Controller
                 0 => [
                     "amount" => [
                         "currency_code" => "JPY",
-                        "value" => "2990"
+                        "value" => "3000"
                     ]
                 ]
             ]
@@ -122,20 +122,6 @@ class MyItemController extends Controller
                 ->route('myItem.index')
                 ->with('error', $response['message'] ?? 'Something went wrong.');
         }
-
-        // $item = Item::create([
-        //     'title' => $request->title,
-        //     'description' => $request->description,
-        //     'front_img' => $this->saveImage('front', $request->front_img),
-        //     'back_img' => $this->saveImage('back', $request->back_img),
-        //     'side_img' => $this->saveImage('side', $request->side_img),
-        //     'category_id' => $request->category,
-        //     'frontal_color_id' => $request->frontal_color,
-        //     'user_id' => Auth::user()->id,
-        //     'join_type' => $request->join_type
-        // ]);
-
-        // return redirect()->route('myItem.create')->with('myItem_Register_Success', 'データは正常に保存されました。');
     }
 
     /**

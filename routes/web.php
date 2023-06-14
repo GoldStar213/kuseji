@@ -11,6 +11,8 @@ use App\Http\Controllers\UserManaController;
 use App\Http\Controllers\VerifyController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\StatusController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,7 +32,9 @@ Auth::routes();
 Auth::routes(['verify' => true]);
 
 Route::get('/home', [HomeController::class, 'index'])->middleware(['auth', 'profile'])->name('home');
+
 Route::resource('profile', ProfileController::class)->middleware(['auth', 'verify']);
+Route::get('/profile-confirm', [ProfileController::class, 'confirm'])->name('profile.confirm');
 
 Route::resource('myItem', MyItemController::class)->middleware(['auth', 'profile', 'verify']);
 Route::get('/getMyItem', [MyItemController::class, 'list'])->middleware('auth');
@@ -62,3 +66,9 @@ Route::get('success-transaction', [MyItemController::class, 'successTransaction'
 Route::get('cancel-transaction', [MyItemController::class, 'cancelTransaction'])->name('cancelTransaction');
 
 Route::get('/verify-email/{id}/{token}', [VerifyController::class, 'index']);
+
+Route::get('/status/register', [StatusController::class, 'register'])->name('status.register');
+Route::get('/status/match', [StatusController::class, 'matching'])->name('status.matching');
+
+Route::get('/register_csv', [\App\Http\Controllers\CsvController::class, 'register_csv'])->name('register_csv');
+Route::get('/matching_csv', [\App\Http\Controllers\CsvController::class, 'matching_csv'])->name('matching_csv');

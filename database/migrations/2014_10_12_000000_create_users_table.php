@@ -25,6 +25,9 @@ return new class extends Migration
             $table->integer('profile_complete_state')->default(0);
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('tiktok')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
