@@ -65,7 +65,7 @@
                                 @endphp
                                 @foreach($items as $item)
                                 <tr>
-                                    <td class="text-muted fw-semibold text-end col-auto">{{ $i ++; }}</td>
+                                    <td class="text-muted fw-semibold text-end col-auto">{{ $i ++ }}</td>
                                     <td class="text-muted fw-semibold text-center">{{ $item->title }}</td>
                                     <td>
                                         <div class="d-flex align-items-center">
