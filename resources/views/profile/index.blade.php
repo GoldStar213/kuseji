@@ -21,7 +21,7 @@ License: For each use you must have a valid license purchased only from above li
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="article" />
 
-    <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}" />
+    <link rel="shortcut icon" href="{{ asset('/favicon.png') }}" />
 
     <!--begin::Fonts(mandatory for all pages)-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
@@ -179,7 +179,7 @@ License: For each use you must have a valid license purchased only from above li
                     <!--begin::Input group-->
                     <div class="row mb-6">
                         <!--begin::Label-->
-                        <label class="col-lg-4 col-form-label required fw-semibold fs-6">表示用の名前</label>
+                        <label class="col-lg-4 col-form-label required fw-semibold fs-6">ペンネーム(公開)</label>
                         <!--end::Label-->
 
                         <!--begin::Col-->

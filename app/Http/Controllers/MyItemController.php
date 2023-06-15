@@ -54,7 +54,6 @@ class MyItemController extends Controller
     {
         $request->validate(
             [
-            'front_img' => ['required'],
             'back_img' => ['required'],
             'side_img' => ['required'],
             'title' => ['required', 'string'],
@@ -63,7 +62,6 @@ class MyItemController extends Controller
             'category' => ['required'],
         ],
             $messages = [
-            'front_img.required' => '前面画像が選択されていません。',
             'back_img.required' => '背面画像が選択されていません。',
             'side_img.required' => '側面画像が選択されていません。',
             'title.required' => 'タイトルは必須項目です。',
@@ -220,16 +218,6 @@ class MyItemController extends Controller
 
         if($request->category_id != null) {
             $myItems = $myItems->whereIn('category_id', $request->category_id);
-        }
-
-        if($request->matching_id != 0) {
-            $item_id = DB::table('match_item')->select('item_id')->where('match_id', $request->matching_id)->pluck('item_id')->toArray();
-            $myItems = $myItems->whereIn('id', $item_id);
-        }
-
-        if($request->join_type == 1) {
-            $item_id = DB::table('match_item')->select('item_id')->pluck('item_id')->toArray();
-            $myItems = $myItems->whereIn('id', $item_id);
         }
 
         if($request->join_type == 2) {

@@ -101,21 +101,6 @@ class ItemController extends Controller
             $items = $items->whereIn('category_id', $request->category_id);
         }
 
-        if($request->matching_id != 0) {
-            $item_id = DB::table('match_item')->select('item_id')->where('match_id', $request->matching_id)->pluck('item_id')->toArray();
-            $items = $items->whereIn('id', $item_id);
-        }
-
-        if($request->join_type == 1) {
-            $item_id = DB::table('match_item')->select('item_id')->pluck('item_id')->toArray();
-            $items = $items->whereIn('id', $item_id);
-        }
-
-        if($request->join_type == 2) {
-            $item_id = DB::table('match_item')->select('item_id')->pluck('item_id')->toArray();
-            $items = $items->whereNotIn('id', $item_id);
-        }
-
         $items = $items->get();
 
         return view('requestMatch.itemlist', compact('items'));

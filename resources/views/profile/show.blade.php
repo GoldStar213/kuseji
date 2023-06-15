@@ -21,7 +21,7 @@ License: For each use you must have a valid license purchased only from above li
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="article" />
 
-    <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}" />
+    <link rel="shortcut icon" href="{{ asset('/favicon.png') }}" />
 
     <!--begin::Fonts(mandatory for all pages)-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
@@ -179,7 +179,7 @@ License: For each use you must have a valid license purchased only from above li
                     <!--begin::Input group-->
                     <div class="row mb-6">
                         <!--begin::Label-->
-                        <label class="col-lg-4 col-form-label required fw-semibold fs-6">表示用の名前</label>
+                        <label class="col-lg-4 col-form-label required fw-semibold fs-6">ペンネーム(公開)</label>
                         <!--end::Label-->
 
                         <!--begin::Col-->
@@ -321,7 +321,7 @@ License: For each use you must have a valid license purchased only from above li
 
                         <!--begin::Col-->
                         <div class="col-lg-8 fv-row">
-                            <input type="text" name="twitter" class="form-control form-control-lg form-control-solid" placeholder="" value="{{ Auth::user()->twitter }}" />
+                            <input type="text" name="twitter" class="form-control form-control-lg form-control-solid" placeholder="https://twitter.com/example" value="{{ old('twitter') }}" />
                             @error('twitter')
                                 <span class="invalid-feedback d-block" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -340,7 +340,7 @@ License: For each use you must have a valid license purchased only from above li
 
                         <!--begin::Col-->
                         <div class="col-lg-8 fv-row">
-                            <input type="text" name="instagram" class="form-control form-control-lg form-control-solid" placeholder="" value="{{ Auth::user()->instagram }}" />
+                            <input type="text" name="instagram" class="form-control form-control-lg form-control-solid" placeholder="https://www.instagram.com/example/" value="{{ old('instagram') }}" />
                             @error('instagram')
                                 <span class="invalid-feedback d-block" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -359,7 +359,7 @@ License: For each use you must have a valid license purchased only from above li
 
                         <!--begin::Col-->
                         <div class="col-lg-8 fv-row">
-                            <input type="text" name="tiktok" class="form-control form-control-lg form-control-solid" placeholder="" value="{{ Auth::user()->tiktok }}" />
+                            <input type="text" name="tiktok" class="form-control form-control-lg form-control-solid" placeholder="https://www.tiktok.com/@example" value="{{ old('tiktok') }}" />
                             @error('tiktok')
                                 <span class="invalid-feedback d-block" role="alert">
                                     <strong>{{ $message }}</strong>
