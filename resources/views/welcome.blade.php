@@ -223,7 +223,7 @@
                     <div class="container-fluid px-0">
                         <a class="navbar-brand font-weight-bolder ms-sm-3" href="" rel="logo" title="Logo"
                             data-placement="bottom" target="_self">
-                            <img src="{{ asset('/assets/img/logo.svg') }}" alt="" style="width: 10rem; height: auto;">
+                            <img src="{{ asset('/assets/img/logo.png') }}" alt="" style="width: 10rem; height: auto;">
                         </a>
                         <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
@@ -305,22 +305,19 @@
     <script src="{{ asset('./assets/js/auth/main.js') }}"></script>
 
     <header class="header-2">
-        <div class="page-header min-vh-75 relative" style="background-image: url('./assets/img/bg4.jpg')">
-            <span class="mask bg-gradient-primary opacity-4"></span>
+        <div class="page-header min-vh-100 relative" style="background-image: url('./assets/img/bg4.jpg')">
+            <span class="mask opacity-4"></span>
             <div class="container">
                 <div class="row">
                     <div class="col-lg-7 text-center mx-auto">
-                        <h1 class="text-white pt-3 mt-n5">クセ字マッチング</h1>
-                        <p class="lead text-white mt-3">
-                            お気に入りのクセ字作品を探して気軽にリクエスト！<br>あなたの作品と交換されて届くかも！
-                        </p>
+                        
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6">
+    <div class="card card-body blur shadow-blur mx-3 mx-md-4">
         <section class="pt-3 pb-4" id="">
             <div class="container">
                 <div class="row">
@@ -523,7 +520,7 @@
                     class="col-md-12 mb-4 ml-auto mr-auto d-flex justify-content-center align-items-center flex-column">
                     <div>
                         <a href="/">
-                            <img src="/assets/img/logo.svg" class="mb-3 footer-logo" alt="main_logo">
+                            <img src="./assets/img/logo.png" class="mb-3 footer-logo" alt="main_logo" style="scale: 1.5">
                         </a>
                     </div>
                     <div>
