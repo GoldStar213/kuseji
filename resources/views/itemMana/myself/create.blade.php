@@ -280,7 +280,7 @@
                     <form class="mb-17" method="POST" action="{{ route('myItem.store') }}">
                         @csrf
                         <!--begin::Row-->
-                        <div class="row justify-content-between g-10 mb-4">
+                        <div class="row g-10 mb-4">
                             <div class="col-md-4 d-flex justify-content-start">
                                 <div class="drop-zone" style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStdszc97zfCye1WEu5_qKSQfoCgrVjb3Zq2ntwevXMLg&usqp=CAU&ec=48600112); background-size: contain;">
                                     <span class="drop-zone__prompt">運営画像</span>
