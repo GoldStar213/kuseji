@@ -93,7 +93,7 @@
                     <div class="w-lg-500px p-10">
 
                         <!--begin::Form-->
-                        <form class="form w-100" action="{{ route('login') }}" method="POST">
+                        <form class="form w-100" action="{{ route('password.update') }}" method="POST">
                             @csrf
                             <!--begin::Heading-->
                             <div class="text-center mb-11">
@@ -137,7 +137,7 @@
                             <!--end::Input group--->
                             <div class="fv-row mb-8">
                                 <!--begin::Password-->
-                                <input type="password" id="password-confirm" placeholder="パスワード" name="password-confirm" autocomplete="new-password" class="form-control bg-transparent" />
+                                <input type="password" id="password-confirm" placeholder="パスワード" name="password_confirmation" autocomplete="new-password" class="form-control bg-transparent" />
                                 @error('password')
                                     <span class="invalid-feedback d-block" role="alert">
                                         <strong>{{ $message }}</strong>
