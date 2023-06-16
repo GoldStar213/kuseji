@@ -297,12 +297,12 @@ License: For each use you must have a valid license purchased only from above li
                     <!--begin::Input group-->
                     <div class="row mb-6">
                         <!--begin::Label-->
-                        <label class="col-lg-4 col-form-label fw-semibold fs-6">電話番号</label>
+                        <label class="col-lg-4 col-form-label fw-semibold fs-6" for="phone_number">電話番号</label>
                         <!--end::Label-->
 
                         <!--begin::Col-->
                         <div class="col-lg-8 fv-row">
-                            <input type="tel" name="phone_number" class="form-control form-control-lg form-control-solid" placeholder="" value="{{ old('phone_number') }}" />
+                            <input type="tel" name="phone_number" id="phone_number" class="form-control form-control-lg form-control-solid" placeholder="" value="{{ old('phone_number') }}" />
                             @error('phone_number')
                                 <span class="invalid-feedback d-block" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -321,12 +321,7 @@ License: For each use you must have a valid license purchased only from above li
 
                         <!--begin::Col-->
                         <div class="col-lg-8 fv-row">
-                            <input type="text" name="twitter" class="form-control form-control-lg form-control-solid" placeholder="https://twitter.com/example" value="{{ old('twitter') }}" />
-                            @error('twitter')
-                                <span class="invalid-feedback d-block" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                            <input type="text" name="twitter" class="form-control form-control-lg form-control-solid" placeholder="https://twitter.com/exampleの中からexampleのみを入力してください。" value="{{ old('twitter') }}" />
                         </div>
                         <!--end::Col-->
                     </div>
@@ -340,12 +335,7 @@ License: For each use you must have a valid license purchased only from above li
 
                         <!--begin::Col-->
                         <div class="col-lg-8 fv-row">
-                            <input type="text" name="instagram" class="form-control form-control-lg form-control-solid" placeholder="https://www.instagram.com/example/" value="{{ old('instagram') }}" />
-                            @error('instagram')
-                                <span class="invalid-feedback d-block" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                            <input type="text" name="instagram" class="form-control form-control-lg form-control-solid" placeholder="https://www.instagram.com/exampleの中からexampleのみを入力してください。" value="{{ old('instagram') }}" />
                         </div>
                         <!--end::Col-->
                     </div>
@@ -359,12 +349,7 @@ License: For each use you must have a valid license purchased only from above li
 
                         <!--begin::Col-->
                         <div class="col-lg-8 fv-row">
-                            <input type="text" name="tiktok" class="form-control form-control-lg form-control-solid" placeholder="https://www.tiktok.com/@example" value="{{ old('tiktok') }}" />
-                            @error('tiktok')
-                                <span class="invalid-feedback d-block" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                            <input type="text" name="tiktok" class="form-control form-control-lg form-control-solid" placeholder="https://www.tiktok.com/@exampleの中からexampleのみを入力してください。" value="{{ old('tiktok') }}" />
                         </div>
                         <!--end::Col-->
                     </div>

@@ -31,7 +31,7 @@ Route::get('/', function () {
 Auth::routes();
 Auth::routes(['verify' => true]);
 
-Route::get('/home', [HomeController::class, 'index'])->middleware(['auth', 'profile'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->middleware(['auth', 'profile', 'toMyItem'])->name('home');
 
 Route::resource('profile', ProfileController::class)->middleware(['auth', 'verify']);
 Route::get('/profile-confirm', [ProfileController::class, 'confirm'])->name('profile.confirm');

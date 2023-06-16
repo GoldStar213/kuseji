@@ -19,7 +19,7 @@ class VerifyCsrfToken
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(AUth::check()) {
+        if(Auth::check()) {
             $loginedUser = User::find(Auth::user()->id);
             $email_verified_at = Auth::user()->email_verified_at;
             if($email_verified_at == null) {

@@ -142,7 +142,7 @@ License: For each use you must have a valid license purchased only from above li
 
                             <!--begin::Actions-->
                             <div class="d-flex flex-wrap justify-content-center pb-lg-0">
-                                <button type="button" id="kt_password_reset_submit" class="btn btn-primary me-4">
+                                <button type="submit" id="kt_password_reset_submit" class="btn btn-primary me-4">
 
                                     <!--begin::Indicator label-->
                                     <span class="indicator-label">送 信</span>

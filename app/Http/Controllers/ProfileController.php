@@ -61,9 +61,6 @@ class ProfileController extends Controller
             'house_number' => ['required'],
             'building_name' => ['required'],
             'phone_number' => ['nullable', 'regex:/^0\d{1,3}-\d{1,4}-\d{4}$/'],
-            'twitter' => ['required'],
-            'instagram' => ['required'],
-            'tiktok' => ['required'],
         ],
         $messages = [
             'firstname.required' => '姓は必須項目です。',
@@ -77,9 +74,6 @@ class ProfileController extends Controller
             'house_number.required' => '住所（番地まで）は必須項目です。',
             'building_name.required' => '住所（ビル名等）は必須項目です。',
             'phone_number.regex' => '電話番号は「000-0000-0000」の形式で入力してください。',
-            'building_name.required' => 'ツイッターは必須項目です。',
-            'building_name.required' => 'インスタは必須項目です。',
-            'building_name.required' => 'TikTokは必須項目です。',
         ]);
 
         $imageData = $request->avatar_img;
@@ -110,9 +104,17 @@ class ProfileController extends Controller
         Auth::user()->house_number = $request->house_number;
         Auth::user()->building_name = $request->building_name;
         Auth::user()->phone_number = $request->phone_number;
-        Auth::user()->twitter = $request->twitter;
-        Auth::user()->instagram = $request->instagram;
-        Auth::user()->tiktok = $request->tiktok;
+        if($request->twitter != null && $request->twitter != "") {
+            Auth::user()->twitter = "https://twitter.com/" . $request->twitter;
+        }
+
+        if($request->instagram != null && $request->instagram != "") {
+            Auth::user()->instagram = "https://www.instagram.com/" . $request->instagram;
+        }
+
+        if($request->tiktok != null && $request->tiktok != "") {
+            Auth::user()->tiktok = "https://www.tiktok.com/@" . $request->tiktok;
+        }
         Auth::user()->profile_complete_state = 1;
         Auth::user()->save();
         
