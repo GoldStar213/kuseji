@@ -362,6 +362,8 @@
                             <h3>Let's Match ＆ Exchange!</h3>
                             <p>Business summary</p>
                         </div>
+
+                        <a href="https://wayoh.jp/pen" class="btn btn-primary">登　録</a>
                     </div>
                 </div>
             </div>
@@ -387,6 +389,11 @@
                     <div class="col-md-5 col-12 my-auto">
                         <img class="w-100 border-radius-lg shadow-lg" src="{{ asset('./assets/img/company.jpg') }}"
                             alt="Product Image">
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-12 d-flex justify-content-center">
+                        <a href="https://wayoh.jp/pen" class="btn btn-primary text-center">登　録</a>
                     </div>
                 </div>
             </div>

@@ -105,33 +105,6 @@ use App\Models\ItemUser;
                                 </div>
                                 <!--end::Input group-->
 
-                                <!--begin::Input group-->
-                                <div class="mb-5" data-select2-id="select2-data-139-fp70">
-                                    <label class="fs-6 form-label fw-bold text-dark" for="matching">マッチング</label>
-
-                                    <select class="form-select" id="matching" name="matching" data-control="select2"
-                                        data-placeholder="選択してください">
-                                        <option value="0">全て</option>
-                                        @foreach ($matchings as $matching)
-                                        <option value="{{ $matching->id }}">{{ $matching->title }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <!--end::Input group-->
-
-                                <!--begin::Input group-->
-                                <div class="mb-5" data-select2-id="select2-data-139-fp70">
-                                    <label class="fs-6 form-label fw-bold text-dark" for="join_type">マッチング参加の可否</label>
-
-                                    <select class="form-select" id="join_type" name="join_type" data-control="select2"
-                                        data-placeholder="選択してください">
-                                        <option value="0">全て</option>
-                                        <option value="1">はい</option>
-                                        <option value="2">いいえ</option>
-                                    </select>
-                                </div>
-                                <!--end::Input group-->
-
                                 <!--begin::Action-->
                                 <div class="d-flex align-items-center justify-content-end">
                                     <button class="btn btn-primary" onclick="getDataList()">検 索</button>

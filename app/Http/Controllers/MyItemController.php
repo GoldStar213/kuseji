@@ -57,7 +57,6 @@ class MyItemController extends Controller
             'back_img' => ['required'],
             'side_img' => ['required'],
             'title' => ['required', 'string'],
-            'description' => ['required', 'string'],
             'frontal_color' => ['required'],
             'category' => ['required'],
         ],
@@ -65,7 +64,6 @@ class MyItemController extends Controller
             'back_img.required' => '背面画像が選択されていません。',
             'side_img.required' => '側面画像が選択されていません。',
             'title.required' => 'タイトルは必須項目です。',
-            'description.required' => '説明は必須項目です。',
             'frontal_color.required' => '額色は必須項目です。',
             'category.required' => 'カテゴリーは必須項目です。',
         ]
@@ -75,7 +73,11 @@ class MyItemController extends Controller
         $back_img = $request->back_img;
         $side_img = $request->side_img;
         $title = $request->title;
-        $description = $request->description;
+        
+        if($request->description != null) {
+            $myItem->description = $request->description;
+        }
+
         $frontal_color = $request->frontal_color;
         $category = $request->category;
 
@@ -155,13 +157,11 @@ class MyItemController extends Controller
         $request->validate(
             [
             'title' => ['required', 'string'],
-            'description' => ['required', 'string'],
             'frontal_color' => ['required'],
             'category' => ['required'],
         ],
             $messages = [
             'title.required' => 'タイトルは必須項目です。',
-            'description.required' => '説明は必須項目です。',
             'frontal_color.required' => '額色は必須項目です。',
             'category.required' => 'カテゴリーは必須項目です。',
         ]
@@ -187,7 +187,9 @@ class MyItemController extends Controller
         }
 
         $myItem->title = $request->title;
+
         $myItem->description = $request->description;
+        
         $myItem->category_id = $request->category;
         $myItem->frontal_color_id = $request->frontal_color;
 

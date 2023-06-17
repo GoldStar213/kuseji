@@ -19,6 +19,9 @@
         color: #cccccc;
         border: 4px dashed #009ef7;
         border-radius: 10px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
     }
 
     .drop-zone--over {
@@ -75,7 +78,7 @@
             <!--begin::Page title-->
             <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3 ">
                 <!--begin::Title-->
-                <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">アイテム登録
+                <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">クセ字作品登録
                 </h1>
                 <!--end::Title-->
             </div>
@@ -282,147 +285,26 @@
                         <!--begin::Row-->
                         <div class="row g-10 mb-4">
                             <div class="col-md-4 d-flex justify-content-start">
-                                <div class="drop-zone" style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStdszc97zfCye1WEu5_qKSQfoCgrVjb3Zq2ntwevXMLg&usqp=CAU&ec=48600112); background-size: contain;">
+                                <div class="drop-zone" style="background-image: url({{ old('front_img', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStdszc97zfCye1WEu5_qKSQfoCgrVjb3Zq2ntwevXMLg&usqp=CAU&ec=48600112') }}); background-size: contain;">
                                     <span class="drop-zone__prompt">運営画像</span>
                                     <input type="file" name="myFile" class="drop-zone__input" id="front" onchange="uploadImg('front')" accept=".png, .jpg, .jpeg" />
                                     <input type="hidden" name="front_img" id="front_img" value="">
                                 </div>
                             </div>
                             <div class="col-md-4 d-flex justify-content-center">
-                                <div class="drop-zone" style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStdszc97zfCye1WEu5_qKSQfoCgrVjb3Zq2ntwevXMLg&usqp=CAU&ec=48600112); background-size: contain;">
+                                <div class="drop-zone" style="background-image: url({{ old('back_img', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStdszc97zfCye1WEu5_qKSQfoCgrVjb3Zq2ntwevXMLg&usqp=CAU&ec=48600112') }}); background-size: contain;">
                                     <span class="drop-zone__prompt"></span>
                                     <input type="file" name="myFile" class="drop-zone__input" id="back" onchange="uploadImg('back')" accept=".png, .jpg, .jpeg" />
                                     <input type="hidden" name="back_img" id="back_img" value="{{ old('back_img') }}">
                                 </div>
                             </div>
                             <div class="col-md-4 d-flex justify-content-end">
-                                <div class="drop-zone" style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStdszc97zfCye1WEu5_qKSQfoCgrVjb3Zq2ntwevXMLg&usqp=CAU&ec=48600112); background-size: contain;">
+                                <div class="drop-zone" style="background-image: url({{ old('side_img', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStdszc97zfCye1WEu5_qKSQfoCgrVjb3Zq2ntwevXMLg&usqp=CAU&ec=48600112') }}); background-size: contain;">
                                     <span class="drop-zone__prompt"></span>
                                     <input type="file" name="myFile" class="drop-zone__input" id="side" onchange="uploadImg('side')" accept=".png, .jpg, .jpeg" />
                                     <input type="hidden" name="side_img" id="side_img" value="">
                                 </div>
                             </div>
-                            {{-- <!--begin::Col-->
-                            <div class="col-md-4">
-                                <!--begin::Image input-->
-                                <div class="image-input image-input-outline w-100" data-kt-image-input="true">
-                                    <!--begin::Preview existing avatar-->
-                                    <div class="image-input-wrapper w-100"
-                                        style="background-image: url(https://www.nbmchealth.com/wp-content/uploads/2018/04/default-placeholder.png);">
-                                    </div>
-                                    <input type="hidden" name="front_img" id="front_img" value="">
-                                    <!--end::Preview existing avatar-->
-                                    <!--begin::Label-->
-                                    <label
-                                        class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
-                                        data-kt-image-input-action="change" data-bs-toggle="tooltip" title="運営画像">
-                                        <i class="ki-duotone ki-pencil fs-7">
-                                            <span class="path1"></span>
-                                            <span class="path2"></span>
-                                        </i>
-                                        <!--begin::Inputs-->
-                                        <input type="file" id="front" onchange="uploadImg('front')"
-                                            accept=".png, .jpg, .jpeg" />
-                                        <!--end::Inputs-->
-                                    </label>
-                                    <!--end::Label-->
-
-                                    <!--begin::Cancel-->
-                                    <span
-                                        class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
-                                        data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="画像削除">
-                                        <i class="ki-duotone ki-cross fs-2">
-                                            <span class="path1"></span>
-                                            <span class="path2"></span>
-                                        </i>
-                                    </span>
-                                    <!--end::Cancel-->
-                                </div>
-                                <!--end::Image input-->
-                            </div>
-                            <!--end::Col-->
-
-                            <!--begin::Col-->
-                            <div class="col-md-4">
-                                <!--begin::Image input-->
-                                <div class="image-input image-input-outline w-100" data-kt-image-input="true">
-                                    <!--begin::Preview existing avatar-->
-                                    <div class="image-input-wrapper w-100"
-                                        style="background-image: url(https://www.nbmchealth.com/wp-content/uploads/2018/04/default-placeholder.png);">
-                                    </div>
-                                    <input type="hidden" name="back_img" id="back_img" value="">
-                                    <!--end::Preview existing avatar-->
-
-                                    <!--begin::Label-->
-                                    <label
-                                        class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
-                                        data-kt-image-input-action="change" data-bs-toggle="tooltip" title="">
-                                        <i class="ki-duotone ki-pencil fs-7">
-                                            <span class="path1"></span>
-                                            <span class="path2"></span>
-                                        </i>
-                                        <!--begin::Inputs-->
-                                        <input type="file" id="back" onchange="uploadImg('back')"
-                                            accept=".png, .jpg, .jpeg" />
-                                        <!--end::Inputs-->
-                                    </label>
-                                    <!--end::Label-->
-
-                                    <!--begin::Cancel-->
-                                    <span
-                                        class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
-                                        data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="画像削除">
-                                        <i class="ki-duotone ki-cross fs-2">
-                                            <span class="path1"></span>
-                                            <span class="path2"></span>
-                                        </i>
-                                    </span>
-                                    <!--end::Cancel-->
-                                </div>
-                                <!--end::Image input-->
-                            </div>
-                            <!--end::Col-->
-
-                            <!--begin::Col-->
-                            <div class="col-md-4">
-                                <!--begin::Image input-->
-                                <div class="image-input image-input-outline w-100" data-kt-image-input="true">
-                                    <!--begin::Preview existing avatar-->
-                                    <div class="image-input-wrapper w-100"
-                                        style="background-image: url(https://www.nbmchealth.com/wp-content/uploads/2018/04/default-placeholder.png);">
-                                    </div>
-                                    <input type="hidden" name="side_img" id="side_img" value="">
-                                    <!--end::Preview existing avatar-->
-
-                                    <!--begin::Label-->
-                                    <label
-                                        class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
-                                        data-kt-image-input-action="change" data-bs-toggle="tooltip" title="">
-                                        <i class="ki-duotone ki-pencil fs-7">
-                                            <span class="path1"></span>
-                                            <span class="path2"></span>
-                                        </i>
-                                        <!--begin::Inputs-->
-                                        <input type="file" id="side" onchange="uploadImg('side')"
-                                            accept=".png, .jpg, .jpeg" />
-                                        <!--end::Inputs-->
-                                    </label>
-                                    <!--end::Label-->
-
-                                    <!--begin::Cancel-->
-                                    <span
-                                        class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
-                                        data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="画像削除">
-                                        <i class="ki-duotone ki-cross fs-2">
-                                            <span class="path1"></span>
-                                            <span class="path2"></span>
-                                        </i>
-                                    </span>
-                                    <!--end::Cancel-->
-                                </div>
-                                <!--end::Image input-->
-                            </div>
-                            <!--end::Col--> --}}
                         </div>
                         <!--end::Row-->
 
@@ -431,14 +313,14 @@
                                 <div class="row g-10 mb-2">
                                     <!--begin::Label-->
                                     <label class="col-lg-4 col-form-label fw-semibold fs-6" for="title">
-                                        <span class="required">タイトル</span>
+                                        <span class="required">タイトル(会場掲示)</span>
                                     </label>
                                     <!--end::Label-->
 
                                     <!--begin::Col-->
                                     <div class="col-lg-8 fv-row">
                                         <input type="text" name="title" id="title"
-                                            class="form-control form-control-lg form-control-solid" placeholder="タイトル"
+                                            class="form-control form-control-lg form-control-solid" placeholder="タイトル(会場掲示)"
                                             value="{{ old('title') }}" />
                                     </div>
                                     <!--end::Col-->
@@ -447,7 +329,7 @@
                                 <div class="row g-10 mb-6">
                                     <!--begin::Label-->
                                     <label class="col-lg-4 col-form-label fw-semibold fs-6" for="description">
-                                        <span class="required">説明</span>
+                                        <span>説明</span>
                                     </label>
                                     <!--end::Label-->
 
@@ -510,7 +392,7 @@
                                 <div class="row g-10 mb-2">
                                     <!--begin::Label-->
                                     <label class="col-lg-4 col-form-label fw-semibold fs-6" for="join_type">
-                                        <span class="required">参加の可否</span>
+                                        <span class="required">クセ字交換会の参加</span>
                                     </label>
                                     <!--end::Label-->
 

@@ -449,7 +449,7 @@ use Illuminate\Support\Str;
                                                             <span class="menu-bullet">
                                                                 <span class="bullet bullet-dot"></span>
                                                             </span>
-                                                            <span class="menu-title">交換リクエスト作成</span>
+                                                            <span class="menu-title">マッチング申請</span>
                                                         </a>
                                                         <!--end:Menu link-->
                                                     </div>

@@ -95,6 +95,8 @@
                         <!--begin::Form-->
                         <form class="form w-100" action="{{ route('password.update') }}" method="POST">
                             @csrf
+
+                            <input type="hidden" name="token" value="{{ $token }}">
                             <!--begin::Heading-->
                             <div class="text-center mb-11">
                                 <!--begin::Title-->
@@ -112,7 +114,7 @@
                             <!--begin::Input group--->
                             <div class="fv-row mb-8">
                                 <!--begin::Email-->
-                                <input type="email" id="email" placeholder="メール" name="email" autocomplete="off" class="form-control bg-transparent" value="{{ old('email') }}" />
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email', $email) }}" required autocomplete="email" autofocus>
                                 @error('email')
                                     <span class="invalid-feedback d-block" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -124,7 +126,7 @@
                             <!--end::Input group--->
                             <div class="fv-row mb-8">
                                 <!--begin::Password-->
-                                <input type="password" id="password" placeholder="パスワード" name="password" autocomplete="new-password" class="form-control bg-transparent" />
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
                                 @error('password')
                                     <span class="invalid-feedback d-block" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -137,8 +139,8 @@
                             <!--end::Input group--->
                             <div class="fv-row mb-8">
                                 <!--begin::Password-->
-                                <input type="password" id="password-confirm" placeholder="パスワード" name="password_confirmation" autocomplete="new-password" class="form-control bg-transparent" />
-                                @error('password')
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                @error('password_confirmation')
                                     <span class="invalid-feedback d-block" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

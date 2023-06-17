@@ -19,6 +19,9 @@
         color: #cccccc;
         border: 4px dashed #009ef7;
         border-radius: 10px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
     }
 
     .drop-zone--over {
@@ -278,21 +281,21 @@
                             <!--begin::Row-->
                             <div class="row g-10 mb-4">
                                 <div class="col-md-4 d-flex justify-content-start">
-                                    <div class="drop-zone" style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStdszc97zfCye1WEu5_qKSQfoCgrVjb3Zq2ntwevXMLg&usqp=CAU&ec=48600112); background-size: contain;">
+                                    <div class="drop-zone" style="background-image: url({{ asset($myItem->front_img) }});">
                                         <span class="drop-zone__prompt">運営画像</span>
                                         <input type="file" name="myFile" class="drop-zone__input" id="front" onchange="uploadImg('front')" accept=".png, .jpg, .jpeg" />
                                         <input type="hidden" name="front_img" id="front_img" value="">
                                     </div>
                                 </div>
                                 <div class="col-md-4 d-flex justify-content-center">
-                                    <div class="drop-zone" style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStdszc97zfCye1WEu5_qKSQfoCgrVjb3Zq2ntwevXMLg&usqp=CAU&ec=48600112); background-size: contain;">
+                                    <div class="drop-zone" style="background-image: url({{ asset($myItem->back_img) }});">
                                         <span class="drop-zone__prompt"></span>
                                         <input type="file" name="myFile" class="drop-zone__input" id="back" onchange="uploadImg('back')" accept=".png, .jpg, .jpeg" />
                                         <input type="hidden" name="back_img" id="back_img" value="{{ old('back_img') }}">
                                     </div>
                                 </div>
                                 <div class="col-md-4 d-flex justify-content-end">
-                                    <div class="drop-zone" style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStdszc97zfCye1WEu5_qKSQfoCgrVjb3Zq2ntwevXMLg&usqp=CAU&ec=48600112); background-size: contain;">
+                                    <div class="drop-zone" style="background-image: url({{ asset($myItem->side_img) }});">
                                         <span class="drop-zone__prompt"></span>
                                         <input type="file" name="myFile" class="drop-zone__input" id="side" onchange="uploadImg('side')" accept=".png, .jpg, .jpeg" />
                                         <input type="hidden" name="side_img" id="side_img" value="">
@@ -320,13 +323,13 @@
                                     <div class="row g-10 mb-6">
                                         <!--begin::Label-->
                                         <label class="col-lg-4 col-form-label fw-semibold fs-6" for="description">
-                                            <span class="required">説明</span>
+                                            <span>説明</span>
                                         </label>
                                         <!--end::Label-->
                                         
                                         <!--begin::Col-->
                                         <div class="col-lg-8 fv-row">
-                                            <textarea name="description" id="description" cols="30" rows="6" class="form-control form-control-lg form-control-solid" value="">{{ $myItem->description }}</textarea>
+                                            <textarea name="description" id="description" cols="30" rows="6" class="form-control form-control-lg form-control-solid" value="">{{ old('description', $myItem->description) }}</textarea>
                                         </div>
                                         <!--end::Col-->
                                     </div>

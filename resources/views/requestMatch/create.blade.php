@@ -13,7 +13,7 @@
             <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3 ">
                 <!--begin::Title-->
                 <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                    交換要求作成
+                    マッチング申請
                 </h1>
                 <!--end::Title-->
             </div>
@@ -220,7 +220,7 @@
                                     <textarea name="message" id="" class="form-control" cols="30" rows="8" placeholder="アイテムを交換したい理由や説明文を記載してください。">{{ old('message') }}</textarea>
                                 </div>
                                 <div class="row me-lg-6 mb-10">
-                                    <select class="form-select" name="grade" data-control="select2" data-placeholder="交換リクエスト希望">
+                                    <select class="form-select" name="grade" data-control="select2" data-placeholder="リクエスト順位">
                                         <option></option>
                                         <option value="1" {{ old('grade') == 1 ? 'selected' : '' }}>1</option>
                                         <option value="2" {{ old('grade') == 2 ? 'selected' : '' }}>2</option>
