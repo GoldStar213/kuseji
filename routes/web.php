@@ -68,7 +68,7 @@ Route::get('cancel-transaction', [MyItemController::class, 'cancelTransaction'])
 Route::get('/verify-email/{id}/{token}', [VerifyController::class, 'index']);
 
 Route::get('/status/register', [StatusController::class, 'register'])->name('status.register');
-Route::get('/status/match', [StatusController::class, 'matching'])->name('status.matching');
+Route::get('/status/match', [StatusController::class, 'matching'])->middleware('auth')->name('status.matching');
 
 Route::get('/register_csv', [\App\Http\Controllers\CsvController::class, 'register_csv'])->name('register_csv');
 Route::get('/matching_csv', [\App\Http\Controllers\CsvController::class, 'matching_csv'])->name('matching_csv');

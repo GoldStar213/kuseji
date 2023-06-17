@@ -11,6 +11,7 @@ use App\Models\Category;
 use App\Models\User;
 use App\Models\ItemUser;
 use App\Models\UserMana;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Item extends Model
 {
@@ -18,11 +19,13 @@ class Item extends Model
 
     protected $fillable = ['title', 'description', 'front_img', 'back_img', 'side_img', 'category_id', 'frontal_color_id', 'user_id'];
 
-    public function category(): BelongsTo {
-        return $this->belongsTo(Category::class);
+    public function categories(): BelongsToMany
+    {
+        return $this->belongsToMany(Category::class, 'category_item', 'item_id', 'category_id');
     }
 
-    public function users(): BelongsTo {
+    public function users(): BelongsTo
+    {
         return $this->belongsTo(User::class);
     }
 

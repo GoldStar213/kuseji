@@ -285,23 +285,29 @@
                         <!--begin::Row-->
                         <div class="row g-10 mb-4">
                             <div class="col-md-4 d-flex justify-content-start">
-                                <div class="drop-zone" style="background-image: url({{ old('front_img', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStdszc97zfCye1WEu5_qKSQfoCgrVjb3Zq2ntwevXMLg&usqp=CAU&ec=48600112') }}); background-size: contain;">
+                                <div class="drop-zone"
+                                    style="background-image: url({{ old('front_img', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStdszc97zfCye1WEu5_qKSQfoCgrVjb3Zq2ntwevXMLg&usqp=CAU&ec=48600112') }}); background-size: contain;">
                                     <span class="drop-zone__prompt">運営画像</span>
-                                    <input type="file" name="myFile" class="drop-zone__input" id="front" onchange="uploadImg('front')" accept=".png, .jpg, .jpeg" />
+                                    <input type="file" name="myFile" class="drop-zone__input" id="front"
+                                        onchange="uploadImg('front')" accept=".png, .jpg, .jpeg" />
                                     <input type="hidden" name="front_img" id="front_img" value="">
                                 </div>
                             </div>
                             <div class="col-md-4 d-flex justify-content-center">
-                                <div class="drop-zone" style="background-image: url({{ old('back_img', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStdszc97zfCye1WEu5_qKSQfoCgrVjb3Zq2ntwevXMLg&usqp=CAU&ec=48600112') }}); background-size: contain;">
+                                <div class="drop-zone"
+                                    style="background-image: url({{ old('back_img', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStdszc97zfCye1WEu5_qKSQfoCgrVjb3Zq2ntwevXMLg&usqp=CAU&ec=48600112') }}); background-size: contain;">
                                     <span class="drop-zone__prompt"></span>
-                                    <input type="file" name="myFile" class="drop-zone__input" id="back" onchange="uploadImg('back')" accept=".png, .jpg, .jpeg" />
+                                    <input type="file" name="myFile" class="drop-zone__input" id="back"
+                                        onchange="uploadImg('back')" accept=".png, .jpg, .jpeg" />
                                     <input type="hidden" name="back_img" id="back_img" value="{{ old('back_img') }}">
                                 </div>
                             </div>
                             <div class="col-md-4 d-flex justify-content-end">
-                                <div class="drop-zone" style="background-image: url({{ old('side_img', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStdszc97zfCye1WEu5_qKSQfoCgrVjb3Zq2ntwevXMLg&usqp=CAU&ec=48600112') }}); background-size: contain;">
+                                <div class="drop-zone"
+                                    style="background-image: url({{ old('side_img', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStdszc97zfCye1WEu5_qKSQfoCgrVjb3Zq2ntwevXMLg&usqp=CAU&ec=48600112') }}); background-size: contain;">
                                     <span class="drop-zone__prompt"></span>
-                                    <input type="file" name="myFile" class="drop-zone__input" id="side" onchange="uploadImg('side')" accept=".png, .jpg, .jpeg" />
+                                    <input type="file" name="myFile" class="drop-zone__input" id="side"
+                                        onchange="uploadImg('side')" accept=".png, .jpg, .jpeg" />
                                     <input type="hidden" name="side_img" id="side_img" value="">
                                 </div>
                             </div>
@@ -320,8 +326,8 @@
                                     <!--begin::Col-->
                                     <div class="col-lg-8 fv-row">
                                         <input type="text" name="title" id="title"
-                                            class="form-control form-control-lg form-control-solid" placeholder="タイトル(会場掲示)"
-                                            value="{{ old('title') }}" />
+                                            class="form-control form-control-lg form-control-solid"
+                                            placeholder="タイトル(会場掲示)" value="{{ old('title') }}" />
                                     </div>
                                     <!--end::Col-->
                                 </div>
@@ -352,9 +358,7 @@
 
                                     <!--begin::Col-->
                                     <div class="col-lg-8 fv-row">
-                                        <select aria-label="選択" id="frontal_color" name="frontal_color"
-                                            data-control="select2" data-placeholder="選択"
-                                            class="form-select form-select-solid form-select-lg">
+                                        <select aria-label="選択" id="frontal_color" name="frontal_color" data-control="select2" data-placeholder="選択" class="form-select form-select-solid form-select-lg">
                                             <option value="">選択</option>
                                             @foreach ($frontal_colors as $frontal_color)
                                             <option data-kt-flag="flags/united-states.svg"
@@ -376,13 +380,15 @@
 
                                     <!--begin::Col-->
                                     <div class="col-lg-8 fv-row">
-                                        <select aria-label="選択" id="category" name="category" data-control="select2"
-                                            data-placeholder="選択" class="form-select form-select-solid form-select-lg">
+                                        <select aria-label="選択" id="category" name="category[]" data-control="select2"
+                                            data-placeholder="選択" class="form-select form-select-solid form-select-lg"
+                                            multiple size="3">
                                             <option value="">選択</option>
                                             @foreach ($categories as $category)
                                             <option data-kt-flag="flags/united-states.svg" value="{{ $category->id }}"
-                                                {{ old('category')==$category->id ? 'selected' : '' }}>{{
-                                                $category->title }}</option>
+                                                {{ old('category')==$category->id ? 'selected' : '' }}>
+                                                {{ $category->title }}
+                                            </option>
                                             @endforeach
                                         </select>
                                     </div>

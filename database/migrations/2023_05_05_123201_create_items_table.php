@@ -18,8 +18,6 @@ return new class extends Migration
             $table->string('front_img')->nullable();
             $table->string('back_img');
             $table->string('side_img');
-            $table->unsignedBigInteger('category_id');
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('frontal_color_id');
             $table->foreign('frontal_color_id')->references('id')->on('frontal_colors')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('user_id');

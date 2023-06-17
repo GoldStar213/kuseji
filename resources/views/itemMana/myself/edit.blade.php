@@ -362,10 +362,21 @@
                                         <!--end::Label-->
                                         
                                         <!--begin::Col-->
+                                        
                                         <div class="col-lg-8 fv-row">
-                                            <select aria-label="選択" id="category" name="category" data-control="select2" data-placeholder="選択" class="form-select form-select-solid form-select-lg">
+                                            <select aria-label="選択" id="category" name="category[]" data-control="select2" data-placeholder="選択" class="form-select form-select-solid form-select-lg" multiple size="3">
                                                 @foreach ($categories as $category)
-                                                    <option value="{{ $category->id }}" {{ $myItem->category_id == $category->id ? 'selected' : '' }}>{{ $category->title }}</option>
+                                                    <option value="{{ $category->id }}"
+                                                        @php
+                                                            foreach ($myItem->categories as $myItem_category) {
+                                                                if($myItem_category->title == $category->title) {
+                                                                    echo 'selected';
+                                                                }
+                                                            }
+                                                        @endphp
+                                                        >
+                                                        {{ $category->title }}
+                                                    </option>
                                                 @endforeach
                                             </select>
                                         </div>

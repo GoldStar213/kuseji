@@ -24,12 +24,10 @@ class MyItemController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
-    {
+    public function index(Request $request) {
         $frontal_colors = FrontalColor::all();
         $categories = Category::all();
-        $matchings = Matching::all();
-        return view('itemMana.myself.index', compact('frontal_colors', 'categories', 'matchings'));
+        return view('itemMana.myself.index', compact('frontal_colors', 'categories'));
     }
 
     /**
@@ -73,13 +71,9 @@ class MyItemController extends Controller
         $back_img = $request->back_img;
         $side_img = $request->side_img;
         $title = $request->title;
-        
-        if($request->description != null) {
-            $myItem->description = $request->description;
-        }
-
+        $description = $request->description;
         $frontal_color = $request->frontal_color;
-        $category = $request->category;
+        $categories = $request->category;
 
         Session::put("front_img", $front_img);
         Session::put("back_img", $back_img);
@@ -87,7 +81,8 @@ class MyItemController extends Controller
         Session::put("title", $title);
         Session::put("description", $description);
         Session::put("frontal_color", $frontal_color);
-        Session::put("category", $category);
+        Session::put("categories", $categories);
+        Session::put("join_type", $request->join_type);
 
         $provider = new PayPalClient();
         $provider->setApiCredentials(config('paypal'));
@@ -189,11 +184,19 @@ class MyItemController extends Controller
         $myItem->title = $request->title;
 
         $myItem->description = $request->description;
-        
-        $myItem->category_id = $request->category;
         $myItem->frontal_color_id = $request->frontal_color;
 
         $myItem->save();
+
+        DB::table('category_item')->where('item_id',$id)->delete();
+
+        foreach($request->category as $category) {
+            DB::table('category_item')->insert([
+                'item_id' => $myItem->id,
+                'category_id' => $category,
+                'updated_at' => now(),
+            ]);
+        }
 
         return redirect()->route('myItem.edit', ['myItem' => $id])->with('myItem_Register_Success', 'データは正常に保存されました。');
     }
@@ -333,13 +336,24 @@ class MyItemController extends Controller
                 'front_img' => $this->saveImage('front', Session::get('front_img')),
                 'back_img' => $this->saveImage('back', Session::get('back_img')),
                 'side_img' => $this->saveImage('side', Session::get('side_img')),
-                'category_id' => Session::get('category'),
                 'frontal_color_id' => Session::get('frontal_color'),
                 'user_id' => Auth::user()->id,
                 'join_type' => $request->join_type
             ]);
 
-            return redirect()->route('myItem.create')->with('myItem_Register_Success', 'データは正常に保存されました。');
+            $item_id = Item::max('id');
+            $categories = Session::get('categories');
+
+            foreach($categories as $category) {
+                DB::table('category_item')->insert([
+                    'item_id' => $item_id,
+                    'category_id' => $category,
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ]);
+            }
+
+            return redirect()->route('myItem.create')->with('myItem_Register_Success', 'データは正常に保存されました。 引き続き新しいアイテムを登録できます。');
         } else {
             return redirect()
                 ->route('createTransaction')

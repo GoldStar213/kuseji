@@ -122,7 +122,15 @@
                                             <!--end::Icon-->
 
                                             <!--begin::Label-->
-                                            <span class="fw-bold text-gray-400">{{ $myItem->category->title }}</span>
+                                            <span class="fw-bold text-gray-400">
+                                                @php
+                                                    $categories = "";
+                                                    foreach ($myItem->categories as $category) {
+                                                        $categories .= $category->title . ", ";
+                                                    }
+                                                    echo rtrim($categories, ", ");
+                                                @endphp
+                                            </span>
                                             <!--begin::Label-->
                                         </div>
                                         <!--end::Item-->
