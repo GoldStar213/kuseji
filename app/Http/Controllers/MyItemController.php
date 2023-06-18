@@ -66,6 +66,11 @@ class MyItemController extends Controller
             'category.required' => 'カテゴリーは必須項目です。',
         ]
         );
+
+        if(count($request->category) > 3) {
+            return redirect()->back()->withErrors(['category' => 'カテゴリーは最大3つまで選択可能です。']);
+        }
+        
         
         $front_img = $request->front_img;
         $back_img = $request->back_img;

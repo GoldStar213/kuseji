@@ -29,7 +29,7 @@ class Mailer extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Mailer',
+            subject: 'クセ字コンテスト登録ありがとうございます',
         );
     }
 

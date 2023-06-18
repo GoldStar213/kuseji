@@ -1966,7 +1966,7 @@
                 // Backwards compatibility - if there is no sEmptyTable given, then use the same as
                 // sZeroRecords - assuming that is given.
                 if (!lang.sEmptyTable && zeroRecords &&
-                    defaults.sEmptyTable === "テーブルにデータがありません") {
+                    defaults.sEmptyTable === "登録データはありません") {
                     _fnMap(lang, lang, 'sZeroRecords', 'sEmptyTable');
                 }
 
@@ -11429,7 +11429,7 @@
                  *      } );
                  *    } );
                  */
-                "sEmptyTable": "テーブルにデータがありません",
+                "sEmptyTable": "登録データはありません",
 
 
                 /**

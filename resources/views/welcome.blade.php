@@ -328,7 +328,7 @@
                                     <h1 class="text-gradient text-primary"><span id="state1" countTo="{{ $items->count() }}">0</span>
                                     </h1>
                                     <h5 class="mt-3">登録数</h5>
-                                    <p class="text-sm font-weight-normal">※出品数＝登録(作品)数　応募が増えると増える</p>
+                                    <p class="text-sm font-weight-normal">※作品登録済みの数</p>
                                 </div>
                                 <hr class="vertical dark">
                             </div>
@@ -337,7 +337,7 @@
                                     <h1 class="text-gradient text-primary"> <span id="state2" countTo="{{ $request_cnt }}">0</span>
                                     </h1>
                                     <h5 class="mt-3">交換リクエスト数</h5>
-                                    <p class="text-sm font-weight-normal">※MAX登録数＊5</p>
+                                    <p class="text-sm font-weight-normal">※最大リクエスト数５点</p>
                                 </div>
                                 <hr class="vertical dark">
                             </div>
@@ -345,7 +345,7 @@
                                 <div class="p-3 text-center">
                                     <h1 class="text-gradient text-primary" id="state3" countTo="{{ $match_success_cnt }}">0</h1>
                                     <h5 class="mt-3">マッチング成立数</h5>
-                                    <p class="text-sm font-weight-normal">※1位同士だと早期マッチング</p>
+                                    <p class="text-sm font-weight-normal">※１位同士なら即成立</p>
                                 </div>
                             </div>
                         </div>

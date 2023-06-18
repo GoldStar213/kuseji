@@ -150,7 +150,7 @@ License: For each use you must have a valid license purchased only from above li
                             <div class="row">
                                 <!--begin::Col-->
                                 <div class="col-lg-6 fv-row">
-                                    <input type="text" name="firstname" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="姓" value="{{ Auth::user()->firstname }}" />
+                                    <input type="text" name="firstname" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="姓" value="{{ old('firstname', Auth::user()->firstname) }}" />
                                     @error('firstname')
                                         <span class="invalid-feedback d-block" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -161,7 +161,7 @@ License: For each use you must have a valid license purchased only from above li
 
                                 <!--begin::Col-->
                                 <div class="col-lg-6 fv-row">
-                                    <input type="text" name="lastname" class="form-control form-control-lg form-control-solid" placeholder="名" value="{{ Auth::user()->lastname }}" />
+                                    <input type="text" name="lastname" class="form-control form-control-lg form-control-solid" placeholder="名" value="{{ old('lastname', Auth::user()->lastname) }}" />
                                     @error('lastname')
                                         <span class="invalid-feedback d-block" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -184,7 +184,7 @@ License: For each use you must have a valid license purchased only from above li
 
                         <!--begin::Col-->
                         <div class="col-lg-8 fv-row">
-                            <input type="text" name="nickname" class="form-control form-control-lg form-control-solid" placeholder="" value="{{ old('nickname') }}" />
+                            <input type="text" name="nickname" class="form-control form-control-lg form-control-solid" placeholder="" value="{{ old('nickname', Auth::user()->nickname) }}" />
                             @error('nickname')
                                 <span class="invalid-feedback d-block" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -226,7 +226,7 @@ License: For each use you must have a valid license purchased only from above li
 
                         <!--begin::Col-->
                         <div class="col-lg-8 fv-row">
-                            <input type="text" name="postal_code" class="form-control form-control-lg form-control-solid" placeholder="" value="{{ old('postal_code') }}" onKeyUp="AjaxZip3.zip2addr('postal_code','','prefectures','house_number','building_name');" />
+                            <input type="text" name="postal_code" class="form-control form-control-lg form-control-solid" placeholder="" value="{{ old('postal_code', Auth::user()->postal_code) }}" onKeyUp="AjaxZip3.zip2addr('postal_code','','prefectures','house_number','building_name');" />
                             @error('postal_code')
                                 <span class="invalid-feedback d-block" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -245,7 +245,7 @@ License: For each use you must have a valid license purchased only from above li
 
                         <!--begin::Col-->
                         <div class="col-lg-8 fv-row">
-                            <input type="text" name="prefectures" class="form-control form-control-lg form-control-solid" placeholder="" value="{{ old('prefectures') }}" />
+                            <input type="text" name="prefectures" class="form-control form-control-lg form-control-solid" placeholder="" value="{{ old('prefectures', Auth::user()->prefectures) }}" />
                             @error('prefectures')
                                 <span class="invalid-feedback d-block" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -264,7 +264,7 @@ License: For each use you must have a valid license purchased only from above li
 
                         <!--begin::Col-->
                         <div class="col-lg-8 fv-row">
-                            <input type="text" name="house_number" class="form-control form-control-lg form-control-solid" placeholder="" value="{{ old('house_number') }}" />
+                            <input type="text" name="house_number" class="form-control form-control-lg form-control-solid" placeholder="" value="{{ old('house_number', Auth::user()->house_number) }}" />
                             @error('house_number')
                                 <span class="invalid-feedback d-block" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -283,7 +283,7 @@ License: For each use you must have a valid license purchased only from above li
 
                         <!--begin::Col-->
                         <div class="col-lg-8 fv-row">
-                            <input type="text" name="building_name" class="form-control form-control-lg form-control-solid" placeholder="" value="{{ old('building_name') }}" />
+                            <input type="text" name="building_name" class="form-control form-control-lg form-control-solid" placeholder="" value="{{ old('building_name', Auth::user()->building_name) }}" />
                             @error('building_name')
                                 <span class="invalid-feedback d-block" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -297,12 +297,12 @@ License: For each use you must have a valid license purchased only from above li
                     <!--begin::Input group-->
                     <div class="row mb-6">
                         <!--begin::Label-->
-                        <label class="col-lg-4 col-form-label fw-semibold fs-6" for="phone_number">電話番号</label>
+                        <label class="col-lg-4 col-form-label fw-semibold fs-6 required" for="phone_number">電話番号</label>
                         <!--end::Label-->
 
                         <!--begin::Col-->
                         <div class="col-lg-8 fv-row">
-                            <input type="tel" name="phone_number" id="phone_number" class="form-control form-control-lg form-control-solid" placeholder="" value="{{ old('phone_number') }}" />
+                            <input type="tel" name="phone_number" id="phone_number" class="form-control form-control-lg form-control-solid" placeholder="" value="{{ old('phone_number', Auth::user()->phone_number) }}" />
                             @error('phone_number')
                                 <span class="invalid-feedback d-block" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -321,7 +321,7 @@ License: For each use you must have a valid license purchased only from above li
 
                         <!--begin::Col-->
                         <div class="col-lg-8 fv-row">
-                            <input type="text" name="twitter" class="form-control form-control-lg form-control-solid" placeholder="https://twitter.com/exampleの中からexampleのみを入力してください。" value="{{ old('twitter') }}" />
+                            <input type="text" name="twitter" class="form-control form-control-lg form-control-solid" placeholder="https://twitter.com/idの中から(id)のみを入力してください。" value="{{ old('twitter', Auth::user()->twitter) }}" />
                         </div>
                         <!--end::Col-->
                     </div>
@@ -335,7 +335,7 @@ License: For each use you must have a valid license purchased only from above li
 
                         <!--begin::Col-->
                         <div class="col-lg-8 fv-row">
-                            <input type="text" name="instagram" class="form-control form-control-lg form-control-solid" placeholder="https://www.instagram.com/exampleの中からexampleのみを入力してください。" value="{{ old('instagram') }}" />
+                            <input type="text" name="instagram" class="form-control form-control-lg form-control-solid" placeholder="https://www.instagram.com/idの中から(id)のみを入力してください。" value="{{ old('instagram', Auth::user()->instagram) }}" />
                         </div>
                         <!--end::Col-->
                     </div>
@@ -349,7 +349,7 @@ License: For each use you must have a valid license purchased only from above li
 
                         <!--begin::Col-->
                         <div class="col-lg-8 fv-row">
-                            <input type="text" name="tiktok" class="form-control form-control-lg form-control-solid" placeholder="https://www.tiktok.com/@exampleの中からexampleのみを入力してください。" value="{{ old('tiktok') }}" />
+                            <input type="text" name="tiktok" class="form-control form-control-lg form-control-solid" placeholder="https://www.tiktok.com/@idの中から(id)のみを入力してください。" value="{{ old('tiktok', Auth::user()->tiktok) }}" />
                         </div>
                         <!--end::Col-->
                     </div>

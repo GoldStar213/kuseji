@@ -385,8 +385,7 @@
                                             multiple size="3">
                                             <option value="">選択</option>
                                             @foreach ($categories as $category)
-                                            <option data-kt-flag="flags/united-states.svg" value="{{ $category->id }}"
-                                                {{ old('category')==$category->id ? 'selected' : '' }}>
+                                            <option data-kt-flag="flags/united-states.svg" value="{{ $category->id }}" {{ in_array($category->id, old('category', [])) ? 'selected' : '' }}>
                                                 {{ $category->title }}
                                             </option>
                                             @endforeach
