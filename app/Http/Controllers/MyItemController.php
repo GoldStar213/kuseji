@@ -24,7 +24,8 @@ class MyItemController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request) {
+    public function index(Request $request)
+    {
         $frontal_colors = FrontalColor::all();
         $categories = Category::all();
         return view('itemMana.myself.index', compact('frontal_colors', 'categories'));
@@ -56,7 +57,7 @@ class MyItemController extends Controller
             'side_img' => ['required'],
             'title' => ['required', 'string'],
             'frontal_color' => ['required'],
-            'category' => ['required'],
+            'category' => ['required', 'max:3'],
         ],
             $messages = [
             'back_img.required' => '背面画像が選択されていません。',
@@ -64,14 +65,10 @@ class MyItemController extends Controller
             'title.required' => 'タイトルは必須項目です。',
             'frontal_color.required' => '額色は必須項目です。',
             'category.required' => 'カテゴリーは必須項目です。',
+            'category.max' => 'カテゴリーは最大3つまで選択可能です。',
         ]
         );
 
-        if(count($request->category) > 3) {
-            return redirect()->back()->withErrors(['category' => 'カテゴリーは最大3つまで選択可能です。']);
-        }
-        
-        
         $front_img = $request->front_img;
         $back_img = $request->back_img;
         $side_img = $request->side_img;
@@ -80,48 +77,64 @@ class MyItemController extends Controller
         $frontal_color = $request->frontal_color;
         $categories = $request->category;
 
-        Session::put("front_img", $front_img);
-        Session::put("back_img", $back_img);
-        Session::put("side_img", $side_img);
-        Session::put("title", $title);
-        Session::put("description", $description);
-        Session::put("frontal_color", $frontal_color);
-        Session::put("categories", $categories);
-        Session::put("join_type", $request->join_type);
+        if($request->join_type == 0) {
+            
+            Session::put("front_img", $front_img);
+            Session::put("back_img", $back_img);
+            Session::put("side_img", $side_img);
+            Session::put("title", $title);
+            Session::put("description", $description);
+            Session::put("frontal_color", $frontal_color);
+            Session::put("categories", $categories);
+            Session::put("join_type", $request->join_type);
 
-        $provider = new PayPalClient();
-        $provider->setApiCredentials(config('paypal'));
-        $paypalToken = $provider->getAccessToken();
-        $response = $provider->createOrder([
-            "intent" => "CAPTURE",
-            "application_context" => [
-                "return_url" => route('successTransaction'),
-                "cancel_url" => route('cancelTransaction'),
-            ],
-            "purchase_units" => [
-                0 => [
-                    "amount" => [
-                        "currency_code" => "JPY",
-                        "value" => "3000"
+            $provider = new PayPalClient();
+            $provider->setApiCredentials(config('paypal'));
+            $paypalToken = $provider->getAccessToken();
+            $response = $provider->createOrder([
+                "intent" => "CAPTURE",
+                "application_context" => [
+                    "return_url" => route('successTransaction'),
+                    "cancel_url" => route('cancelTransaction'),
+                ],
+                "purchase_units" => [
+                    0 => [
+                        "amount" => [
+                            "currency_code" => "JPY",
+                            "value" => "3000"
+                        ]
                     ]
                 ]
-            ]
-        ]);
-        if (isset($response['id']) && $response['id'] != null) {
-            // redirect to approve href
-            foreach ($response['links'] as $links) {
-                if ($links['rel'] == 'approve') {
-                    return redirect()->away($links['href']);
+            ]);
+            if (isset($response['id']) && $response['id'] != null) {
+                // redirect to approve href
+                foreach ($response['links'] as $links) {
+                    if ($links['rel'] == 'approve') {
+                        return redirect()->away($links['href']);
+                    }
                 }
+                return redirect()
+                    ->route('myItem.index')
+                    ->with('error', 'Something went wrong.');
+            } else {
+                return redirect()
+                    ->route('myItem.index')
+                    ->with('error', $response['message'] ?? 'Something went wrong.');
             }
-            return redirect()
-                ->route('myItem.index')
-                ->with('error', 'Something went wrong.');
         } else {
-            return redirect()
-                ->route('myItem.index')
-                ->with('error', $response['message'] ?? 'Something went wrong.');
+            $item = Item::create([
+                'title' => $title,
+                'description' => $description,
+                'front_img' => $this->saveImage('front', $front_img),
+                'back_img' => $this->saveImage('back', $back_img),
+                'side_img' => $this->saveImage('side', $side_img),
+                'frontal_color_id' => $frontal_color,
+                'user_id' => Auth::user()->id,
+                'join_type' => $request->join_type
+            ]);
         }
+
+        return redirect()->route('myItem.create')->with('myItem_Register_Success', 'データは正常に保存されました。 引き続き新しいアイテムを登録できます。');
     }
 
     /**
@@ -193,7 +206,7 @@ class MyItemController extends Controller
 
         $myItem->save();
 
-        DB::table('category_item')->where('item_id',$id)->delete();
+        DB::table('category_item')->where('item_id', $id)->delete();
 
         foreach($request->category as $category) {
             DB::table('category_item')->insert([
@@ -343,7 +356,7 @@ class MyItemController extends Controller
                 'side_img' => $this->saveImage('side', Session::get('side_img')),
                 'frontal_color_id' => Session::get('frontal_color'),
                 'user_id' => Auth::user()->id,
-                'join_type' => $request->join_type
+                'join_type' => Session::get('join_type')
             ]);
 
             $item_id = Item::max('id');

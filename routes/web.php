@@ -34,7 +34,7 @@ Auth::routes(['verify' => true]);
 Route::get('/home', [HomeController::class, 'index'])->middleware(['auth', 'profile', 'toMyItem'])->name('home');
 
 Route::resource('profile', ProfileController::class)->middleware(['auth', 'verify']);
-Route::get('/profile-confirm', [ProfileController::class, 'confirm'])->name('profile.confirm');
+Route::get('/profile-confirm', [ProfileController::class, 'confirm'])->middleware('auth')->name('profile.confirm');
 
 Route::resource('myItem', MyItemController::class)->middleware(['auth', 'profile', 'verify']);
 Route::get('/getMyItem', [MyItemController::class, 'list'])->middleware('auth');
@@ -72,3 +72,5 @@ Route::get('/status/match', [StatusController::class, 'matching'])->middleware('
 
 Route::get('/register_csv', [\App\Http\Controllers\CsvController::class, 'register_csv'])->name('register_csv');
 Route::get('/matching_csv', [\App\Http\Controllers\CsvController::class, 'matching_csv'])->name('matching_csv');
+
+Route::post('/changePaypemtState', [UserManaController::class, 'changePaypemtState'])->middleware('auth');

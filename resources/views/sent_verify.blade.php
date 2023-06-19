@@ -114,7 +114,7 @@
                         <div class="mb-14">
                             <a href="/" class="">
                                 <img alt="Logo"
-                                    src="https://preview.keenthemes.com/metronic8/demo1/assets/media/logos/custom-2.svg"
+                                    src="{{ asset('/metronic/assets/media/logos/small-default.png') }}"
                                     class="h-40px" />
                             </a>
                         </div>

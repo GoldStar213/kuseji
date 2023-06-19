@@ -11447,7 +11447,7 @@
                  * * `\_PAGES\_` - Total number of pages of data in the table
                  *
                  *  @type string
-                 *  @default Showing _START_ to _END_ of _TOTAL_ entries
+                 *  @default _TOTAL_ 件中 _START_ ～ _END_ 件を表示
                  *
                  *  @dtopt Language
                  *  @name DataTable.defaults.language.info
@@ -11461,14 +11461,14 @@
                  *      } );
                  *    } );
                  */
-                "sInfo": "Showing _START_ to _END_ of _TOTAL_ entries",
+                "sInfo": "_TOTAL_ 件中 _START_ ～ _END_ 件を表示",
 
 
                 /**
                  * Display information string for when the table is empty. Typically the
                  * format of this string should match `info`.
                  *  @type string
-                 *  @default Showing 0 to 0 of 0 entries
+                 *  @default 0 件中 0 ～ 0件を表示
                  *
                  *  @dtopt Language
                  *  @name DataTable.defaults.language.infoEmpty
@@ -11482,7 +11482,7 @@
                  *      } );
                  *    } );
                  */
-                "sInfoEmpty": "Showing 0 to 0 of 0 entries",
+                "sInfoEmpty": "0 件中 0 ～ 0件を表示",
 
 
                 /**
@@ -15593,10 +15593,10 @@
 
 var defaults = {
     "language": {
-        "info": "Showing _START_ to _END_ of _TOTAL_ records",
+        "info": "_TOTAL_ 件中 _START_ ～ _END_件を表示",
         "infoEmpty": "Showing no records",
         "lengthMenu": "_MENU_",
-        "processing": '<span class="spinner-border w-15px h-15px text-muted align-middle me-2"></span> <span class="text-gray-600">Loading...</span>',
+        "processing": '<span class="spinner-border w-15px h-15px text-muted align-middle me-2"></span> <span class="text-gray-600">Loading...<span>',
         "paginate": {
             "first": '<i class="first"></i>',
             "last": '<i class="last"></i>',

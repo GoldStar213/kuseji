@@ -316,7 +316,7 @@ License: For each use you must have a valid license purchased only from above li
                     <!--begin::Input group-->
                     <div class="row mb-6">
                         <!--begin::Label-->
-                        <label class="col-lg-4 col-form-label fw-semibold fs-6 required">ツイッター</label>
+                        <label class="col-lg-4 col-form-label fw-semibold fs-6">ツイッター</label>
                         <!--end::Label-->
 
                         <!--begin::Col-->
@@ -330,7 +330,7 @@ License: For each use you must have a valid license purchased only from above li
                     <!--begin::Input group-->
                     <div class="row mb-6">
                         <!--begin::Label-->
-                        <label class="col-lg-4 col-form-label fw-semibold fs-6 required">インスタ</label>
+                        <label class="col-lg-4 col-form-label fw-semibold fs-6">インスタ</label>
                         <!--end::Label-->
 
                         <!--begin::Col-->
@@ -344,7 +344,7 @@ License: For each use you must have a valid license purchased only from above li
                     <!--begin::Input group-->
                     <div class="row mb-6">
                         <!--begin::Label-->
-                        <label class="col-lg-4 col-form-label fw-semibold fs-6 required">TikTok</label>
+                        <label class="col-lg-4 col-form-label fw-semibold fs-6">TikTok</label>
                         <!--end::Label-->
 
                         <!--begin::Col-->

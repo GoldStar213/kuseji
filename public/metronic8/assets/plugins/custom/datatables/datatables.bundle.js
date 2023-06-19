@@ -11447,7 +11447,7 @@
                  * * `\_PAGES\_` - Total number of pages of data in the table
                  *
                  *  @type string
-                 *  @default Showing _START_ to _END_ of _TOTAL_ entries
+                 *  @default _TOTAL_ 件中 _START_ ～ _END_ 件を表示
                  *
                  *  @dtopt Language
                  *  @name DataTable.defaults.language.info
@@ -11461,7 +11461,7 @@
                  *      } );
                  *    } );
                  */
-                "sInfo": "Showing _START_ to _END_ of _TOTAL_ entries",
+                "sInfo": "_TOTAL_ 件中 _START_ ～ _END_ 件を表示",
 
 
                 /**
@@ -15593,7 +15593,7 @@
 
 var defaults = {
     "language": {
-        "info": "Showing _START_ to _END_ of _TOTAL_ records",
+        "info": "_TOTAL_ 件中 _START_ ～ _END_ 件を表示",
         "infoEmpty": "Showing no records",
         "lengthMenu": "_MENU_",
         "processing": '<span class="spinner-border w-15px h-15px text-muted align-middle me-2"></span> <span class="text-gray-600">Loading...</span>',

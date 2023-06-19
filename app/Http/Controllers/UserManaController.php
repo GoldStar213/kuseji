@@ -15,7 +15,6 @@ use App\Models\Matching;
 use App\Models\Item;
 use App\Models\User;
 use App\Models\UserMana;
-use App\Models\BlockUser;
 
 use DB;
 
@@ -26,7 +25,8 @@ class UserManaController extends Controller
      */
     public function index()
     {
-        return view('usermana.index');
+        $common_users = User::whereNot('id', 1)->get();
+        return view('usermana.index', compact('common_users'));
     }
 
 
@@ -109,7 +109,7 @@ class UserManaController extends Controller
     }
 
     public function list() {
-        $block_users=BlockUser::where('first_user',Auth::user()->id)->pluck('second_user')->toArray();
+        $block_users=BlockUser::where('first_user', Auth::user()->id)->pluck('second_user')->toArray();
         $usermanas = UserMana::all();
         $current_id=Auth::user()->id;
 
@@ -130,5 +130,21 @@ class UserManaController extends Controller
         ]);
        }
        return "ok";
+    }
+
+    public function changePaypemtState(Request $request) {
+        $user_id = $request->id;
+
+        $user = User::find($user_id);
+
+        if($user->payment_state == 0) {
+            $user->payment_state = 1;
+        } else {
+            $user->payment_state = 0;
+        }
+
+        $user->save();
+
+        return "OK";
     }
 }

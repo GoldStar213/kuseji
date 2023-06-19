@@ -101,7 +101,8 @@ use Illuminate\Support\Str;
     <!--end::Theme mode setup on page load-->
     <!--Begin::Google Tag Manager (noscript) -->
     <noscript>
-        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5FS8GGP" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5FS8GGP" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe>
     </noscript>
     <!--End::Google Tag Manager (noscript) -->
 
@@ -133,7 +134,8 @@ use Illuminate\Support\Str;
                     <!--begin::Mobile logo-->
                     <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
                         <a href="" class="d-lg-none">
-                            <img alt="Logo" src="{{ asset('/metronic/assets/media/logos/small-default.png') }}" class="h-30px" />
+                            <img alt="Logo" src="{{ asset('/metronic/assets/media/logos/small-default.png') }}"
+                                class="h-30px" />
                         </a>
                     </div>
                     <!--end::Mobile logo-->
@@ -153,7 +155,10 @@ use Illuminate\Support\Str;
                             <div class="menu menu-rounded menu-column menu-lg-row my-5 my-lg-0 align-items-stretch fw-semibold px-2 px-lg-0"
                                 id="kt_app_header_menu" data-kt-menu="true">
                                 <!--begin:Menu item-->
-                                <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" class="menu-item menu-lg-down-accordion menu-sub-lg-down-indention me-0 me-lg-2"></div>
+                                <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
+                                    data-kt-menu-placement="bottom-start"
+                                    class="menu-item menu-lg-down-accordion menu-sub-lg-down-indention me-0 me-lg-2">
+                                </div>
                                 <!--end:Menu item-->
                             </div>
                             <!--end::Menu-->
@@ -358,173 +363,188 @@ use Illuminate\Support\Str;
                                     </div>
                                     <!--end:Menu item-->
 
-                                        <!--begin:Menu item-->
-                                        @if(Str::contains(url()->current(), 'requestMatch'))
-                                        <div data-kt-menu-trigger="click" class="menu-item menu-accordion hover show">
-                                            @else
-                                            <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-                                                @endif
-                                                <!--begin:Menu link-->
-                                                <span class="menu-link">
-                                                    <span class="menu-icon">
-                                                        <i class="ki-duotone ki-messages fs-2">
-                                                            <span class="path1"></span>
-                                                            <span class="path2"></span>
-                                                            <span class="path3"></span>
-                                                            <span class="path4"></span>
-                                                            <span class="path5"></span>
-                                                        </i>
-                                                    </span>
-                                                    <span class="menu-title">交換リクエスト</span>
-                                                    <span class="menu-arrow"></span>
+                                    <!--begin:Menu item-->
+                                    @if(Str::contains(url()->current(), 'requestMatch'))
+                                    <div data-kt-menu-trigger="click" class="menu-item menu-accordion hover show">
+                                        @else
+                                        <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                                            @endif
+                                            <!--begin:Menu link-->
+                                            <span class="menu-link">
+                                                <span class="menu-icon">
+                                                    <i class="ki-duotone ki-messages fs-2">
+                                                        <span class="path1"></span>
+                                                        <span class="path2"></span>
+                                                        <span class="path3"></span>
+                                                        <span class="path4"></span>
+                                                        <span class="path5"></span>
+                                                    </i>
                                                 </span>
-                                                <!--end:Menu link-->
-                                                <!--begin:Menu sub-->
-                                                <div class="menu-sub menu-sub-accordion">
-                                                    <!--begin:Menu item-->
-                                                    <div class="menu-item">
-                                                        <!--begin:Menu link-->
-                                                        <a class="menu-link" href="{{route('requestMatch_inbox')}}">
-                                                            <span class="menu-bullet">
-                                                                <span class="bullet bullet-dot"></span>
-                                                            </span>
-                                                            <span class="menu-title">受信済</span>
-                                                        </a>
-                                                        <!--end:Menu link-->
-                                                    </div>
-                                                    <!--end:Menu item-->
-                                                    <!--begin:Menu item-->
-                                                    <div class="menu-item">
-                                                        <!--begin:Menu link-->
-                                                        <a class="menu-link" href="{{ route('requestMatch.index') }}">
-                                                            <span class="menu-bullet">
-                                                                <span class="bullet bullet-dot"></span>
-                                                            </span>
-                                                            <span class="menu-title">マッチング申請</span>
-                                                        </a>
-                                                        <!--end:Menu link-->
-                                                    </div>
-                                                    <!--end:Menu item-->
+                                                <span class="menu-title">交換リクエスト</span>
+                                                <span class="menu-arrow"></span>
+                                            </span>
+                                            <!--end:Menu link-->
+                                            <!--begin:Menu sub-->
+                                            <div class="menu-sub menu-sub-accordion">
+                                                <!--begin:Menu item-->
+                                                <div class="menu-item">
+                                                    <!--begin:Menu link-->
+                                                    <a class="menu-link" href="{{route('requestMatch_inbox')}}">
+                                                        <span class="menu-bullet">
+                                                            <span class="bullet bullet-dot"></span>
+                                                        </span>
+                                                        <span class="menu-title">受信済</span>
+                                                    </a>
+                                                    <!--end:Menu link-->
                                                 </div>
-                                                <!--end:Menu sub-->
+                                                <!--end:Menu item-->
+                                                <!--begin:Menu item-->
+                                                <div class="menu-item">
+                                                    <!--begin:Menu link-->
+                                                    <a class="menu-link" href="{{ route('requestMatch.index') }}">
+                                                        <span class="menu-bullet">
+                                                            <span class="bullet bullet-dot"></span>
+                                                        </span>
+                                                        <span class="menu-title">マッチング申請</span>
+                                                    </a>
+                                                    <!--end:Menu link-->
+                                                </div>
+                                                <!--end:Menu item-->
                                             </div>
-                                            <!--end:Menu item-->
-
-                                            <!--begin:Menu item-->
-                                            <div class="menu-item">
-                                                <!--begin:Menu link-->
-                                                <a class="menu-link" href="{{ route('status.register') }}">
-                                                    <span class="menu-icon">
-                                                        <i class="ki-duotone ki-chart-line fs-2">
-                                                            <span class="path1"></span>
-                                                            <span class="path2"></span>
-                                                        </i>
-                                                    </span>
-                                                    <span class="menu-title">登録状況</span></a>
-                                                <!--end:Menu link-->
-                                            </div>
-                                            <!--end:Menu item-->
-
-                                            <!--begin:Menu item-->
-                                            <div class="menu-item">
-                                                <!--begin:Menu link-->
-                                                <a class="menu-link" href="{{ route('status.matching') }}">
-                                                    <span class="menu-icon">
-                                                        <i class="ki-duotone ki-document fs-2">
-                                                            <span class="path1"></span>
-                                                            <span class="path2"></span>
-                                                        </i>
-                                                    </span>
-                                                    <span class="menu-title">マッチング状況</span></a>
-                                                <!--end:Menu link-->
-                                            </div>
-                                            <!--end:Menu item-->
+                                            <!--end:Menu sub-->
                                         </div>
-                                        <!--end::Menu-->
-                                    </div>
-                                    <!--end::Menu wrapper-->
-                                </div>
-                                <!--end::sidebar menu-->
-                                <!--begin::Footer-->
-                                <div class="app-sidebar-footer flex-column-auto pt-2 pb-6 px-6"
-                                    id="kt_app_sidebar_footer">
-                                    <a href=""
-                                        class="btn btn-flex flex-center btn-custom btn-primary overflow-hidden text-nowrap px-0 h-40px w-100"
-                                        data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss-="click"
-                                        title="200+ in-house components and 3rd-party plugins">
-                                        <span class="btn-label">利用規約</span>
-                                        <i class="ki-duotone ki-document btn-icon fs-2 m-0">
-                                            <span class="path1"></span>
-                                            <span class="path2"></span>
-                                        </i>
-                                    </a>
-                                </div>
-                                <!--end::Footer-->
-                            </div>
-                            <!--end::Sidebar-->
+                                        <!--end:Menu item-->
 
-                            <!--begin::Main-->
-                            <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
-
-                                @yield('content')
-
-                                <!--begin::Footer-->
-                                <div id="kt_app_footer" class="app-footer ">
-                                    <!--begin::Footer container-->
-                                    <div
-                                        class="app-container  container-fluid d-flex flex-column flex-md-row flex-center flex-md-stack py-3 ">
-                                        <!--begin::Copyright-->
-                                        <div class="text-dark order-2 order-md-1">
-                                            <span class="text-muted fw-semibold me-1">2023&copy;</span>
-                                            <a href="javascript:;"
-                                                class="text-gray-800 text-hover-primary">Copyright</a>
+                                        <!--begin:Menu item-->
+                                        <div class="menu-item">
+                                            <!--begin:Menu link-->
+                                            <a class="menu-link" href="{{ route('status.register') }}">
+                                                <span class="menu-icon">
+                                                    <i class="ki-duotone ki-chart-line fs-2">
+                                                        <span class="path1"></span>
+                                                        <span class="path2"></span>
+                                                    </i>
+                                                </span>
+                                                <span class="menu-title">登録状況</span></a>
+                                            <!--end:Menu link-->
                                         </div>
-                                        <!--end::Copyright-->
+                                        <!--end:Menu item-->
 
-                                        <!--begin::Menu-->
-                                        <ul class="menu menu-gray-600 menu-hover-primary fw-semibold order-1">
-                                            <li class="menu-item">
-                                                <a href="https://twitter.com/@handwrite_jpn" target="_blank"
-                                                    class="menu-link px-2">
-                                                    <i class="ki-duotone ki-twitter fs-2x">
-                                                        <i class="path1"></i>
-                                                        <i class="path2"></i>
+                                        <!--begin:Menu item-->
+                                        <div class="menu-item">
+                                            <!--begin:Menu link-->
+                                            <a class="menu-link" href="{{ route('status.matching') }}">
+                                                <span class="menu-icon">
+                                                    <i class="ki-duotone ki-document fs-2">
+                                                        <span class="path1"></span>
+                                                        <span class="path2"></span>
                                                     </i>
-                                                </a>
-                                            </li>
+                                                </span>
+                                                <span class="menu-title">マッチング状況</span></a>
+                                            <!--end:Menu link-->
+                                        </div>
+                                        <!--end:Menu item-->
 
-                                            <li class="menu-item">
-                                                <a href="https://www.youtube.com/user/udoyoshi/" target="_blank"
-                                                    class="menu-link px-2">
-                                                    <i class="ki-duotone ki-youtube fs-2x">
-                                                        <i class="path1"></i>
-                                                        <i class="path2"></i>
+                                        <!--begin:Menu item-->
+                                        <div class="menu-item">
+                                            <!--begin:Menu link-->
+                                            <a class="menu-link" href="{{route('userMana.index')}}">
+                                                <span class="menu-icon">
+                                                    <i class="ki-duotone ki-profile-user fs-2">
+                                                        <span class="path1"></span>
+                                                        <span class="path2"></span>
+                                                        <span class="path3"></span>
+                                                        <span class="path4"></span>
                                                     </i>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        <!--end::Menu-->
+                                                </span>
+                                                <span class="menu-title">ユーザー管理</span></a>
+                                            <!--end:Menu link-->
+                                        </div>
+                                        <!--end:Menu item-->
                                     </div>
-                                    <!--end::Footer container-->
+                                    <!--end::Menu-->
                                 </div>
-                                <!--end::Footer-->
+                                <!--end::Menu wrapper-->
                             </div>
-                            <!--end:::Main-->
+                            <!--end::sidebar menu-->
+                            <!--begin::Footer-->
+                            <div class="app-sidebar-footer flex-column-auto pt-2 pb-6 px-6" id="kt_app_sidebar_footer">
+                                <a href=""
+                                    class="btn btn-flex flex-center btn-custom btn-primary overflow-hidden text-nowrap px-0 h-40px w-100"
+                                    data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss-="click"
+                                    title="200+ in-house components and 3rd-party plugins">
+                                    <span class="btn-label">利用規約</span>
+                                    <i class="ki-duotone ki-document btn-icon fs-2 m-0">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                    </i>
+                                </a>
+                            </div>
+                            <!--end::Footer-->
                         </div>
-                        <!--end::Wrapper-->
-                    </div>
-                    <!--end::Page-->
-                </div>
-                <!--end::App-->
+                        <!--end::Sidebar-->
 
-                <!--begin::Scrolltop-->
-                <div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
-                    <i class="ki-duotone ki-arrow-up">
-                        <span class="path1"></span>
-                        <span class="path2"></span>
-                    </i>
+                        <!--begin::Main-->
+                        <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
+
+                            @yield('content')
+
+                            <!--begin::Footer-->
+                            <div id="kt_app_footer" class="app-footer ">
+                                <!--begin::Footer container-->
+                                <div
+                                    class="app-container  container-fluid d-flex flex-column flex-md-row flex-center flex-md-stack py-3 ">
+                                    <!--begin::Copyright-->
+                                    <div class="text-dark order-2 order-md-1">
+                                        <span class="text-muted fw-semibold me-1">2023&copy;</span>
+                                        <a href="javascript:;" class="text-gray-800 text-hover-primary">Copyright</a>
+                                    </div>
+                                    <!--end::Copyright-->
+
+                                    <!--begin::Menu-->
+                                    <ul class="menu menu-gray-600 menu-hover-primary fw-semibold order-1">
+                                        <li class="menu-item">
+                                            <a href="https://twitter.com/@handwrite_jpn" target="_blank"
+                                                class="menu-link px-2">
+                                                <i class="ki-duotone ki-twitter fs-2x">
+                                                    <i class="path1"></i>
+                                                    <i class="path2"></i>
+                                                </i>
+                                            </a>
+                                        </li>
+
+                                        <li class="menu-item">
+                                            <a href="https://www.youtube.com/user/udoyoshi/" target="_blank"
+                                                class="menu-link px-2">
+                                                <i class="ki-duotone ki-youtube fs-2x">
+                                                    <i class="path1"></i>
+                                                    <i class="path2"></i>
+                                                </i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <!--end::Menu-->
+                                </div>
+                                <!--end::Footer container-->
+                            </div>
+                            <!--end::Footer-->
+                        </div>
+                        <!--end:::Main-->
+                    </div>
+                    <!--end::Wrapper-->
                 </div>
-                <!--end::Scrolltop-->
+                <!--end::Page-->
+            </div>
+            <!--end::App-->
+
+            <!--begin::Scrolltop-->
+            <div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
+                <i class="ki-duotone ki-arrow-up">
+                    <span class="path1"></span>
+                    <span class="path2"></span>
+                </i>
+            </div>
+            <!--end::Scrolltop-->
 
 </body>
 <!--end::Body-->
