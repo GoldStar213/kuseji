@@ -40,6 +40,10 @@ Route::resource('myItem', MyItemController::class)->middleware(['auth', 'profile
 Route::get('/getMyItem', [MyItemController::class, 'list'])->middleware('auth');
 Route::post('/setComment', [MyItemController::class, 'set_comment'])->middleware('auth')->name('setComment');
 
+Route::get('process-transaction-update', [MyItemController::class, 'processTransactionUpdate'])->name('processTransactionUpdate');
+Route::get('success-transaction-update', [MyItemController::class, 'successTransactionUpdate'])->name('successTransactionUpdate');
+Route::get('cancel-transaction-update', [MyItemController::class, 'cancelTransactionUpdate'])->name('cancelTransactionUpdate');
+
 Route::resource('item', ItemController::class)->middleware(['auth', 'profile']);
 Route::get('/getItem', [ItemController::class, 'list']);
 

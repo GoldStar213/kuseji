@@ -40,9 +40,9 @@
                                             <!--begin::Wrapper-->
                                             <div class="me-5 position-relative">
                                                 <!--begin::Avatar-->
-                                                <div class="symbol symbol-70px">
-                                                    <img alt="Pic" src="{{ asset($myItem->front_img) }}" />
-                                                </div>
+                                                <a href="{{ route('myItem.show', ['myItem' => $myItem->id]) }}" class="symbol symbol-70px">
+                                                    <img alt="Pic" src="{{ asset($myItem->front_img) }}" style="object-fit: contain; object-position: center;" />
+                                                </a>
                                                 <!--end::Avatar-->
 
                                             </div>

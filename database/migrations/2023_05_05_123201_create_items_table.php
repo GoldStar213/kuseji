@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('description')->nullable();
-            $table->string('front_img')->nullable();
-            $table->string('back_img');
-            $table->string('side_img');
+            $table->string('front_img')->nullable()->default('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStdszc97zfCye1WEu5_qKSQfoCgrVjb3Zq2ntwevXMLg&usqp=CAU&ec=48600112');
+            $table->string('back_img')->nullable()->default('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStdszc97zfCye1WEu5_qKSQfoCgrVjb3Zq2ntwevXMLg&usqp=CAU&ec=48600112');
+            $table->string('side_img')->nullable()->default('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStdszc97zfCye1WEu5_qKSQfoCgrVjb3Zq2ntwevXMLg&usqp=CAU&ec=48600112');
             $table->unsignedBigInteger('frontal_color_id');
             $table->foreign('frontal_color_id')->references('id')->on('frontal_colors')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('user_id');

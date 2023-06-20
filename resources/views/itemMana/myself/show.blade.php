@@ -271,21 +271,15 @@
                                 @foreach ($recently_items as $recently_item)
                                 <div class="d-flex align-items-center mb-7">
                                     <!--begin::Symbol-->
-
-                                    <div class="symbol symbol-60px symbol-2by3 me-4">
-                                        <div class="symbol-label"
-                                            style="background-image: url({{ asset($recently_item->front_img) }})"></div>
-                                    </div>
+                                    <a href="{{ route('myItem.show', ['myItem' => $recently_item->id]) }}" class="symbol symbol-70px me-4">
+                                        <img alt="Pic" src="{{ asset($recently_item->front_img) }}" style="object-fit: contain; object-position: center;" />
+                                    </a>
                                     <!--end::Symbol-->
 
                                     <!--begin::Title-->
                                     <div class="m-0">
-                                        <a href="{{ route('myItem.show', ['myItem' => $recently_item->id]) }}"
-                                            class="text-dark fw-bold text-hover-primary fs-6">{{ $recently_item->title
-                                            }}</a>
-
-                                        <span class="text-gray-600 fw-semibold d-block pt-1 fs-7">{{
-                                            $recently_item->description }}</span>
+                                        <a href="{{ route('myItem.show', ['myItem' => $recently_item->id]) }}" class="text-dark fw-bold text-hover-primary fs-6">{{ $recently_item->title }}</a>
+                                        <span class="text-gray-600 fw-semibold d-block pt-1 fs-7">{{ $recently_item->description }}</span>
                                     </div>
                                     <!--end::Title-->
                                 </div>

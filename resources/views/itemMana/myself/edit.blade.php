@@ -254,7 +254,7 @@
                         </div>
                         @enderror
 
-                        @if(session('myItem_Register_Success'))
+                        @if(session('myItem_Update_Success'))
                         <div class="alert alert-success d-flex align-items-center px-5 py-3">
                             <!--begin::Icon-->
                             <i class="ki-duotone ki-shield-tick fs-2hx text-success me-4">
@@ -266,7 +266,7 @@
                             <!--begin::Wrapper-->
                             <div class="d-flex flex-column">
                                 <!--begin::Content-->
-                                <span>{{ session('myItem_Register_Success') }}</span>
+                                <span>{{ session('myItem_Update_Success') }}</span>
                                 <!--end::Content-->
                             </div>
                             <!--end::Wrapper-->
@@ -275,7 +275,7 @@
                         <!--end::Alert-->
                         
                         <!--begin::Section-->
-                        <form class="mb-17" method="POST" action="{{ route('myItem.update', ['myItem' => $myItem->id]) }}">
+                        <form class="mb-17" method="POST" action="{{ route('myItem.update', ['myItem' => $myItem->id]) }}" id="myForm">
                             @csrf
                             @method('PUT')
                             <!--begin::Row-->
@@ -362,7 +362,6 @@
                                         <!--end::Label-->
                                         
                                         <!--begin::Col-->
-                                        
                                         <div class="col-lg-8 fv-row">
                                             <select aria-label="選択" id="category" name="category[]" data-control="select2" data-placeholder="選択" class="form-select form-select-solid form-select-lg" multiple size="3">
                                                 @foreach ($categories as $category)
@@ -382,11 +381,36 @@
                                         </div>
                                         <!--end::Col-->
                                     </div>
+
+                                    <div class="row g-10 mb-2">
+                                        <!--begin::Label-->
+                                        <label class="col-lg-4 col-form-label fw-semibold fs-6" for="join_type">
+                                            <span class="required">クセ字交換会の参加</span>
+                                        </label>
+                                        <!--end::Label-->
+    
+                                        <!--begin::Col-->
+                                        <div class="col-lg-8 fv-row">
+                                            <select aria-label="選択" id="join_type" name="join_type" data-control="select2"
+                                                data-placeholder="選択" class="form-select form-select-solid form-select-lg">
+                                                <option data-kt-flag="flags/united-states.svg" value="0" {{
+                                                    old('join_type')==0 ? 'selected' : '' }}>はい</option>
+                                                <option data-kt-flag="flags/united-states.svg" value="1" {{
+                                                    old('join_type')==1 ? 'selected' : '' }}>いいえ</option>
+                                            </select>
+                                        </div>
+                                        <!--end::Col-->
+                                    </div>
                                 </div>
                             </div>
 
+                            <input type="hidden" name="register_type" value="" id="register_type">
+
                             <div class="card-footer d-flex justify-content-end py-6 px-0">
-                                <button type="submit" class="btn btn-primary py-2">セーブ</button>
+                                <button type="button" onclick="submitForm('nopay')" class="btn btn-primary py-2 me-2"
+                                    id="kt_account_profile_details_submit"> 一時保存 </button>
+                                <button type="button" onclick="submitForm('pay')" class="btn btn-primary py-2 ms-2"
+                                    id="kt_account_profile_details_submit" {{ $myItem->register_type == 'pay' ? "disabled" : "" }}> 決 済 </button>
                             </div>
                         </form>
                         <!--end::Section-->
@@ -405,6 +429,12 @@
     <script src="{{ asset('/metronic/assets/plugins/custom/datatables/datatables.bundle.js') }}"></script>
 
     <script>
+
+        function submitForm(param) {
+            $('#register_type').val(param);
+            $('#myForm').off('submit').submit();
+        }
+
         var divWidth = $('.image-input-wrapper').width(); 
         $('.image-input-wrapper').height(divWidth);
         $(window).resize(function(){

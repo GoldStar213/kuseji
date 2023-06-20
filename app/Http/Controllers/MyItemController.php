@@ -54,15 +54,11 @@ class MyItemController extends Controller
         // return $request->register_type;
         $request->validate(
             [
-            'back_img' => ['required'],
-            'side_img' => ['required'],
             'title' => ['required', 'string'],
             'frontal_color' => ['required'],
             'category' => ['required', 'max:3'],
         ],
             $messages = [
-            'back_img.required' => '画像1が選択されていません。',
-            'side_img.required' => '画像2が選択されていません。',
             'title.required' => 'タイトルは必須項目です。',
             'frontal_color.required' => '額色は必須項目です。',
             'category.required' => 'カテゴリーは必須項目です。',
@@ -125,16 +121,30 @@ class MyItemController extends Controller
             }
         } 
         if($request->register_type == 'nopay') {
-            $item = Item::create([
-                'title' => $title,
-                'description' => $description,
-                'front_img' => $this->saveImage('front', $front_img),
-                'back_img' => $this->saveImage('back', $back_img),
-                'side_img' => $this->saveImage('side', $side_img),
-                'frontal_color_id' => $frontal_color,
-                'user_id' => Auth::user()->id,
-                'join_type' => $request->join_type
-            ]);
+
+            $item = new Item();
+
+            $item->title = $title;
+            $item->description = $description;
+            $item->front_img = $this->saveImage('front', $front_img);
+
+            if($front_img != null) {
+                $item->front_img = $this->saveImage('front', $front_img);
+            }
+
+            if($back_img != null) {
+                $item->back_img = $this->saveImage('back', $back_img);
+            }
+
+            if($side_img != null) {
+                $item->side_img = $this->saveImage('side', $side_img);
+            }
+
+            $item->frontal_color_id = $frontal_color;
+            $item->user_id = Auth::user()->id;
+            $item->join_type = $request->join_type;
+
+            $item->save();
         }
 
         return redirect()->route('myItem.create')->with('myItem_Register_Success', 'データは正常に保存されました。 引き続き新しいアイテムを登録できます。');
@@ -183,43 +193,89 @@ class MyItemController extends Controller
         ]
         );
 
-        // return strlen($request->matching);
-        if($request->join_type == 1 && $request->matching == "") {
-            return redirect()->back()->withErrors(['matching' => '参加の可否が 「はい」の場合、「マッチング」フィールドが必要です。']);
+        if($request->register_type == 'nopay') {
+            $myItem = Item::find($id);
+
+            if($request->front_img != null) {
+                $myItem->front_img = $this->saveImage('front', $request->front_img);
+            }
+
+            if($request->back_img != null) {
+                $myItem->back_img = $this->saveImage('back', $request->back_img);
+            }
+
+            if($request->side_img != null) {
+                $myItem->side_img = $this->saveImage('side', $request->side_img);
+            }
+
+            $myItem->title = $request->title;
+
+            $myItem->description = $request->description;
+            $myItem->frontal_color_id = $request->frontal_color;
+
+            $myItem->save();
+
+            DB::table('category_item')->where('item_id', $id)->delete();
+
+            foreach($request->category as $category) {
+                DB::table('category_item')->insert([
+                    'item_id' => $myItem->id,
+                    'category_id' => $category,
+                    'updated_at' => now(),
+                ]);
+            }
+
+            return redirect()->route('myItem.edit', ['myItem' => $id])->with('myItem_Register_Success', 'データは正常に保存されました。');
         }
 
-        $myItem = Item::find($id);
+        if($request->register_type == 'pay') {
 
-        if($request->front_img != null) {
-            $myItem->front_img = $this->saveImage('front', $request->front_img);
-        }
+            Session::put("id", $id);
+            Session::put("front_img", $request->front_img);
+            Session::put("back_img", $request->back_img);
+            Session::put("side_img", $request->side_img);
+            Session::put("title", $request->title);
+            Session::put("description", $request->description);
+            Session::put("frontal_color", $request->frontal_color);
+            Session::put("categories", $request->category);
+            Session::put("join_type", $request->join_type);
+            Session::put("register_type", $request->register_type);
 
-        if($request->back_img != null) {
-            $myItem->back_img = $this->saveImage('back', $request->back_img);
-        }
-
-        if($request->side_img != null) {
-            $myItem->side_img = $this->saveImage('side', $request->side_img);
-        }
-
-        $myItem->title = $request->title;
-
-        $myItem->description = $request->description;
-        $myItem->frontal_color_id = $request->frontal_color;
-
-        $myItem->save();
-
-        DB::table('category_item')->where('item_id', $id)->delete();
-
-        foreach($request->category as $category) {
-            DB::table('category_item')->insert([
-                'item_id' => $myItem->id,
-                'category_id' => $category,
-                'updated_at' => now(),
+            $provider = new PayPalClient();
+            $provider->setApiCredentials(config('paypal'));
+            $paypalToken = $provider->getAccessToken();
+            $response = $provider->createOrder([
+                "intent" => "CAPTURE",
+                "application_context" => [
+                    "return_url" => route('successTransactionUpdate'),
+                    "cancel_url" => route('cancelTransactionUpdate'),
+                ],
+                "purchase_units" => [
+                    0 => [
+                        "amount" => [
+                            "currency_code" => "JPY",
+                            "value" => "3000"
+                        ]
+                    ]
+                ]
             ]);
-        }
 
-        return redirect()->route('myItem.edit', ['myItem' => $id])->with('myItem_Register_Success', 'データは正常に保存されました。');
+            if (isset($response['id']) && $response['id'] != null) {
+                // redirect to approve href
+                foreach ($response['links'] as $links) {
+                    if ($links['rel'] == 'approve') {
+                        return redirect()->away($links['href']);
+                    }
+                }
+                return redirect()
+                    ->route('myItem.edit', ['myItem' => $id])
+                    ->with('error', 'Something went wrong.');
+            } else {
+                return redirect()
+                    ->route('myItem.edit', ['myItem' => $id])
+                    ->with('error', $response['message'] ?? 'Something went wrong.');
+            }
+        }
     }
 
     /**
@@ -351,17 +407,29 @@ class MyItemController extends Controller
         $provider->getAccessToken();
         $response = $provider->capturePaymentOrder($request['token']);
         if (isset($response['status']) && $response['status'] == 'COMPLETED') {
-            $item = Item::create([
-                'title' => Session::get('title'),
-                'description' => Session::get('description'),
-                'front_img' => $this->saveImage('front', Session::get('front_img')),
-                'back_img' => $this->saveImage('back', Session::get('back_img')),
-                'side_img' => $this->saveImage('side', Session::get('side_img')),
-                'frontal_color_id' => Session::get('frontal_color'),
-                'user_id' => Auth::user()->id,
-                'join_type' => Session::get('join_type'),
-                'register_type' => Session::get('register_type')
-            ]);
+
+            $item = new Item();
+
+            $item->title = Session::get('title');
+            $item->description = Session::get('description');
+
+            if(Session::get('front_img') != null) {
+                $item->front_img = $this->saveImage('front', Session::get('front_img'));
+            }
+
+            if(Session::get('back_img') != null) {
+                $item->back_img = $this->saveImage('back', Session::get('back_img'));
+            }
+
+            if(Session::get('side_img') != null) {
+                $item->side_img = $this->saveImage('side', Session::get('side_img'));
+            }
+
+            $item->frontal_color_id = Session::get('frontal_color');
+            $item->user_id = Auth::user()->id;
+            $item->join_type = Session::get('join_type');
+
+            $item->save();
 
             $item_id = Item::max('id');
             $categories = Session::get('categories');
@@ -391,6 +459,111 @@ class MyItemController extends Controller
     {
         return redirect()
             ->route('createTransaction')
+            ->with('error', $response['message'] ?? 'You have canceled the transaction.');
+    }
+
+
+    public function processTransactionUpdate()
+    {
+        $provider = new PayPalClient();
+        $provider->setApiCredentials(config('paypal'));
+        $paypalToken = $provider->getAccessToken();
+        $response = $provider->createOrder([
+            "intent" => "CAPTURE",
+            "application_context" => [
+                "return_url" => route('successTransaction'),
+                "cancel_url" => route('cancelTransaction'),
+            ],
+            "purchase_units" => [
+                0 => [
+                    "amount" => [
+                        "currency_code" => "USD",
+                        "value" => "1000.00"
+                    ]
+                ]
+            ]
+        ]);
+        if (isset($response['id']) && $response['id'] != null) {
+            // redirect to approve href
+            foreach ($response['links'] as $links) {
+                if ($links['rel'] == 'approve') {
+                    return redirect()->away($links['href']);
+                }
+            }
+            return redirect()
+                ->route('createTransaction')
+                ->with('error', 'Something went wrong.');
+        } else {
+            return redirect()
+                ->route('createTransaction')
+                ->with('error', $response['message'] ?? 'Something went wrong.');
+        }
+    }
+    /**
+     * success transaction.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function successTransactionUpdate(Request $request)
+    {
+        $provider = new PayPalClient();
+        $provider->setApiCredentials(config('paypal'));
+        $provider->getAccessToken();
+        $response = $provider->capturePaymentOrder($request['token']);
+        if (isset($response['status']) && $response['status'] == 'COMPLETED') {
+
+            $item = Item::find(Session::get('id'));
+
+            $item->title = Session::get('title');
+            $item->description = Session::get('description');
+
+            if(Session::get('front_img') != null) {
+                $item->front_img = $this->saveImage('front', Session::get('front_img'));
+            }
+
+            if(Session::get('back_img') != null) {
+                $item->back_img = $this->saveImage('back', Session::get('back_img'));
+            }
+
+            if(Session::get('side_img') != null) {
+                $item->side_img = $this->saveImage('side', Session::get('side_img'));
+            }
+
+            $item->frontal_color_id = Session::get('frontal_color');
+            $item->user_id = Auth::user()->id;
+            $item->join_type = Session::get('join_type');
+            $item->register_type = 'pay';
+
+            $item->save();
+
+            $item_id = Item::max('id');
+            $categories = Session::get('categories');
+
+            foreach($categories as $category) {
+                DB::table('category_item')->insert([
+                    'item_id' => $item_id,
+                    'category_id' => $category,
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ]);
+            }
+
+            return redirect()->route('myItem.edit', ['myItem' => Session::get('id')])->with('myItem_Update_Success', '成果的に決済されました。');
+        } else {
+            return redirect()
+                ->route('createTransactionUpdate')
+                ->with('error', $response['message'] ?? 'Something went wrong.');
+        }
+    }
+    /**
+     * cancel transaction.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function cancelTransactionUpdate(Request $request)
+    {
+        return redirect()
+            ->route('createTransactionUpdate')
             ->with('error', $response['message'] ?? 'You have canceled the transaction.');
     }
 }
