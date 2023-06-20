@@ -58,12 +58,12 @@ function addItem() {
     }
 
     if(backImg == "") {
-        toastr.warning('背面画像を入力してください。');
+        toastr.warning('画像1を入力してください。');
         return;
     }
 
     if(sideImg == "") {
-        toastr.warning('側面画像を入力してください。');
+        toastr.warning('画像2を入力してください。');
         return;
     }
 

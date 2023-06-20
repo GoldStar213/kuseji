@@ -296,7 +296,7 @@
                             <div class="col-md-4 d-flex justify-content-center">
                                 <div class="drop-zone"
                                     style="background-image: url({{ old('back_img', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStdszc97zfCye1WEu5_qKSQfoCgrVjb3Zq2ntwevXMLg&usqp=CAU&ec=48600112') }}); background-size: contain;">
-                                    <span class="drop-zone__prompt"></span>
+                                    <span class="drop-zone__prompt">画像1</span>
                                     <input type="file" name="myFile" class="drop-zone__input" id="back"
                                         onchange="uploadImg('back')" accept=".png, .jpg, .jpeg" />
                                     <input type="hidden" name="back_img" id="back_img" value="{{ old('back_img') }}">
@@ -305,7 +305,7 @@
                             <div class="col-md-4 d-flex justify-content-end">
                                 <div class="drop-zone"
                                     style="background-image: url({{ old('side_img', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStdszc97zfCye1WEu5_qKSQfoCgrVjb3Zq2ntwevXMLg&usqp=CAU&ec=48600112') }}); background-size: contain;">
-                                    <span class="drop-zone__prompt"></span>
+                                    <span class="drop-zone__prompt">画像2</span>
                                     <input type="file" name="myFile" class="drop-zone__input" id="side"
                                         onchange="uploadImg('side')" accept=".png, .jpg, .jpeg" />
                                     <input type="hidden" name="side_img" id="side_img" value="">

@@ -112,26 +112,6 @@
                                 <!--end::Subtitle--->
                             </div>
                             <!--begin::Heading-->
-
-                            <!--begin::Input group--->
-                            <div class="fv-row mb-8 row">
-                                <div class="col-sm-6 mb-8 mb-sm-0">
-                                    <input type="text" placeholder="姓" name="firstname" autocomplete="off" class="form-control bg-transparent @error('firstname') is-invalid @enderror" value="{{ old('firstname') }}" />
-                                    @error('firstname')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                                <div class="col-sm-6">
-                                    <input type="text" placeholder="名" name="lastname" autocomplete="off" class="form-control bg-transparent @error('lastname') is-invalid @enderror" value="{{ old('lastname') }}" />
-                                    @error('lastname')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
                             
                             <div class="fv-row mb-8">
                                 <!--begin::Email-->

@@ -13,7 +13,8 @@
     <title>クセ字マッチング</title>
 
     <!--     Fonts and icons     -->
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
 
     <!-- Nucleo Icons -->
     <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
@@ -34,8 +35,8 @@
     <!-- Toastr -->
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
-    <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js">
+    </script>
 
     <style>
         .custom-table {
@@ -206,12 +207,12 @@
 <body class="index-page bg-gray-200">
 
     @php
-        use App\Models\Item;
-        use App\Models\User;
-        
-        $items = Item::latest()->take(4)->get();
-        $request_cnt = DB::table('request_match')->count();
-        $match_success_cnt = DB::table('request_match')->where('match_state', 1)->count();
+    use App\Models\Item;
+    use App\Models\User;
+
+    $items = Item::latest()->take(4)->get();
+    $request_cnt = DB::table('request_match')->count();
+    $match_success_cnt = DB::table('request_match')->where('match_state', 1)->count();
     @endphp
 
     <!-- Navbar -->
@@ -223,7 +224,7 @@
                     <div class="container-fluid px-0">
                         <a class="navbar-brand font-weight-bolder ms-sm-3" href="" rel="logo" title="Logo"
                             data-placement="bottom" target="_self">
-                            <img src="{{ asset('/assets/img/logo.png') }}" alt="" style="width: 10rem; height: auto;">
+                            <img src="{{ asset('/assets/img/logo.png') }}" alt="" style="width: 14rem; height: auto;">
                         </a>
                         <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
@@ -270,23 +271,55 @@
                                 @if (Route::has('login'))
                                 @auth
                                 <li class="nav-item dropdown dropdown-hover mx-2">
-                                    <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuPages" href="{{ route('myItem.index') }}">
-                                        <img src="{{ asset(Auth::user()->avatar_url) }}" alt="" class="arrow ms-md-2" style="width:25px; height: 25px; border-radius: 3px; margin-right: 10px;">
-                                        {{ Auth::user()->firstName }}{{ Auth::user()->lastName }}
+                                    <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuDocs" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <img src="{{ asset(Auth::user()->avatar_url) }}" alt="" class="arrow ms-md-2"
+                                            style="width:25px; height: 25px; border-radius: 3px; margin-right: 10px;">
+                                        {{ Auth::user()->nickname }}さん
                                     </a>
+                                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-animation dropdown-md dropdown-md-responsive mt-0 mt-lg-3 p-3 border-radius-lg me-n4" aria-labelledby="dropdownMenuDocs">
+                                        <div class="d-none d-lg-block">
+                                            <ul class="list-group">
+                                                <li class="nav-item list-group-item border-0 p-0">
+                                                    <a class="dropdown-item py-2 ps-3 border-radius-md" href="{{ route('myItem.index') }}">
+                                                        <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">マイページ</h6>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item list-group-item border-0 p-0">
+                                                    <form class="dropdown-item py-2 ps-3 border-radius-md" action="{{ route('logout') }}" method="post">
+                                                        @csrf
+                                                        <button class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0 border-0 bg-transparent w-100">ログアウト</button>
+                                                    </form>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="row d-lg-none">
+                                            <div class="col-md-12 g-0">
+                                                <a class="dropdown-item py-2 ps-3 border-radius-md"
+                                                    href="./pages/about-us.html">
+                                                    <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">マイページ</h6>
+                                                </a>
+                                                <a class="dropdown-item py-2 ps-3 border-radius-md"
+                                                    href="./pages/about-us.html">
+                                                    <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">ログアウト</h6>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </ul>
                                 </li>
                                 @else
                                 <li class="nav-item ms-lg-auto">
                                     <a class="nav-link nav-link-icon me-2" href="/login">
                                         <i class="fa fa-sign-in me-1"></i>
-                                        <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" title="ログイン">ログイン</p>
+                                        <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip"
+                                            data-bs-placement="bottom" title="ログイン">ログイン</p>
                                     </a>
                                 </li>
 
                                 <li class="nav-item ms-lg-auto">
                                     <a class="nav-link nav-link-icon me-2" href="/register">
                                         <i class="fa fa-user-plus me-1"></i>
-                                        <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" title="会員登録">会員登録</p>
+                                        <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip"
+                                            data-bs-placement="bottom" title="会員登録">会員登録</p>
                                     </a>
                                 </li>
                                 @endauth
@@ -304,20 +337,13 @@
     <script src="{{ asset('./assets/js/auth/login.js') }}"></script>
     <script src="{{ asset('./assets/js/auth/main.js') }}"></script>
 
-    <header class="header-2">
-        <div class="page-header min-vh-100 relative" style="background-image: url('./assets/img/bg4.jpg')">
-            <span class="mask opacity-4"></span>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-7 text-center mx-auto">
-                        
-                    </div>
-                </div>
-            </div>
+    <header class="header-2 mt-8">
+        <div class="container d-flex justify-content-center">
+            <img src="{{ asset('./assets/img/bg4.jpg') }}" alt="" class="w-80">
         </div>
     </header>
 
-    <div class="card card-body blur shadow-blur mx-3 mx-md-4">
+    <div class="mx-3 mx-md-4">
         <section class="pt-3 pb-4" id="">
             <div class="container">
                 <div class="row">
@@ -325,7 +351,8 @@
                         <div class="row">
                             <div class="col-md-4 position-relative">
                                 <div class="p-3 text-center">
-                                    <h1 class="text-gradient text-primary"><span id="state1" countTo="{{ $items->count() }}">0</span>
+                                    <h1 class="text-gradient text-primary"><span id="state1"
+                                            countTo="{{ $items->count() }}">0</span>
                                     </h1>
                                     <h5 class="mt-3">登録数</h5>
                                     <p class="text-sm font-weight-normal">※作品登録済みの数</p>
@@ -334,7 +361,8 @@
                             </div>
                             <div class="col-md-4 position-relative">
                                 <div class="p-3 text-center">
-                                    <h1 class="text-gradient text-primary"> <span id="state2" countTo="{{ $request_cnt }}">0</span>
+                                    <h1 class="text-gradient text-primary"> <span id="state2"
+                                            countTo="{{ $request_cnt }}">0</span>
                                     </h1>
                                     <h5 class="mt-3">交換リクエスト数</h5>
                                     <p class="text-sm font-weight-normal">※最大リクエスト数５点</p>
@@ -343,7 +371,8 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="p-3 text-center">
-                                    <h1 class="text-gradient text-primary" id="state3" countTo="{{ $match_success_cnt }}">0</h1>
+                                    <h1 class="text-gradient text-primary" id="state3"
+                                        countTo="{{ $match_success_cnt }}">0</h1>
                                     <h5 class="mt-3">マッチング成立数</h5>
                                     <p class="text-sm font-weight-normal">※１位同士なら即成立</p>
                                 </div>
@@ -359,11 +388,11 @@
                 <div class="row align-items-center">
                     <div class="col-lg-8 col-10 mx-auto text-center">
                         <div class="mb-md-5">
-                            <h3>Let's Match ＆ Exchange!</h3>
-                            <p>Business summary</p>
+                            <h3>クセコン同士の作品マッチング！</h3>
+                            <p>成立したらマッチング作品が手元に届く！</p>
                         </div>
 
-                        <a href="https://wayoh.jp/pen" class="btn btn-primary">登　録</a>
+                        <a href="https://wayoh.jp/pen" class="btn btn-primary">詳 細</a>
                     </div>
                 </div>
             </div>
@@ -393,7 +422,7 @@
                 </div>
                 <div class="row mt-5">
                     <div class="col-12 d-flex justify-content-center">
-                        <a href="https://wayoh.jp/pen" class="btn btn-primary text-center">登　録</a>
+                        <a href="https://wayoh.jp/pen" class="btn btn-primary text-center">詳 細</a>
                     </div>
                 </div>
             </div>
@@ -414,19 +443,22 @@
                 <div class="row mb-3">
                     @foreach($items as $item)
                     @php
-                        $user_id = Item::find($item->id)->user_id;
-                        $nickname = User::find($user_id)->nickname;
-                        $avatar_url = User::find($user_id)->avatar_url;
+                    $user_id = Item::find($item->id)->user_id;
+                    $nickname = User::find($user_id)->nickname;
+                    $avatar_url = User::find($user_id)->avatar_url;
                     @endphp
                     <div class="col-md-3 mt-md-0 mb-4">
                         <div class="card shadow-lg">
                             <div class="card-header p-0 mx-3 mt-3 position-relative z-index-1 move-on-hover">
                                 <a href="{{ route('item.show', ['item' => $item->id]) }}" class="d-block">
-                                    <img src="{{ asset($item->front_img) }}" class="img-fluid border-radius-lg object-fit-contain w-100" style="height: 250px;">
+                                    <img src="{{ asset($item->front_img) }}"
+                                        class="img-fluid border-radius-lg object-fit-contain w-100"
+                                        style="height: 250px;">
                                 </a>
                             </div>
                             <div class="card-body pt-3">
-                                <a href="{{ route('item.show', ['item' => $item->id]) }}" class="text-dark h5 d-block">{{ $item->title }}</a>
+                                <a href="{{ route('item.show', ['item' => $item->id]) }}"
+                                    class="text-dark h5 d-block">{{ $item->title }}</a>
                                 <p class="card-description mb-4">{{ Str::limit($item->description, 15, '...') }}</p>
                                 <div class="author align-items-center">
                                     <img src="{{ asset($avatar_url) }}" alt="" class="avatar shadow border-radius-lg">
@@ -460,7 +492,9 @@
                     </div>
                 </div>
                 <div class="row">
-                    <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1ZhjJRKGM_wQ87ILWj8V4SgvdCko_P0lb&amp;ehbc=2E312F" width="640" height="480"></iframe>
+                    <iframe
+                        src="https://www.google.com/maps/d/u/0/embed?mid=1ZhjJRKGM_wQ87ILWj8V4SgvdCko_P0lb&amp;ehbc=2E312F"
+                        width="640" height="480"></iframe>
                 </div>
             </div>
         </section>
@@ -527,7 +561,8 @@
                     class="col-md-12 mb-4 ml-auto mr-auto d-flex justify-content-center align-items-center flex-column">
                     <div>
                         <a href="/">
-                            <img src="./assets/img/logo.png" class="mb-3 footer-logo" alt="main_logo" style="scale: 1.5">
+                            <img src="./assets/img/logo.png" class="mb-3 footer-logo" alt="main_logo"
+                                style="scale: 1.5">
                         </a>
                     </div>
                     <div>

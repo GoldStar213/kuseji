@@ -21829,7 +21829,7 @@ body.dark-version {
 
 .dropdown .dropdown-menu.dropdown-menu-end {
   right: 0 !important;
-  left: -66% !important;
+  left: auto !important;
 }
 
 .dropdown .dropdown-menu.dropdown-menu-end:before {

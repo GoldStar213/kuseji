@@ -60,8 +60,8 @@ class MyItemController extends Controller
             'category' => ['required', 'max:3'],
         ],
             $messages = [
-            'back_img.required' => '背面画像が選択されていません。',
-            'side_img.required' => '側面画像が選択されていません。',
+            'back_img.required' => '画像1が選択されていません。',
+            'side_img.required' => '画像2が選択されていません。',
             'title.required' => 'タイトルは必須項目です。',
             'frontal_color.required' => '額色は必須項目です。',
             'category.required' => 'カテゴリーは必須項目です。',
