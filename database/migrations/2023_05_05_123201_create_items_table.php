@@ -23,6 +23,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->UnsignedBigInteger('join_type')->default(1);
+            $table->string('register_type')->default('nopay');
             $table->integer('view_cnt')->default(0);
             $table->timestamps();
         });

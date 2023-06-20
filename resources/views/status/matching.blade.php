@@ -59,12 +59,12 @@
                             <thead>
                                 <tr class="fw-bold text-muted bg-light">
                                     <th class="ps-4 rounded-start">番号</th>
-                                    <th class="">リクエストアイテム</th>
-                                    <th class="">アイテム所有者</th>
+                                    <th class="">リクエスト作品</th>
+                                    <th class="">作品所有者</th>
                                     <th class="">リクエスト転送時間</th>
                                     <th class="">マッチング希望</th>
-                                    <th class="">応答アイテム</th>
-                                    <th class="">アイテム所有者</th>
+                                    <th class="">応答作品</th>
+                                    <th class="">作品所有者</th>
                                     <th class="">応答時間</th>
                                     <th class="">マッチング希望</th>
                                 </tr>

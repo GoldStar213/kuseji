@@ -280,7 +280,7 @@
                     <!--end::Alert-->
 
                     <!--begin::Section-->
-                    <form class="mb-17" method="POST" action="{{ route('myItem.store') }}">
+                    <form class="mb-17" method="POST" action="{{ route('myItem.store') }}" id="myForm">
                         @csrf
                         <!--begin::Row-->
                         <div class="row g-10 mb-4">
@@ -358,7 +358,9 @@
 
                                     <!--begin::Col-->
                                     <div class="col-lg-8 fv-row">
-                                        <select aria-label="選択" id="frontal_color" name="frontal_color" data-control="select2" data-placeholder="選択" class="form-select form-select-solid form-select-lg">
+                                        <select aria-label="選択" id="frontal_color" name="frontal_color"
+                                            data-control="select2" data-placeholder="選択"
+                                            class="form-select form-select-solid form-select-lg">
                                             <option value="">選択</option>
                                             @foreach ($frontal_colors as $frontal_color)
                                             <option data-kt-flag="flags/united-states.svg"
@@ -385,7 +387,8 @@
                                             multiple size="3">
                                             <option value="">選択</option>
                                             @foreach ($categories as $category)
-                                            <option data-kt-flag="flags/united-states.svg" value="{{ $category->id }}" {{ in_array($category->id, old('category', [])) ? 'selected' : '' }}>
+                                            <option data-kt-flag="flags/united-states.svg" value="{{ $category->id }}"
+                                                {{ in_array($category->id, old('category', [])) ? 'selected' : '' }}>
                                                 {{ $category->title }}
                                             </option>
                                             @endforeach
@@ -416,9 +419,13 @@
                             </div>
                         </div>
 
+                        <input type="hidden" name="register_type" value="" id="register_type">
+
                         <div class="card-footer d-flex justify-content-end py-6 px-0">
-                            <button type="submit" class="btn btn-primary py-2"
-                                id="kt_account_profile_details_submit">セーブ</button>
+                            <button type="button" onclick="submitForm('nopay')" class="btn btn-primary py-2 me-2"
+                                id="kt_account_profile_details_submit"> 一時保存 </button>
+                            <button type="button" onclick="submitForm('pay')" class="btn btn-primary py-2 ms-2"
+                                id="kt_account_profile_details_submit"> 決 済 </button>
                         </div>
                     </form>
                     <!--end::Section-->
@@ -438,30 +445,35 @@
 
 <script>
     var divWidth = $('.image-input-wrapper').width(); 
+    $('.image-input-wrapper').height(divWidth);
+    $(window).resize(function(){
         $('.image-input-wrapper').height(divWidth);
-        $(window).resize(function(){
-            $('.image-input-wrapper').height(divWidth);
-        });
+    });
 
-        function uploadImg(pos) {
-            var inputElement = document.querySelector('#' + pos);
+    function uploadImg(pos) {
+        var inputElement = document.querySelector('#' + pos);
 
-            var file = inputElement.files[0];
-            var reader = new FileReader();
-            reader.onload = function() {
+        var file = inputElement.files[0];
+        var reader = new FileReader();
+        reader.onload = function() {
 
-                // Convert the binary data to a base64-encoded string
-                var base64String = btoa(reader.result);
+            // Convert the binary data to a base64-encoded string
+            var base64String = btoa(reader.result);
 
-                // Use the base64-encoded string as needed
-                base64String = 'data:' + file.type + ';base64,' + base64String;
+            // Use the base64-encoded string as needed
+            base64String = 'data:' + file.type + ';base64,' + base64String;
 
-                $('#' + pos + '_img').val(base64String);
+            $('#' + pos + '_img').val(base64String);
 
-            };
+        };
 
-            reader.readAsBinaryString(file);
-        }
+        reader.readAsBinaryString(file);
+    }
+
+    function submitForm(param) {
+        $('#register_type').val(param);
+        $('#myForm').off('submit').submit();
+    }
 </script>
 
 <script>

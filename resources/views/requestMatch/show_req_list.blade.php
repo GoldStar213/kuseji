@@ -51,8 +51,8 @@
                                 <thead class="fs-7 text-gray-400 text-uppercase">
                                     <tr>
                                         <th class="min-w-50px">番号</th>
-                                        <th class="min-w-250px">リクエストアイテム</th>
-                                        <th class="min-w-150px">交換アイテム</th>
+                                        <th class="min-w-250px">リクエスト作品</th>
+                                        <th class="min-w-150px">交換作品</th>
                                         <th class="min-w-90px">希望も</th>
                                         <th class="min-w-90px">リクエスト日</th>
                                         <th class="min-w-90px">合意状態</th>

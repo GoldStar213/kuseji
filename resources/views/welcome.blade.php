@@ -257,7 +257,7 @@
                                     <a class="nav-link nav-link-icon" href="/#goods" target="_self">
                                         <i class="fa fa-list me-1"></i>
                                         <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip"
-                                            data-bs-placement="bottom" title="アイテムリスト">アイテムリスト</p>
+                                            data-bs-placement="bottom" title="作品リスト">作品リスト</p>
                                     </a>
                                 </li>
 
@@ -433,7 +433,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-8 col-10 mx-auto text-center">
                         <div class="mb-md-5">
-                            <h3>最近登録されたアイテム</h3>
+                            <h3>最近登録された作品</h3>
                             <p>Recently Registered Items</p>
                         </div>
                     </div>

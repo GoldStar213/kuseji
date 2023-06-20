@@ -74,7 +74,7 @@ function addItem() {
     }
 
     if(itemTitle == "") {
-        toastr.warning('アイテムのタイトルを入力してください。');
+        toastr.warning('作品のタイトルを入力してください。');
         $('#itemTitle').focus();
         return;
     }

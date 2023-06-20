@@ -97,7 +97,7 @@
                             <div class="d-flex flex-wrap flex-stack pb-7">
                                 <!--begin::Title-->
                                 <div class="d-flex flex-wrap align-items-center my-1">
-                                    <h3 class="fw-bold me-5 my-1">所有アイテム：{{ $myItems->count() }}件</h3>
+                                    <h3 class="fw-bold me-5 my-1">所有作品：{{ $myItems->count() }}件</h3>
                                 </div>
                                 <!--end::Title-->
                             </div>
@@ -115,8 +115,8 @@
                                                                     <th class="min-w-250px sorting" tabindex="0"
                                                                         aria-controls="kt_project_users_table"
                                                                         rowspan="1" colspan="1"
-                                                                        aria-label="アイテム情報: activate to sort column ascending"
-                                                                        style="width: 300.641px;">アイテム情報</th>
+                                                                        aria-label="作品情報: activate to sort column ascending"
+                                                                        style="width: 300.641px;">作品情報</th>
                                                                     <th class="min-w-150px sorting" tabindex="0"
                                                                         aria-controls="kt_project_users_table"
                                                                         rowspan="1" colspan="1"

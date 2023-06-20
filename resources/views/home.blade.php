@@ -40,7 +40,7 @@
             <!--begin::Actions-->
             <div class="d-flex align-items-center gap-2 gap-lg-3">
                 <!--begin::Primary button-->
-                <a href="" class="btn btn-sm fw-bold btn-primary">アイテム登録 </a>
+                <a href="" class="btn btn-sm fw-bold btn-primary">作品登録 </a>
                 <!--end::Primary button-->
             </div>
             <!--end::Actions-->

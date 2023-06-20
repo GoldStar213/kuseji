@@ -59,7 +59,7 @@
             <!--begin::Page title-->
             <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3 ">
                 <!--begin::Title-->
-                <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">アイテム詳細を見る</h1>
+                <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">作品詳細を見る</h1>
                 <!--end::Title-->
             </div>
             <!--end::Page title-->
@@ -245,7 +245,7 @@
                             
                             <!--begin::Recent posts-->
                             <div class="m-0">
-                                <h4 class="text-dark mb-7">最近登録したアイテム</h4>
+                                <h4 class="text-dark mb-7">最近登録した作品</h4>
 
                                 <!--begin::Item-->
                                 @foreach ($recently_items as $recently_item)

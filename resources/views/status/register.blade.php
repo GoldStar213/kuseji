@@ -39,7 +39,7 @@
                 <!--begin::Header-->
                 <div class="card-header border-0 pt-5">
                     <h3 class="card-title align-items-start flex-column">
-                        <span class="card-label fw-bold fs-3 mb-1">{{ $items->count() }} 件のアイテムが登録されました。</span>
+                        <span class="card-label fw-bold fs-3 mb-1">{{ $items->count() }} 件の作品が登録されました。</span>
                     </h3>
                     <div class="card-toolbar">
                         <a href="javascript:;downloadCSV()" class="btn btn-sm btn-light-primary">

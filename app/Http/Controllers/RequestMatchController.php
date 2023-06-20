@@ -49,9 +49,9 @@ class RequestMatchController extends Controller
             'grade' => ['required'],
         ],
         $messages = [
-            'second_item_id.required' => '交換したいアイテムを選択してください。',
+            'second_item_id.required' => '交換したい作品を選択してください。',
             'message.required' => 'メッセージ項目は必須です。',
-            'grade.required' => 'リクエスト希望アイテムは必須です。',
+            'grade.required' => 'リクエスト希望作品は必須です。',
         ]);
 
 

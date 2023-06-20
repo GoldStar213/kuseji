@@ -13,14 +13,14 @@
             <!--begin::Page title-->
             <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3 ">
                 <!--begin::Title-->
-                <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">私のアイテム</h1>
+                <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">私の作品</h1>
                 <!--end::Title-->
             </div>
             <!--end::Page title-->
             <!--begin::Actions-->
             <div class="d-flex align-items-center gap-2 gap-lg-3">
                 <!--begin::Primary button-->
-                <a href="{{ route('matching.create') }}" class="btn btn-sm fw-bold btn-primary">アイテム登録</a>
+                <a href="{{ route('matching.create') }}" class="btn btn-sm fw-bold btn-primary">作品登録</a>
                 <!--end::Primary button-->
             </div>
             <!--end::Actions-->

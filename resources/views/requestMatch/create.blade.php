@@ -209,7 +209,7 @@
                             <!--begin::Col-->
                             <div class="col-md-6">
                                 <div class="row me-lg-6 mb-10">
-                                    <select class="form-select" data-control="select2" data-placeholder="アイテム選択" name="second_item_id">
+                                    <select class="form-select" data-control="select2" data-placeholder="作品選択" name="second_item_id">
                                         <option></option>
                                         @foreach($myItems as $myItem)
                                             <option value="{{ $myItem->id }}" {{ old('second_item_id') == $myItem->id ? 'selected' : '' }}>{{ $myItem->title }}</option>
@@ -217,7 +217,7 @@
                                     </select>
                                 </div>
                                 <div class="row me-lg-6 mb-10 px-3">
-                                    <textarea name="message" id="" class="form-control" cols="30" rows="8" placeholder="アイテムを交換したい理由や説明文を記載してください。">{{ old('message') }}</textarea>
+                                    <textarea name="message" id="" class="form-control" cols="30" rows="8" placeholder="作品を交換したい理由や説明文を記載してください。">{{ old('message') }}</textarea>
                                 </div>
                                 <div class="row me-lg-6 mb-10">
                                     <select class="form-select" name="grade" data-control="select2" data-placeholder="リクエスト順位">

@@ -328,7 +328,7 @@ use Illuminate\Support\Str;
                                                     <span class="path2"></span>
                                                 </i>
                                             </span>
-                                            <span class="menu-title">私のアイテム</span>
+                                            <span class="menu-title">私の作品</span>
                                             <span class="menu-arrow"></span>
                                         </span>
                                         <!--end:Menu link-->

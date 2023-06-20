@@ -26,7 +26,7 @@
                     <table id="kt_project_users_table" class="table table-row-bordered table-row-dashed gy-4 align-middle fw-bold">
                         <thead class="fs-7 text-gray-400 text-uppercase">
                             <tr>
-                                <th class="min-w-200px">アイテム情報</th>
+                                <th class="min-w-200px">作品情報</th>
                                 <th class="min-w-100px">所有者</th>
                                 <th class="min-w-150px">登録日</th>
                                 <th class="min-w-90px">閲覧数</th>

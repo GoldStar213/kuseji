@@ -36,8 +36,8 @@ class CsvController extends Controller
         //adding the first row
         fputcsv($handle, [
             "番号",
-            "アイテム名",
-            "アイテム説明",
+            "作品名",
+            "作品説明",
             "登録者名",
             "ペンネーム",
             "都道府県",
@@ -95,12 +95,12 @@ class CsvController extends Controller
         //adding the first row
         fputcsv($handle, [
             "番号",
-            "リクエストアイテム",
-            "アイテム所有者",
+            "リクエスト作品",
+            "作品所有者",
             "リクエスト転送時間",
             "マッチング希望",
-            "応答アイテム",
-            "アイテム所有者",
+            "応答作品",
+            "作品所有者",
             "応答時間",
             "マッチング希望",
         ]);

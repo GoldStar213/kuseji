@@ -51,6 +51,7 @@ class MyItemController extends Controller
      */
     public function store(Request $request)
     {
+        // return $request->register_type;
         $request->validate(
             [
             'back_img' => ['required'],
@@ -77,7 +78,7 @@ class MyItemController extends Controller
         $frontal_color = $request->frontal_color;
         $categories = $request->category;
 
-        if($request->join_type == 0) {
+        if($request->register_type == 'pay') {
             
             Session::put("front_img", $front_img);
             Session::put("back_img", $back_img);
@@ -87,6 +88,7 @@ class MyItemController extends Controller
             Session::put("frontal_color", $frontal_color);
             Session::put("categories", $categories);
             Session::put("join_type", $request->join_type);
+            Session::put("register_type", $request->register_type);
 
             $provider = new PayPalClient();
             $provider->setApiCredentials(config('paypal'));
@@ -121,7 +123,8 @@ class MyItemController extends Controller
                     ->route('myItem.index')
                     ->with('error', $response['message'] ?? 'Something went wrong.');
             }
-        } else {
+        } 
+        if($request->register_type == 'nopay') {
             $item = Item::create([
                 'title' => $title,
                 'description' => $description,
@@ -356,7 +359,8 @@ class MyItemController extends Controller
                 'side_img' => $this->saveImage('side', Session::get('side_img')),
                 'frontal_color_id' => Session::get('frontal_color'),
                 'user_id' => Auth::user()->id,
-                'join_type' => Session::get('join_type')
+                'join_type' => Session::get('join_type'),
+                'register_type' => Session::get('register_type')
             ]);
 
             $item_id = Item::max('id');

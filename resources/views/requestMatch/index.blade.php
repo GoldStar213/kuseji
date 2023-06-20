@@ -18,7 +18,7 @@
             <!--begin::Page title-->
             <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3 ">
                 <!--begin::Title-->
-                <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">アイテムリスト</h1>
+                <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">作品リスト</h1>
                 <!--end::Title-->
             </div>
             <!--end::Page title-->
@@ -50,7 +50,7 @@
                                         <span class="path1"></span>
                                         <span class="path2"></span>
                                     </i>
-                                    <input type="text" class="form-control form-control-solid ps-10" name="item_name" id="item_name" value="{{ old('item_name') }}" placeholder="アイテム名">
+                                    <input type="text" class="form-control form-control-solid ps-10" name="item_name" id="item_name" value="{{ old('item_name') }}" placeholder="作品名">
                                 </div>
                                 <!--end:Search-->
 
