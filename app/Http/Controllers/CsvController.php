@@ -14,11 +14,13 @@ use File;
 class CsvController extends Controller
 {
     public function register_csv() {
+
         $items = Item::get();
 
         // these are the headers for the csv file. Not required but good to have one incase of system didn't recongize it properly
         $headers = array(
-            'Content-Type' => 'text/csv'
+            "Content-Encoding" => "UTF-8",
+            "Content-type" => "text/csv; charset=UTF-8",
         );
 
 
@@ -35,17 +37,17 @@ class CsvController extends Controller
 
         //adding the first row
         fputcsv($handle, [
-            "番号",
-            "作品名",
-            "作品説明",
-            "登録者名",
-            "ペンネーム",
-            "都道府県",
-            "市区町村",
-            "ツイッター",
-            "インスタ",
-            "TikTok",
-            "登録日",
+            mb_convert_encoding("番号", 'UTF-8', 'auto'),
+            mb_convert_encoding("作品名", 'UTF-8', 'auto'),
+            mb_convert_encoding("作品説明", 'UTF-8', 'auto'),
+            mb_convert_encoding("登録者名", 'UTF-8', 'auto'),
+            mb_convert_encoding("ペンネーム", 'UTF-8', 'auto'),
+            mb_convert_encoding("都道府県", 'UTF-8', 'auto'),
+            mb_convert_encoding("市区町村", 'UTF-8', 'auto'),
+            mb_convert_encoding("ツイッター", 'UTF-8', 'auto'),
+            mb_convert_encoding("インスタ", 'UTF-8', 'auto'),
+            mb_convert_encoding("TikTok", 'UTF-8', 'auto'),
+            mb_convert_encoding("登録日", 'UTF-8', 'auto'),
         ]);
 
         //adding the data from the array
@@ -54,12 +56,12 @@ class CsvController extends Controller
             $user = User::find($item->user_id);
             fputcsv($handle, [
                 $i ++,
-                $item->title,
-                $item->description,
-                $user->firstname . " " . $user->lastname,
-                $user->nickname,
-                $user->prefectures,
-                $user->house_number,
+                mb_convert_encoding($item->title, 'UTF-8', 'auto'),
+                mb_convert_encoding($item->description, 'UTF-8', 'auto'),
+                mb_convert_encoding($user->firstname . " " . $user->lastname, 'UTF-8', 'auto'),
+                mb_convert_encoding($user->nickname, 'UTF-8', 'auto'),
+                mb_convert_encoding($user->prefectures, 'UTF-8', 'auto'),
+                mb_convert_encoding($user->house_number, 'UTF-8', 'auto'),
                 $user->twitter,
                 $user->instagram,
                 $user->tiktok,
@@ -78,7 +80,8 @@ class CsvController extends Controller
         $request_matches = DB::table('request_match')->where('match_state', 1)->get();
 
         $headers = array(
-            'Content-Type' => 'text/csv'
+            "Content-Encoding" => "UTF-8",
+            "Content-type" => "text/csv; charset=UTF-8",
         );
 
 
@@ -94,15 +97,15 @@ class CsvController extends Controller
 
         //adding the first row
         fputcsv($handle, [
-            "番号",
-            "リクエスト作品",
-            "作品所有者",
-            "リクエスト転送時間",
-            "マッチング希望",
-            "応答作品",
-            "作品所有者",
-            "応答時間",
-            "マッチング希望",
+            mb_convert_encoding("番号", 'UTF-8', 'auto'),
+            mb_convert_encoding("リクエスト作品", 'UTF-8', 'auto'),
+            mb_convert_encoding("作品所有者", 'UTF-8', 'auto'),
+            mb_convert_encoding("リクエスト転送時間", 'UTF-8', 'auto'),
+            mb_convert_encoding("マッチング希望", 'UTF-8', 'auto'),
+            mb_convert_encoding("応答作品", 'UTF-8', 'auto'),
+            mb_convert_encoding("作品所有者", 'UTF-8', 'auto'),
+            mb_convert_encoding("応答時間", 'UTF-8', 'auto'),
+            mb_convert_encoding("マッチング希望", 'UTF-8', 'auto'),
         ]);
 
         //adding the data from the array
@@ -115,11 +118,11 @@ class CsvController extends Controller
             fputcsv($handle, [
                 $i ++,
                 url('/') . $first_item->front_img,
-                $first_user->firstname . " " . $first_user->lastname,
+                mb_convert_encoding($first_user->nickname, 'UTF-8', 'auto'),
                 $request_match->send_date,
                 $request_match->grade,
                 url('/') . $second_item->front_img,
-                $second_user->firstname . " " . $second_user->lastname,
+                mb_convert_encoding($second_user->nickname, 'UTF-8', 'auto'),
                 $request_match->receive_date,
                 $request_match->receive_grade,
             ]);

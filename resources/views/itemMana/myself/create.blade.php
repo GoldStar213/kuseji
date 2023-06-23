@@ -427,9 +427,11 @@
                             <button type="button" onclick="submitForm('pay')" class="btn btn-primary py-2 ms-2"
                                 id="kt_account_profile_details_submit"> 決 済 </button>
                         </div>
+                        <div class="row">
+                            <span class="text-right" style="text-align: end;">「決済＝出品可能」なので、一旦仮入力で決済後に編集してください」</span>
+                        </div>
                     </form>
                     <!--end::Section-->
-
                 </div>
                 <!--end::Body-->
             </div>

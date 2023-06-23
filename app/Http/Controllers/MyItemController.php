@@ -428,6 +428,7 @@ class MyItemController extends Controller
             $item->frontal_color_id = Session::get('frontal_color');
             $item->user_id = Auth::user()->id;
             $item->join_type = Session::get('join_type');
+            $item->register_type = Session::get('register_type');
 
             $item->save();
 

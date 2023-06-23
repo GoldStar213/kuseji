@@ -209,7 +209,7 @@
                             <!--begin::Col-->
                             <div class="col-md-6">
                                 <div class="row me-lg-6 mb-10">
-                                    <select class="form-select" data-control="select2" data-placeholder="作品選択" name="second_item_id">
+                                    <select class="form-select" data-control="select2" data-placeholder="交換したい作品を選択" name="second_item_id">
                                         <option></option>
                                         @foreach($myItems as $myItem)
                                             <option value="{{ $myItem->id }}" {{ old('second_item_id') == $myItem->id ? 'selected' : '' }}>{{ $myItem->title }}</option>

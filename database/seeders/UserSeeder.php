@@ -25,7 +25,7 @@ class UserSeeder extends Seeder
             'house_number' => '岡山市北区',
             'building_name' => '大供',
             'profile_complete_state' => '1',
-            'email' => 'seniordev731@gmail.com',
+            'email' => 'robogirl9032-dogger@yahoo.co.jp',
             'email_verified_at' => now(),
             'password' => Hash::make('superadmin'),
             'remember_token' => Str::random(64),
