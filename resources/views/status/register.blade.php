@@ -88,7 +88,7 @@
 
                                             <!--begin::Name-->
                                             <div class="d-flex justify-content-start flex-column">
-                                                <label class="text-dark fw-bold text-hover-primary mb-1 fs-6">{{ $user->firstname }} {{ $user->lastname }}</label>
+                                                <label class="text-dark fw-bold text-hover-primary mb-1 fs-6">{{ $user->nickname }}</label>
                                             </div>
                                             <!--end::Name-->
                                         </div>
