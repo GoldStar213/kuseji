@@ -294,14 +294,13 @@
                                         </div>
                                         <div class="row d-lg-none">
                                             <div class="col-md-12 g-0">
-                                                <a class="dropdown-item py-2 ps-3 border-radius-md"
-                                                    href="./pages/about-us.html">
+                                                <a class="dropdown-item py-2 ps-3 border-radius-md" href="{{ route('myItem.index') }}">
                                                     <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">マイページ</h6>
                                                 </a>
-                                                <a class="dropdown-item py-2 ps-3 border-radius-md"
-                                                    href="./pages/about-us.html">
-                                                    <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">ログアウト</h6>
-                                                </a>
+                                                <form class="dropdown-item py-2 ps-3 border-radius-md" action="{{ route('logout') }}" method="post">
+                                                    @csrf
+                                                    <button class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0 border-0 bg-transparent w-100">ログアウト</button>
+                                                </form>
                                             </div>
                                         </div>
                                     </ul>

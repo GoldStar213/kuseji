@@ -74,7 +74,6 @@
                                             </div>
                                         </div>
                                     </td>
-
                                     <td>
                                         @php
                                             $user = User::find($item->user_id);
@@ -92,9 +91,6 @@
                                             </div>
                                             <!--end::Name-->
                                         </div>
-                                    </td>
-                                    <td class="text-muted fw-semibold text-center">
-                                        {{ $user->prefectures }} {{ $user->house_number }} {{ $user->building_name }}
                                     </td>
                                     <td class="text-muted fw-semibold text-center">{{ $item->created_at->format('Y-m-d H-i') }}</td>
                                 </tr>

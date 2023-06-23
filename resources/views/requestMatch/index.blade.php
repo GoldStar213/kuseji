@@ -32,8 +32,7 @@
 
 
         <!--begin::Content container-->
-        <div id="kt_app_content_container" class="app-container  container-xxl "
-            data-select2-id="select2-data-kt_app_content_container">
+        <div id="kt_app_content_container" class="app-container  container-xxl" data-select2-id="select2-data-kt_app_content_container">
             <!--begin::Search vertical-->
             <div class="d-flex flex-column flex-lg-row" data-select2-id="select2-data-132-7bgl">
                 <!--begin::Aside-->

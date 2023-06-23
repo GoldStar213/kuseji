@@ -99,7 +99,7 @@
 
                                             <!--begin::Name-->
                                             <div class="d-flex justify-content-start flex-column">
-                                                <label class="text-dark fw-bold text-hover-primary mb-1 fs-6">{{ $first_user->firstname }} {{ $first_user->lastname }}</label>
+                                                <label class="text-dark fw-bold text-hover-primary mb-1 fs-6">{{ $first_user->nickname }}</label>
                                             </div>
                                             <!--end::Name-->
                                         </div>
@@ -123,7 +123,7 @@
 
                                             <!--begin::Name-->
                                             <div class="d-flex justify-content-start flex-column">
-                                                <label class="text-dark fw-bold text-hover-primary mb-1 fs-6">{{ $second_user->firstname }} {{ $second_user->lastname }}</label>
+                                                <label class="text-dark fw-bold text-hover-primary mb-1 fs-6">{{ $second_user->nickname }}</label>
                                             </div>
                                             <!--end::Name-->
                                         </div>
