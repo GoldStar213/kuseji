@@ -445,6 +445,7 @@ use Illuminate\Support\Str;
                                         </div>
                                         <!--end:Menu item-->
 
+                                        @if(Auth::user()->id == 1)
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
@@ -461,6 +462,7 @@ use Illuminate\Support\Str;
                                             <!--end:Menu link-->
                                         </div>
                                         <!--end:Menu item-->
+                                        @endif
                                     </div>
                                     <!--end::Menu-->
                                 </div>
