@@ -117,6 +117,26 @@
                         </div>
                         @enderror
 
+                        @error('nopay')
+                        <div class="alert alert-danger d-flex align-items-center px-5 py-3">
+                            <!--begin::Icon-->
+                            <i class="ki-duotone ki-information-2 fs-2hx text-danger me-4">
+                                <span class="path1"></span>
+                                <span class="path2"></span>
+                                <span class="path3"></span>
+                            </i>
+                            <!--end::Icon-->
+
+                            <!--begin::Wrapper-->
+                            <div class="d-flex flex-column">
+                                <!--begin::Content-->
+                                <span>{{ $message}}</span>
+                                <!--end::Content-->
+                            </div>
+                            <!--end::Wrapper-->
+                        </div>
+                        @enderror
+
                         @if(session('success'))
                         <div class="alert alert-success d-flex align-items-center px-5 py-3">
                             <!--begin::Icon-->

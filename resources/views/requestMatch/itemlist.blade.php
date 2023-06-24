@@ -44,9 +44,9 @@
                                             <!--begin::Wrapper-->
                                             <div class="me-5 position-relative">
                                                 <!--begin::Avatar-->
-                                                <div class="symbol symbol-70px">
+                                                <a class="symbol symbol-70px" href="{{ route('item.show', ['item' => $item->id]) }}">
                                                     <img alt="Pic" src="{{ asset($item->front_img) }}" />
-                                                </div>
+                                                </a>
                                                 <!--end::Avatar-->
 
                                             </div>

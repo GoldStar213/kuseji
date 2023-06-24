@@ -55,16 +55,20 @@ class RequestMatchController extends Controller
             'grade.required' => 'リクエスト希望作品は必須です。',
         ]);
 
-
-        if(DB::table('request_match')->where('first_item', $request->first_item_id)->where('first_item', $request->first_item_id)->count() > 0) {
-            return redirect()->back()->withErrors(['already' => 'この現在の作品についてはすでにリクエストを送信しています。']);
-        }
-
         $first_item = Item::find($request->first_item_id);
         $first_user = User::find($first_item->user_id);
 
         $second_item = Item::find($request->second_item_id);
         $second_user = User::find($second_item->user_id);
+
+        if($first_item->register_type != 'pay') {
+            return redirect()->back()->withErrors(['nopay' => '決済が完了した作品に対してのみマッチングリクエストを送信することができます。']);
+        }
+
+
+        if(DB::table('request_match')->where('first_item', $request->first_item_id)->where('first_item', $request->first_item_id)->count() > 0) {
+            return redirect()->back()->withErrors(['already' => 'この現在の作品についてはすでにリクエストを送信しています。']);
+        }
 
         $headers = [
             'Content-Type' => 'text/html; charset=UTF-8',
@@ -73,7 +77,7 @@ class RequestMatchController extends Controller
         
         mail($first_user->email, 'クセ字交換会のマッチングリクエストが届いています。', $first_user->nickname . '様からクセ字交換会のマッチングリクエストが届いています。<br><br>以下のURLからご確認いただけます。<br><br>' . url('/') . '/requestMatch_inbox', $headers);
 
-        mail($second_user->email, 'クセ字交換会のマッチングリクエストが届いています。', $second_user->nickname . '様にマッチングリクエストが送信されました。', $headers);
+        mail($second_user->email, 'クセ字交換会のマッチングリクエストが届いています。', $first_user->nickname . '様にマッチングリクエストが送信されました。', $headers);
 
         DB::table('request_match')->insert([
             'first_item' => $request->first_item_id,
@@ -85,7 +89,7 @@ class RequestMatchController extends Controller
             'updated_at' => now(),
         ]);
 
-        return redirect()->back()->with('success', '資料が成果的に保管されました。');
+        return redirect()->back()->with('success', 'マッチングリクエストが成果的に送信されました。');
     }
 
     /**
