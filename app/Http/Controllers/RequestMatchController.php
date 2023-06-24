@@ -71,7 +71,9 @@ class RequestMatchController extends Controller
             'X-Mailer' => 'PHP/' . phpversion()
         ];
         
-        mail($first_user->email, 'クセ字交換会のマッチングリクエストが届いています。', 'A様からクセ字交換会のマッチングリクエストが届いています。<br>以下のURLからご確認いただけます。<br>' . url('/') . '/requestMatch_inbox', $headers);
+        mail($first_user->email, 'クセ字交換会のマッチングリクエストが届いています。', $first_user->nickname . '様からクセ字交換会のマッチングリクエストが届いています。<br><br>以下のURLからご確認いただけます。<br><br>' . url('/') . '/requestMatch_inbox', $headers);
+
+        mail($second_user->email, 'クセ字交換会のマッチングリクエストが届いています。', $second_user->nickname . '様にマッチングリクエストが送信されました。', $headers);
 
         DB::table('request_match')->insert([
             'first_item' => $request->first_item_id,
@@ -82,8 +84,6 @@ class RequestMatchController extends Controller
             'created_at' => now(),
             'updated_at' => now(),
         ]);
-
-        mail('', '$subject', '$txt', '$headers');
 
         return redirect()->back()->with('success', '資料が成果的に保管されました。');
     }
