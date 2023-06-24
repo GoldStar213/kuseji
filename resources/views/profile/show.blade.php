@@ -231,7 +231,7 @@
                     <!--begin::Input group-->
                     <div class="row mb-6">
                         <!--begin::Label-->
-                        <label class="col-lg-4 col-form-label fw-semibold fs-6 required" for="phone_number">電話番号</label>
+                        <label class="col-lg-4 col-form-label fw-semibold fs-6" for="phone_number">電話番号</label>
                         <!--end::Label-->
 
                         <!--begin::Col-->
@@ -255,7 +255,7 @@
 
                         <!--begin::Col-->
                         <div class="col-lg-8 fv-row">
-                            <input type="text" name="twitter" class="form-control form-control-lg form-control-solid" placeholder="https://twitter.com/idの中から(id)のみを入力してください。" value="{{ old('twitter', Auth::user()->twitter) }}" />
+                            <input type="text" name="twitter" class="form-control form-control-lg form-control-solid" placeholder="https://twitter.com/idの中から(id)のみを入力してください。" value="{{ old('twitter', str_replace('https://twitter.com/', '', Auth::user()->twitter)) }}" />
                         </div>
                         <!--end::Col-->
                     </div>
@@ -269,7 +269,7 @@
 
                         <!--begin::Col-->
                         <div class="col-lg-8 fv-row">
-                            <input type="text" name="instagram" class="form-control form-control-lg form-control-solid" placeholder="https://www.instagram.com/idの中から(id)のみを入力してください。" value="{{ old('instagram', Auth::user()->instagram) }}" />
+                            <input type="text" name="instagram" class="form-control form-control-lg form-control-solid" placeholder="https://www.instagram.com/idの中から(id)のみを入力してください。" value="{{ old('instagram', str_replace('https://www.instagram.com/', '', Auth::user()->instagram)) }}" />
                         </div>
                         <!--end::Col-->
                     </div>
@@ -283,7 +283,7 @@
 
                         <!--begin::Col-->
                         <div class="col-lg-8 fv-row">
-                            <input type="text" name="tiktok" class="form-control form-control-lg form-control-solid" placeholder="https://www.tiktok.com/@idの中から(id)のみを入力してください。" value="{{ old('tiktok', Auth::user()->tiktok) }}" />
+                            <input type="text" name="tiktok" class="form-control form-control-lg form-control-solid" placeholder="https://www.tiktok.com/@idの中から(id)のみを入力してください。" value="{{ old('tiktok', str_replace('https://www.tiktok.com/@', '', Auth::user()->tiktok)) }}" />
                         </div>
                         <!--end::Col-->
                     </div>

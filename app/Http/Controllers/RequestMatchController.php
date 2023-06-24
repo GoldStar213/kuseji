@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Item;
+use App\Models\User;
 use App\Models\Matching;
 use App\Models\Category;
 use App\Models\FrontalColor;
@@ -56,8 +57,16 @@ class RequestMatchController extends Controller
 
 
         if(DB::table('request_match')->where('first_item', $request->first_item_id)->where('first_item', $request->first_item_id)->count() > 0) {
-            return redirect()->back()->withErrors(['already' => 'この現在の項目についてはすでにリクエストを送信しています。']);
+            return redirect()->back()->withErrors(['already' => 'この現在の作品についてはすでにリクエストを送信しています。']);
         }
+
+        $first_item = Item::find($request->first_item_id);
+        $first_user = User::find($first_item->user_id);
+
+        $second_item = Item::find($request->second_item_id);
+        $second_user = User::find($second_item->user_id);
+        
+        mail($first_user->email, 'マッチングリクエストが届いています。', 'A様からマッチングリクエストが届いています。<br>以下のURLからご確認いただけます。<br>' . url('/') . '/requestMatch_inbox', 'asdasd');
 
         DB::table('request_match')->insert([
             'first_item' => $request->first_item_id,
@@ -68,6 +77,8 @@ class RequestMatchController extends Controller
             'created_at' => now(),
             'updated_at' => now(),
         ]);
+
+        mail('', '$subject', '$txt', '$headers');
 
         return redirect()->back()->with('success', '資料が成果的に保管されました。');
     }
