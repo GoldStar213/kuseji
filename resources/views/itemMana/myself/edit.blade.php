@@ -272,6 +272,25 @@
                             <!--end::Wrapper-->
                         </div>
                         @endif
+
+                        @if(session('myItem_Update_Success'))
+                        <div class="alert alert-success d-flex align-items-center px-5 py-3">
+                            <!--begin::Icon-->
+                            <i class="ki-duotone ki-shield-tick fs-2hx text-success me-4">
+                                <span class="path1"></span>
+                                <span class="path2"></span>
+                            </i>
+                            <!--end::Icon-->
+
+                            <!--begin::Wrapper-->
+                            <div class="d-flex flex-column">
+                                <!--begin::Content-->
+                                <span>{{ session('myItem_Update_Success') }}</span>
+                                <!--end::Content-->
+                            </div>
+                            <!--end::Wrapper-->
+                        </div>
+                        @endif
                         <!--end::Alert-->
                         
                         <!--begin::Section-->

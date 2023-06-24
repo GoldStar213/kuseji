@@ -415,7 +415,7 @@
                         </p>
                     </div>
                     <div class="col-md-5 col-12 my-auto">
-                        <img class="w-100 border-radius-lg shadow-lg" src="{{ asset('./assets/img/company.jpg') }}"
+                        <img class="w-100 border-radius-lg shadow-lg" src="{{ asset('./assets/img/company.png') }}"
                             alt="Product Image">
                     </div>
                 </div>
@@ -452,7 +452,7 @@
                                 <a href="{{ route('item.show', ['item' => $item->id]) }}" class="d-block">
                                     <img src="{{ asset($item->front_img) }}"
                                         class="img-fluid border-radius-lg object-fit-contain w-100"
-                                        style="height: 250px;">
+                                        style="height: 250px; object-fit:contain;">
                                 </a>
                             </div>
                             <div class="card-body pt-3">
@@ -486,7 +486,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-8 col-10 mx-auto text-center">
                         <div class="mb-md-5">
-                            <h3>応募者の全国分布図</h3>
+                            <img src="{{ asset('/assets/img/map_title.png') }}" class="w-75" alt="応募者の全国分布図">
                         </div>
                     </div>
                 </div>
