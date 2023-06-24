@@ -65,8 +65,13 @@ class RequestMatchController extends Controller
 
         $second_item = Item::find($request->second_item_id);
         $second_user = User::find($second_item->user_id);
+
+        $headers = [
+            'Content-Type' => 'text/html; charset=UTF-8',
+            'X-Mailer' => 'PHP/' . phpversion()
+        ];
         
-        mail($first_user->email, 'マッチングリクエストが届いています。', 'A様からマッチングリクエストが届いています。<br>以下のURLからご確認いただけます。<br>' . url('/') . '/requestMatch_inbox', 'asdasd');
+        mail($first_user->email, 'クセ字交換会のマッチングリクエストが届いています。', 'A様からクセ字交換会のマッチングリクエストが届いています。<br>以下のURLからご確認いただけます。<br>' . url('/') . '/requestMatch_inbox', $headers);
 
         DB::table('request_match')->insert([
             'first_item' => $request->first_item_id,
