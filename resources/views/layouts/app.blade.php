@@ -1,5 +1,9 @@
 @php
 use Illuminate\Support\Str;
+
+use App\Models\User;
+use App\Models\Item;
+use App\Models\RequestMatch;
 @endphp
 
 <!DOCTYPE html>
@@ -165,9 +169,30 @@ use Illuminate\Support\Str;
                         </div>
                         <!--end::Menu wrapper-->
 
+                        @php
+                            $request_matches = RequestMatch::all();
+                            // print_r($request_matches_inbox->count());
+                            foreach ($request_matches as $request_match) {
+                                // if($request_match->items_second->user_id)
+                            }
+                        @endphp
+
 
                         <!--begin::Navbar-->
                         <div class="app-navbar flex-shrink-0">
+
+                            <div class="app-navbar-item ms-1 ms-md-3">
+                                <!--begin::Menu wrapper-->
+                                <div class="btn btn-icon btn-custom btn-icon-muted btn-active-light btn-active-color-primary w-30px h-30px w-md-40px h-md-40px position-relative" id="kt_activities_toggle">
+                                    <i class="ki-duotone ki-message-text-2 fs-2 fs-lg-1">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                        <span class="path3"></span>
+                                    </i>
+                                    <span class="bullet bullet-dot bg-success h-6px w-6px position-absolute translate-middle top-0 start-50 animation-blink"></span>
+                                </div>
+                                <!--end::Menu wrapper-->
+                            </div>
 
                             <!--begin::User menu-->
                             <div class="app-navbar-item ms-1 ms-md-3" id="kt_header_user_menu_toggle">
@@ -235,15 +260,6 @@ use Illuminate\Support\Str;
                             </div>
                             <!--end::User menu-->
 
-                            <!--begin::Header menu toggle-->
-                            <div class="app-navbar-item d-lg-none ms-2 me-n2" title="Show header menu">
-                                <div class="btn btn-flex btn-icon btn-active-color-primary w-30px h-30px"
-                                    id="kt_app_header_menu_toggle">
-                                    <i class="ki-duotone ki-element-4 fs-1"><span class="path1"></span><span
-                                            class="path2"></span></i>
-                                </div>
-                            </div>
-                            <!--end::Header menu toggle-->
                         </div>
                         <!--end::Navbar-->
                     </div>
@@ -547,6 +563,92 @@ use Illuminate\Support\Str;
                 </i>
             </div>
             <!--end::Scrolltop-->
+
+            <!--begin::Activities drawer-->
+            <div id="kt_activities" class="bg-body" data-kt-drawer="true" data-kt-drawer-name="activities" data-kt-drawer-activate="true" data-kt-drawer-overlay="true"
+                data-kt-drawer-width="{default:'300px', 'lg': '900px'}" data-kt-drawer-direction="end"
+                data-kt-drawer-toggle="#kt_activities_toggle" data-kt-drawer-close="#kt_activities_close">
+
+                <div class="card shadow-none border-0 rounded-0 w-100">
+                    <!--begin::Header-->
+                    <div class="card-header" id="kt_activities_header">
+                        <h3 class="card-title fw-bold text-dark">マッチング通知状態（送信、受信）</h3>
+
+                        <div class="card-toolbar">
+                            <button type="button" class="btn btn-sm btn-icon btn-active-light-primary me-n5" id="kt_activities_close">
+                                <i class="ki-duotone ki-cross fs-1">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                </i>
+                            </button>
+                        </div>
+                    </div>
+                    <!--end::Header-->
+
+                    <!--begin::Body-->
+                    <div class="card-body position-relative" id="kt_activities_body">
+                        <!--begin::Content-->
+                        <div id="kt_activities_scroll" class="position-relative scroll-y me-n5 pe-5" data-kt-scroll="true" data-kt-scroll-height="auto" data-kt-scroll-wrappers="#kt_activities_body" data-kt-scroll-dependencies="#kt_activities_header, #kt_activities_footer" data-kt-scroll-offset="5px">
+                            
+                            @foreach($request_matches as $request_match)
+                                @if($request_match->items_first->user_id == Auth::user()->id || $request_match->items_second->user_id == Auth::user()->id)
+                                <!--begin::Items-->
+                                <div class="scroll-y mh-100vh my-5 px-8">
+                                    <!--begin::Item-->
+                                    <div class="d-flex flex-stack py-4">
+                                        <!--begin::Section-->
+                                        <div class="d-flex align-items-center">
+                                            <!--begin::Symbol-->
+                                            <div class="symbol symbol-35px me-4">
+                                                <span class="symbol-label bg-light-primary">
+                                                    <i class="ki-duotone ki-abstract-28 fs-2 text-primary">
+                                                        <span class="path1"></span>
+                                                        <span class="path2"></span>
+                                                    </i>
+                                                </span>
+                                            </div>
+                                            <!--end::Symbol-->
+
+                                            <!--begin::Title-->
+                                            <div class="mb-0 me-2">
+                                                <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-bold">Project Alice</a>
+                                                <div class="text-gray-400 fs-7">Phase 1 development</div>
+                                            </div>
+                                            <!--end::Title-->
+                                            <span class="badge badge-success me-2">New</span>
+                                        </div>
+                                        <!--end::Section-->
+
+                                        <!--begin::Label-->
+                                        <span class="badge badge-light fs-8">1 hr</span>
+                                        <!--end::Label-->
+                                    </div>
+                                    <!--end::Item-->
+                                </div>
+                                <!--end::Items-->
+                                @endif
+                            @endforeach
+                        </div>
+                        <!--end::Content-->
+                    </div>
+                    <!--end::Body-->
+
+                    <!--begin::Footer-->
+                    <div class="card-footer py-5 text-center" id="kt_activities_footer">
+                        <a href="/metronic8/demo1/../demo1/pages/user-profile/activity.html" class="btn btn-bg-body text-primary">
+                            全て見る
+                            <i class="ki-duotone ki-arrow-right fs-3 text-primary">
+                                <span class="path1"></span>
+                                <span class="path2"></span>
+                            </i>
+                        </a>
+                    </div>
+                    <!--end::Footer-->
+                </div>
+            </div>
+            <!--end::Activities drawer-->
+        </div>
+    </div>
 
 </body>
 <!--end::Body-->
