@@ -338,7 +338,7 @@
 
     <header class="header-2 mt-8">
         <div class="container d-flex justify-content-center">
-            <img src="{{ asset('./assets/img/bg4.jpg') }}" alt="" class="w-80">
+            <img src="{{ asset('./assets/img/bg7.png') }}" alt="" class="w-80">
         </div>
     </header>
 

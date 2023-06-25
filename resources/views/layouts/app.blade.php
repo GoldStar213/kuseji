@@ -299,7 +299,7 @@ use Carbon\Carbon;
                         <!--begin::Logo image-->
                         <a href="/">
                             <img alt="Logo" src="{{ asset('/metronic/assets/media/logos/logo-default.png') }}"
-                                class="h-25px app-sidebar-logo-default" />
+                                class="h-45px app-sidebar-logo-default" />
                             <img alt="Logo" src="{{ asset('/metronic/assets/media/logos/small-default.png') }}"
                                 class="h-20px app-sidebar-logo-minimize" />
                         </a>
@@ -425,7 +425,7 @@ use Carbon\Carbon;
                                                         <span class="menu-bullet">
                                                             <span class="bullet bullet-dot"></span>
                                                         </span>
-                                                        <span class="menu-title">受信済</span>
+                                                        <span class="menu-title">交換リクエスト一覧</span>
                                                     </a>
                                                     <!--end:Menu link-->
                                                 </div>
