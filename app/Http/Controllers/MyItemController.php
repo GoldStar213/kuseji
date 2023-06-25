@@ -299,13 +299,14 @@ class MyItemController extends Controller
         }
 
         if($request->category_id != null) {
-            $myItems = $myItems->whereIn('category_id', $request->category_id);
+            $myItems = $myItems->whereIn('id', DB::table('category_item')->whereIn('category_id', $request->category_id)->select('item_id')->pluck('item_id')->toArray());
+            // $myItems = $myItems->whereIn('category_id', $request->category_id);
         }
 
-        if($request->join_type == 2) {
-            $item_id = DB::table('match_item')->select('item_id')->pluck('item_id')->toArray();
-            $myItems = $myItems->whereNotIn('id', $item_id);
-        }
+        // if($request->join_type == 2) {
+        //     $item_id = DB::table('match_item')->select('item_id')->pluck('item_id')->toArray();
+        //     $myItems = $myItems->whereNotIn('id', $item_id);
+        // }
 
         $myItems = $myItems->get();
 

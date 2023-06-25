@@ -196,7 +196,7 @@ class MyItemInboxController extends Controller
         }
         
         if($request->category_id != null) {
-            $myItems = $myItems->whereIn('category_id', $request->category_id);
+            $myItems = $myItems->whereIn('id', DB::table('category_item')->whereIn('category_id', $request->category_id)->select('item_id')->pluck('item_id')->toArray());
         }
 
         if($request->matching_id != 0) {

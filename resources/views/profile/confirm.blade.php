@@ -9,7 +9,7 @@
             <div class="card-header cursor-pointer">
                 <!--begin::Card title-->
                 <div class="card-title m-0">
-                    <h3 class="fw-bold m-0">公開ページ確認</h3>
+                    <h3 class="fw-bold m-0">プロフィール</h3>
                 </div>
                 <!--end::Card title-->
 

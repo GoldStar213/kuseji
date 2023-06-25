@@ -134,9 +134,11 @@ class RequestMatchController extends Controller
 
         $myItem_id = Item::where('user_id', Auth::user()->id)->pluck('id')->toArray();
 
-        $request_matches = DB::table('request_match')->whereIn('first_item', $myItem_id)->get();
+        $request_all_matches = DB::table('request_match')->get();
+        $request_sent_matches = DB::table('request_match')->whereIn('first_item', $myItem_id)->get();
+        $request_inbox_matches = DB::table('request_match')->whereIn('second_item', $myItem_id)->get();
 
-        return view('requestMatch/show_req_list', compact('request_matches'));
+        return view('requestMatch/show_req_list', compact('request_all_matches', 'request_sent_matches', 'request_inbox_matches'));
 
     }
 }
