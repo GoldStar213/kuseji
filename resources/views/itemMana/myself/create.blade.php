@@ -423,8 +423,7 @@
                         <input type="hidden" name="register_type" value="" id="register_type">
 
                         <div class="card-footer d-flex justify-content-end py-6 px-0">
-                            <button type="button" onclick="submitForm('nopay')" class="btn btn-primary py-2 me-2"
-                                id="kt_account_profile_details_submit"> 一時保存 </button>
+                            <button type="button" onclick="submitForm('nopay')" class="btn btn-primary py-2 me-2" id="kt_account_profile_details_submit"> 一時保存 </button>
                             <button type="button" class="btn btn-primary py-2 ms-2" id="" data-bs-toggle="modal" data-bs-target="#kt_modal_stacked_2"> 決 済 </button>
                         </div>
                         <div class="row">
@@ -457,9 +456,9 @@
             </div>
 
             <div class="modal-body">
-                <p>マッチングに参加するには3000円を支払わなければなりません。</p>
-                <p>お支払いはPaypalを利用したクレカ決済で行っております。</p>
-                <p>Paypal登録画面でクレカ決済ボタンをクリックして決済をお試しください。</p>
+                <img src="{{ asset('/assets/img/modal.png') }}" class="w-100" alt="">
+                <p>クセ字コンテスト　出品料　3000円(込)</p>
+                <p>次画面のPaypal登録画面の下部の「クレカ決済」ボタンをクリックして決済をしてください。</p>
             </div>
 
             <div class="modal-footer">

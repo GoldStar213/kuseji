@@ -421,7 +421,7 @@ use App\Models\RequestMatch;
                                                         <span class="menu-bullet">
                                                             <span class="bullet bullet-dot"></span>
                                                         </span>
-                                                        <span class="menu-title">マッチング申請</span>
+                                                        <span class="menu-title">交換リクエスト</span>
                                                     </a>
                                                     <!--end:Menu link-->
                                                 </div>

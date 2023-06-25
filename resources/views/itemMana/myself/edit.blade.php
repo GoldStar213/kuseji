@@ -62,397 +62,435 @@
     }
 </style>
 
-    <link href="{{ asset('/metronic/assets/plugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet" type="text/css" />
-    
-    <div class="d-flex flex-column flex-column-fluid">
+<link href="{{ asset('/metronic/assets/plugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet"
+    type="text/css" />
 
-        <!--begin::Toolbar-->
-        <div id="kt_app_toolbar" class="app-toolbar  py-3 py-lg-6 ">
+<div class="d-flex flex-column flex-column-fluid">
 
-            <!--begin::Toolbar container-->
-            <div id="kt_app_toolbar_container" class="app-container  container-xxl d-flex flex-stack ">
-                <!--begin::Page title-->
-                <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3 ">
-                    <!--begin::Title-->
-                    <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">作品編集</h1>
-                    <!--end::Title-->
-                </div>
-                <!--end::Page title-->
+    <!--begin::Toolbar-->
+    <div id="kt_app_toolbar" class="app-toolbar  py-3 py-lg-6 ">
+
+        <!--begin::Toolbar container-->
+        <div id="kt_app_toolbar_container" class="app-container  container-xxl d-flex flex-stack ">
+            <!--begin::Page title-->
+            <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3 ">
+                <!--begin::Title-->
+                <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">作品編集</h1>
+                <!--end::Title-->
             </div>
-            <!--end::Toolbar container-->
+            <!--end::Page title-->
         </div>
-        <!--end::Toolbar-->
-
-        <!--begin::Content-->
-        <div id="kt_app_content" class="app-content flex-column-fluid">
-
-            <!--begin::Content container-->
-            <div id="kt_app_content_container" class="app-container container-xxl">
-                <!--begin::Home card-->
-                <div class="card">
-                    <!--begin::Body-->
-                    <div class="card-body p-lg-20">
-
-                        <!--begin::Alert-->
-                        @error('front_img')
-                        <div class="alert alert-danger d-flex align-items-center px-5 py-3">
-                            <!--begin::Icon-->
-                            <i class="ki-duotone ki-information-2 fs-2hx text-danger me-4">
-                                <span class="path1"></span>
-                                <span class="path2"></span>
-                                <span class="path3"></span>
-                            </i>
-                            <!--end::Icon-->
-
-                            <!--begin::Wrapper-->
-                            <div class="d-flex flex-column">
-                                <!--begin::Content-->
-                                <span>{{ $message}}</span>
-                                <!--end::Content-->
-                            </div>
-                            <!--end::Wrapper-->
-                        </div>
-                        @enderror
-
-                        @error('back_img')
-                        <div class="alert alert-danger d-flex align-items-center px-5 py-3">
-                            <!--begin::Icon-->
-                            <i class="ki-duotone ki-information-2 fs-2hx text-danger me-4">
-                                <span class="path1"></span>
-                                <span class="path2"></span>
-                                <span class="path3"></span>
-                            </i>
-                            <!--end::Icon-->
-
-                            <!--begin::Wrapper-->
-                            <div class="d-flex flex-column">
-                                <!--begin::Content-->
-                                <span>{{ $message}}</span>
-                                <!--end::Content-->
-                            </div>
-                            <!--end::Wrapper-->
-                        </div>
-                        @enderror
-
-                        @error('side_img')
-                        <div class="alert alert-danger d-flex align-items-center px-5 py-3">
-                            <!--begin::Icon-->
-                            <i class="ki-duotone ki-information-2 fs-2hx text-danger me-4">
-                                <span class="path1"></span>
-                                <span class="path2"></span>
-                                <span class="path3"></span>
-                            </i>
-                            <!--end::Icon-->
-
-                            <!--begin::Wrapper-->
-                            <div class="d-flex flex-column">
-                                <!--begin::Content-->
-                                <span>{{ $message}}</span>
-                                <!--end::Content-->
-                            </div>
-                            <!--end::Wrapper-->
-                        </div>
-                        @enderror
-
-                        @error('title')
-                        <div class="alert alert-danger d-flex align-items-center px-5 py-3">
-                            <!--begin::Icon-->
-                            <i class="ki-duotone ki-information-2 fs-2hx text-danger me-4">
-                                <span class="path1"></span>
-                                <span class="path2"></span>
-                                <span class="path3"></span>
-                            </i>
-                            <!--end::Icon-->
-
-                            <!--begin::Wrapper-->
-                            <div class="d-flex flex-column">
-                                <!--begin::Content-->
-                                <span>{{ $message}}</span>
-                                <!--end::Content-->
-                            </div>
-                            <!--end::Wrapper-->
-                        </div>
-                        @enderror
-
-                        @error('description')
-                        <div class="alert alert-danger d-flex align-items-center px-5 py-3">
-                            <!--begin::Icon-->
-                            <i class="ki-duotone ki-information-2 fs-2hx text-danger me-4">
-                                <span class="path1"></span>
-                                <span class="path2"></span>
-                                <span class="path3"></span>
-                            </i>
-                            <!--end::Icon-->
-
-                            <!--begin::Wrapper-->
-                            <div class="d-flex flex-column">
-                                <!--begin::Content-->
-                                <span>{{ $message}}</span>
-                                <!--end::Content-->
-                            </div>
-                            <!--end::Wrapper-->
-                        </div>
-                        @enderror
-
-                        @error('frontal_color')
-                        <div class="alert alert-danger d-flex align-items-center px-5 py-3">
-                            <!--begin::Icon-->
-                            <i class="ki-duotone ki-information-2 fs-2hx text-danger me-4">
-                                <span class="path1"></span>
-                                <span class="path2"></span>
-                                <span class="path3"></span>
-                            </i>
-                            <!--end::Icon-->
-
-                            <!--begin::Wrapper-->
-                            <div class="d-flex flex-column">
-                                <!--begin::Content-->
-                                <span>{{ $message}}</span>
-                                <!--end::Content-->
-                            </div>
-                            <!--end::Wrapper-->
-                        </div>
-                        @enderror
-
-                        @error('category')
-                        <div class="alert alert-danger d-flex align-items-center px-5 py-3">
-                            <!--begin::Icon-->
-                            <i class="ki-duotone ki-information-2 fs-2hx text-danger me-4">
-                                <span class="path1"></span>
-                                <span class="path2"></span>
-                                <span class="path3"></span>
-                            </i>
-                            <!--end::Icon-->
-
-                            <!--begin::Wrapper-->
-                            <div class="d-flex flex-column">
-                                <!--begin::Content-->
-                                <span>{{ $message}}</span>
-                                <!--end::Content-->
-                            </div>
-                            <!--end::Wrapper-->
-                        </div>
-                        @enderror
-
-                        @error('matching')
-                        <div class="alert alert-danger d-flex align-items-center px-5 py-3">
-                            <!--begin::Icon-->
-                            <i class="ki-duotone ki-information-2 fs-2hx text-danger me-4">
-                                <span class="path1"></span>
-                                <span class="path2"></span>
-                                <span class="path3"></span>
-                            </i>
-                            <!--end::Icon-->
-
-                            <!--begin::Wrapper-->
-                            <div class="d-flex flex-column">
-                                <!--begin::Content-->
-                                <span>{{ $message}}</span>
-                                <!--end::Content-->
-                            </div>
-                            <!--end::Wrapper-->
-                        </div>
-                        @enderror
-
-                        @error('error')
-                        <div class="alert alert-danger d-flex align-items-center px-5 py-3">
-                            <!--begin::Icon-->
-                            <i class="ki-duotone ki-information-2 fs-2hx text-danger me-4">
-                                <span class="path1"></span>
-                                <span class="path2"></span>
-                                <span class="path3"></span>
-                            </i>
-                            <!--end::Icon-->
-
-                            <!--begin::Wrapper-->
-                            <div class="d-flex flex-column">
-                                <!--begin::Content-->
-                                <span>{{ $message }}</span>
-                                <!--end::Content-->
-                            </div>
-                            <!--end::Wrapper-->
-                        </div>
-                        @enderror
-
-                        @if(session('myItem_Update_Success'))
-                        <div class="alert alert-success d-flex align-items-center px-5 py-3">
-                            <!--begin::Icon-->
-                            <i class="ki-duotone ki-shield-tick fs-2hx text-success me-4">
-                                <span class="path1"></span>
-                                <span class="path2"></span>
-                            </i>
-                            <!--end::Icon-->
-
-                            <!--begin::Wrapper-->
-                            <div class="d-flex flex-column">
-                                <!--begin::Content-->
-                                <span>{{ session('myItem_Update_Success') }}</span>
-                                <!--end::Content-->
-                            </div>
-                            <!--end::Wrapper-->
-                        </div>
-                        @endif
-                        
-                        <!--begin::Section-->
-                        <form class="mb-17" method="POST" action="{{ route('myItem.update', ['myItem' => $myItem->id]) }}" id="myForm">
-                            @csrf
-                            @method('PUT')
-                            <!--begin::Row-->
-                            <div class="row g-10 mb-4">
-                                <div class="col-md-4 d-flex justify-content-start">
-                                    <div class="drop-zone" style="background-image: url({{ asset($myItem->front_img) }});">
-                                        <span class="drop-zone__prompt">運営画像</span>
-                                        <input type="file" name="myFile" class="drop-zone__input" id="front" onchange="uploadImg('front')" accept=".png, .jpg, .jpeg" />
-                                        <input type="hidden" name="front_img" id="front_img" value="">
-                                    </div>
-                                </div>
-                                <div class="col-md-4 d-flex justify-content-center">
-                                    <div class="drop-zone" style="background-image: url({{ asset($myItem->back_img) }});">
-                                        <span class="drop-zone__prompt"></span>
-                                        <input type="file" name="myFile" class="drop-zone__input" id="back" onchange="uploadImg('back')" accept=".png, .jpg, .jpeg" />
-                                        <input type="hidden" name="back_img" id="back_img" value="{{ old('back_img') }}">
-                                    </div>
-                                </div>
-                                <div class="col-md-4 d-flex justify-content-end">
-                                    <div class="drop-zone" style="background-image: url({{ asset($myItem->side_img) }});">
-                                        <span class="drop-zone__prompt"></span>
-                                        <input type="file" name="myFile" class="drop-zone__input" id="side" onchange="uploadImg('side')" accept=".png, .jpg, .jpeg" />
-                                        <input type="hidden" name="side_img" id="side_img" value="">
-                                    </div>
-                                </div>
-                            </div>
-                            <!--end::Row-->
-
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="row g-10 mb-2">
-                                        <!--begin::Label-->
-                                        <label class="col-lg-4 col-form-label fw-semibold fs-6" for="title">
-                                            <span class="required">タイトル</span>
-                                        </label>
-                                        <!--end::Label-->
-                                        
-                                        <!--begin::Col-->
-                                        <div class="col-lg-8 fv-row">
-                                            <input type="text" name="title" id="title" class="form-control form-control-lg form-control-solid" placeholder="タイトル" value="{{ $myItem->title }}" />
-                                        </div>
-                                        <!--end::Col-->
-                                    </div>
-        
-                                    <div class="row g-10 mb-6">
-                                        <!--begin::Label-->
-                                        <label class="col-lg-4 col-form-label fw-semibold fs-6" for="description">
-                                            <span>説明</span>
-                                        </label>
-                                        <!--end::Label-->
-                                        
-                                        <!--begin::Col-->
-                                        <div class="col-lg-8 fv-row">
-                                            <textarea name="description" id="description" cols="30" rows="6" class="form-control form-control-lg form-control-solid" value="">{{ old('description', $myItem->description) }}</textarea>
-                                        </div>
-                                        <!--end::Col-->
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="row g-10 mb-2">
-                                        <!--begin::Label-->
-                                        <label class="col-lg-4 col-form-label fw-semibold fs-6" for="frontal_color">
-                                            <span class="required">額色</span>
-                                        </label>
-                                        <!--end::Label-->
-                                        
-                                        <!--begin::Col-->
-                                        <div class="col-lg-8 fv-row">
-                                            <select aria-label="選択" id="frontal_color" name="frontal_color" data-control="select2" data-placeholder="選択" class="form-select form-select-solid form-select-lg">
-                                                <option value="">選択</option>
-                                                @foreach ($frontal_colors as $frontal_color)
-                                                    <option data-kt-flag="flags/united-states.svg" value="{{ $frontal_color->id }}" {{ $myItem->frontal_color_id == $frontal_color->id ? 'selected' : '' }}>{{ $frontal_color->title }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                        <!--end::Col-->
-                                    </div>
-
-                                    <div class="row g-10 mb-2">
-                                        <!--begin::Label-->
-                                        <label class="col-lg-4 col-form-label fw-semibold fs-6" for="category">
-                                            <span class="required">カテゴリー</span>
-                                        </label>
-                                        <!--end::Label-->
-                                        
-                                        <!--begin::Col-->
-                                        <div class="col-lg-8 fv-row">
-                                            <select aria-label="選択" id="category" name="category[]" data-control="select2" data-placeholder="選択" class="form-select form-select-solid form-select-lg" multiple size="3">
-                                                @foreach ($categories as $category)
-                                                    <option value="{{ $category->id }}"
-                                                        @php
-                                                            foreach ($myItem->categories as $myItem_category) {
-                                                                if($myItem_category->title == $category->title) {
-                                                                    echo 'selected';
-                                                                }
-                                                            }
-                                                        @endphp
-                                                        >
-                                                        {{ $category->title }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                        <!--end::Col-->
-                                    </div>
-
-                                    <div class="row g-10 mb-2">
-                                        <!--begin::Label-->
-                                        <label class="col-lg-4 col-form-label fw-semibold fs-6" for="join_type">
-                                            <span class="required">クセ字交換会の参加</span>
-                                        </label>
-                                        <!--end::Label-->
-    
-                                        <!--begin::Col-->
-                                        <div class="col-lg-8 fv-row">
-                                            <select aria-label="選択" id="join_type" name="join_type" data-control="select2"
-                                                data-placeholder="選択" class="form-select form-select-solid form-select-lg">
-                                                <option data-kt-flag="flags/united-states.svg" value="0" {{
-                                                    old('join_type')==0 ? 'selected' : '' }}>はい</option>
-                                                <option data-kt-flag="flags/united-states.svg" value="1" {{
-                                                    old('join_type')==1 ? 'selected' : '' }}>いいえ</option>
-                                            </select>
-                                        </div>
-                                        <!--end::Col-->
-                                    </div>
-                                </div>
-                            </div>
-
-                            <input type="hidden" name="register_type" value="" id="register_type">
-
-                            <div class="card-footer d-flex justify-content-end py-6 px-0">
-                                <button type="button" onclick="submitForm('nopay')" class="btn btn-primary py-2 me-2"
-                                    id="kt_account_profile_details_submit"> 一時保存 </button>
-                                <button type="button" onclick="submitForm('pay')" class="btn btn-primary py-2 ms-2"
-                                    id="kt_account_profile_details_submit" {{ $myItem->register_type == 'pay' ? "disabled" : "" }}> 決 済 </button>
-                            </div>
-                            <div class="row">
-                                <span class="text-right" style="text-align: end;">「決済＝出品可能」なので、一旦仮入力で決済後に編集してください」</span>
-                            </div>
-                        </form>
-                        <!--end::Section-->
-
-                    </div>
-                    <!--end::Body-->
-                </div>
-                <!--end::Home card-->
-
-            </div>
-            <!--end::Content container-->
-        </div>
-        <!--end::Content-->
+        <!--end::Toolbar container-->
     </div>
-    <script src="{{ asset('/metronic/assets/plugins/custom/fslightbox/fslightbox.bundle.js') }}"></script>
-    <script src="{{ asset('/metronic/assets/plugins/custom/datatables/datatables.bundle.js') }}"></script>
+    <!--end::Toolbar-->
 
-    <script>
+    <!--begin::Content-->
+    <div id="kt_app_content" class="app-content flex-column-fluid">
 
-        function submitForm(param) {
+        <!--begin::Content container-->
+        <div id="kt_app_content_container" class="app-container container-xxl">
+            <!--begin::Home card-->
+            <div class="card">
+                <!--begin::Body-->
+                <div class="card-body p-lg-20">
+
+                    <!--begin::Alert-->
+                    @error('front_img')
+                    <div class="alert alert-danger d-flex align-items-center px-5 py-3">
+                        <!--begin::Icon-->
+                        <i class="ki-duotone ki-information-2 fs-2hx text-danger me-4">
+                            <span class="path1"></span>
+                            <span class="path2"></span>
+                            <span class="path3"></span>
+                        </i>
+                        <!--end::Icon-->
+
+                        <!--begin::Wrapper-->
+                        <div class="d-flex flex-column">
+                            <!--begin::Content-->
+                            <span>{{ $message}}</span>
+                            <!--end::Content-->
+                        </div>
+                        <!--end::Wrapper-->
+                    </div>
+                    @enderror
+
+                    @error('back_img')
+                    <div class="alert alert-danger d-flex align-items-center px-5 py-3">
+                        <!--begin::Icon-->
+                        <i class="ki-duotone ki-information-2 fs-2hx text-danger me-4">
+                            <span class="path1"></span>
+                            <span class="path2"></span>
+                            <span class="path3"></span>
+                        </i>
+                        <!--end::Icon-->
+
+                        <!--begin::Wrapper-->
+                        <div class="d-flex flex-column">
+                            <!--begin::Content-->
+                            <span>{{ $message}}</span>
+                            <!--end::Content-->
+                        </div>
+                        <!--end::Wrapper-->
+                    </div>
+                    @enderror
+
+                    @error('side_img')
+                    <div class="alert alert-danger d-flex align-items-center px-5 py-3">
+                        <!--begin::Icon-->
+                        <i class="ki-duotone ki-information-2 fs-2hx text-danger me-4">
+                            <span class="path1"></span>
+                            <span class="path2"></span>
+                            <span class="path3"></span>
+                        </i>
+                        <!--end::Icon-->
+
+                        <!--begin::Wrapper-->
+                        <div class="d-flex flex-column">
+                            <!--begin::Content-->
+                            <span>{{ $message}}</span>
+                            <!--end::Content-->
+                        </div>
+                        <!--end::Wrapper-->
+                    </div>
+                    @enderror
+
+                    @error('title')
+                    <div class="alert alert-danger d-flex align-items-center px-5 py-3">
+                        <!--begin::Icon-->
+                        <i class="ki-duotone ki-information-2 fs-2hx text-danger me-4">
+                            <span class="path1"></span>
+                            <span class="path2"></span>
+                            <span class="path3"></span>
+                        </i>
+                        <!--end::Icon-->
+
+                        <!--begin::Wrapper-->
+                        <div class="d-flex flex-column">
+                            <!--begin::Content-->
+                            <span>{{ $message}}</span>
+                            <!--end::Content-->
+                        </div>
+                        <!--end::Wrapper-->
+                    </div>
+                    @enderror
+
+                    @error('description')
+                    <div class="alert alert-danger d-flex align-items-center px-5 py-3">
+                        <!--begin::Icon-->
+                        <i class="ki-duotone ki-information-2 fs-2hx text-danger me-4">
+                            <span class="path1"></span>
+                            <span class="path2"></span>
+                            <span class="path3"></span>
+                        </i>
+                        <!--end::Icon-->
+
+                        <!--begin::Wrapper-->
+                        <div class="d-flex flex-column">
+                            <!--begin::Content-->
+                            <span>{{ $message}}</span>
+                            <!--end::Content-->
+                        </div>
+                        <!--end::Wrapper-->
+                    </div>
+                    @enderror
+
+                    @error('frontal_color')
+                    <div class="alert alert-danger d-flex align-items-center px-5 py-3">
+                        <!--begin::Icon-->
+                        <i class="ki-duotone ki-information-2 fs-2hx text-danger me-4">
+                            <span class="path1"></span>
+                            <span class="path2"></span>
+                            <span class="path3"></span>
+                        </i>
+                        <!--end::Icon-->
+
+                        <!--begin::Wrapper-->
+                        <div class="d-flex flex-column">
+                            <!--begin::Content-->
+                            <span>{{ $message}}</span>
+                            <!--end::Content-->
+                        </div>
+                        <!--end::Wrapper-->
+                    </div>
+                    @enderror
+
+                    @error('category')
+                    <div class="alert alert-danger d-flex align-items-center px-5 py-3">
+                        <!--begin::Icon-->
+                        <i class="ki-duotone ki-information-2 fs-2hx text-danger me-4">
+                            <span class="path1"></span>
+                            <span class="path2"></span>
+                            <span class="path3"></span>
+                        </i>
+                        <!--end::Icon-->
+
+                        <!--begin::Wrapper-->
+                        <div class="d-flex flex-column">
+                            <!--begin::Content-->
+                            <span>{{ $message}}</span>
+                            <!--end::Content-->
+                        </div>
+                        <!--end::Wrapper-->
+                    </div>
+                    @enderror
+
+                    @error('matching')
+                    <div class="alert alert-danger d-flex align-items-center px-5 py-3">
+                        <!--begin::Icon-->
+                        <i class="ki-duotone ki-information-2 fs-2hx text-danger me-4">
+                            <span class="path1"></span>
+                            <span class="path2"></span>
+                            <span class="path3"></span>
+                        </i>
+                        <!--end::Icon-->
+
+                        <!--begin::Wrapper-->
+                        <div class="d-flex flex-column">
+                            <!--begin::Content-->
+                            <span>{{ $message}}</span>
+                            <!--end::Content-->
+                        </div>
+                        <!--end::Wrapper-->
+                    </div>
+                    @enderror
+
+                    @error('error')
+                    <div class="alert alert-danger d-flex align-items-center px-5 py-3">
+                        <!--begin::Icon-->
+                        <i class="ki-duotone ki-information-2 fs-2hx text-danger me-4">
+                            <span class="path1"></span>
+                            <span class="path2"></span>
+                            <span class="path3"></span>
+                        </i>
+                        <!--end::Icon-->
+
+                        <!--begin::Wrapper-->
+                        <div class="d-flex flex-column">
+                            <!--begin::Content-->
+                            <span>{{ $message }}</span>
+                            <!--end::Content-->
+                        </div>
+                        <!--end::Wrapper-->
+                    </div>
+                    @enderror
+
+                    @if(session('myItem_Update_Success'))
+                    <div class="alert alert-success d-flex align-items-center px-5 py-3">
+                        <!--begin::Icon-->
+                        <i class="ki-duotone ki-shield-tick fs-2hx text-success me-4">
+                            <span class="path1"></span>
+                            <span class="path2"></span>
+                        </i>
+                        <!--end::Icon-->
+
+                        <!--begin::Wrapper-->
+                        <div class="d-flex flex-column">
+                            <!--begin::Content-->
+                            <span>{{ session('myItem_Update_Success') }}</span>
+                            <!--end::Content-->
+                        </div>
+                        <!--end::Wrapper-->
+                    </div>
+                    @endif
+
+                    <!--begin::Section-->
+                    <form class="mb-17" method="POST" action="{{ route('myItem.update', ['myItem' => $myItem->id]) }}"
+                        id="myForm">
+                        @csrf
+                        @method('PUT')
+                        <!--begin::Row-->
+                        <div class="row g-10 mb-4">
+                            <div class="col-md-4 d-flex justify-content-start">
+                                <div class="drop-zone" style="background-image: url({{ asset($myItem->front_img) }});">
+                                    <span class="drop-zone__prompt">運営画像</span>
+                                    <input type="file" name="myFile" class="drop-zone__input" id="front"
+                                        onchange="uploadImg('front')" accept=".png, .jpg, .jpeg" />
+                                    <input type="hidden" name="front_img" id="front_img" value="">
+                                </div>
+                            </div>
+                            <div class="col-md-4 d-flex justify-content-center">
+                                <div class="drop-zone" style="background-image: url({{ asset($myItem->back_img) }});">
+                                    <span class="drop-zone__prompt"></span>
+                                    <input type="file" name="myFile" class="drop-zone__input" id="back"
+                                        onchange="uploadImg('back')" accept=".png, .jpg, .jpeg" />
+                                    <input type="hidden" name="back_img" id="back_img" value="{{ old('back_img') }}">
+                                </div>
+                            </div>
+                            <div class="col-md-4 d-flex justify-content-end">
+                                <div class="drop-zone" style="background-image: url({{ asset($myItem->side_img) }});">
+                                    <span class="drop-zone__prompt"></span>
+                                    <input type="file" name="myFile" class="drop-zone__input" id="side"
+                                        onchange="uploadImg('side')" accept=".png, .jpg, .jpeg" />
+                                    <input type="hidden" name="side_img" id="side_img" value="">
+                                </div>
+                            </div>
+                        </div>
+                        <!--end::Row-->
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="row g-10 mb-2">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-4 col-form-label fw-semibold fs-6" for="title">
+                                        <span class="required">タイトル</span>
+                                    </label>
+                                    <!--end::Label-->
+
+                                    <!--begin::Col-->
+                                    <div class="col-lg-8 fv-row">
+                                        <input type="text" name="title" id="title"
+                                            class="form-control form-control-lg form-control-solid" placeholder="タイトル"
+                                            value="{{ $myItem->title }}" />
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+
+                                <div class="row g-10 mb-6">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-4 col-form-label fw-semibold fs-6" for="description">
+                                        <span>説明</span>
+                                    </label>
+                                    <!--end::Label-->
+
+                                    <!--begin::Col-->
+                                    <div class="col-lg-8 fv-row">
+                                        <textarea name="description" id="description" cols="30" rows="6"
+                                            class="form-control form-control-lg form-control-solid"
+                                            value="">{{ old('description', $myItem->description) }}</textarea>
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row g-10 mb-2">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-4 col-form-label fw-semibold fs-6" for="frontal_color">
+                                        <span class="required">額色</span>
+                                    </label>
+                                    <!--end::Label-->
+
+                                    <!--begin::Col-->
+                                    <div class="col-lg-8 fv-row">
+                                        <select aria-label="選択" id="frontal_color" name="frontal_color"
+                                            data-control="select2" data-placeholder="選択"
+                                            class="form-select form-select-solid form-select-lg">
+                                            <option value="">選択</option>
+                                            @foreach ($frontal_colors as $frontal_color)
+                                            <option data-kt-flag="flags/united-states.svg"
+                                                value="{{ $frontal_color->id }}" {{ $myItem->frontal_color_id ==
+                                                $frontal_color->id ? 'selected' : '' }}>{{ $frontal_color->title }}
+                                            </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+
+                                <div class="row g-10 mb-2">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-4 col-form-label fw-semibold fs-6" for="category">
+                                        <span class="required">カテゴリー</span>
+                                    </label>
+                                    <!--end::Label-->
+
+                                    <!--begin::Col-->
+                                    <div class="col-lg-8 fv-row">
+                                        <select aria-label="選択" id="category" name="category[]" data-control="select2"
+                                            data-placeholder="選択" class="form-select form-select-solid form-select-lg"
+                                            multiple size="3">
+                                            @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}" @php foreach ($myItem->categories as
+                                                $myItem_category) {
+                                                if($myItem_category->title == $category->title) {
+                                                echo 'selected';
+                                                }
+                                                }
+                                                @endphp
+                                                >
+                                                {{ $category->title }}
+                                            </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+
+                                <div class="row g-10 mb-2">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-4 col-form-label fw-semibold fs-6" for="join_type">
+                                        <span class="required">クセ字交換会の参加</span>
+                                    </label>
+                                    <!--end::Label-->
+
+                                    <!--begin::Col-->
+                                    <div class="col-lg-8 fv-row">
+                                        <select aria-label="選択" id="join_type" name="join_type" data-control="select2"
+                                            data-placeholder="選択" class="form-select form-select-solid form-select-lg">
+                                            <option data-kt-flag="flags/united-states.svg" value="0" {{
+                                                old('join_type')==0 ? 'selected' : '' }}>はい</option>
+                                            <option data-kt-flag="flags/united-states.svg" value="1" {{
+                                                old('join_type')==1 ? 'selected' : '' }}>いいえ</option>
+                                        </select>
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+                            </div>
+                        </div>
+
+                        <input type="hidden" name="register_type" value="" id="register_type">
+
+                        <div class="card-footer d-flex justify-content-end py-6 px-0">
+                            <button type="button" onclick="submitForm('nopay')" class="btn btn-primary py-2 me-2" id="kt_account_profile_details_submit"> 一時保存 </button>
+                                <button type="button" class="btn btn-primary py-2 ms-2" id="" data-bs-toggle="modal" data-bs-target="#kt_modal_stacked_2"> 決 済 </button>
+                        </div>
+                        <div class="row">
+                            <span class="text-right" style="text-align: end;">「決済＝出品可能」なので、一旦仮入力で決済後に編集してください」</span>
+                        </div>
+                    </form>
+                    <!--end::Section-->
+
+                </div>
+                <!--end::Body-->
+            </div>
+            <!--end::Home card-->
+
+        </div>
+        <!--end::Content container-->
+    </div>
+    <!--end::Content-->
+</div>
+
+<div class="modal fade" tabindex="-1" id="kt_modal_stacked_2">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">決済方法の確認</h3>
+                <!--begin::Close-->
+                <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
+                    aria-label="Close">
+                    <i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span class="path2"></span></i>
+                </div>
+                <!--end::Close-->
+            </div>
+
+            <div class="modal-body">
+                <p>クセ字コンテスト　出品料　3000円(込)</p>
+                <p>次画面のPaypal登録画面の下部の「クレカ決済」ボタンをクリックして決済をしてください。</p>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal">キャンセル</button>
+                <button type="button" onclick="submitForm('pay')" class="btn btn-primary">決済ページへ</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{{ asset('/metronic/assets/plugins/custom/fslightbox/fslightbox.bundle.js') }}"></script>
+<script src="{{ asset('/metronic/assets/plugins/custom/datatables/datatables.bundle.js') }}"></script>
+
+<script>
+    function submitForm(param) {
             $('#register_type').val(param);
             $('#myForm').off('submit').submit();
         }
@@ -482,7 +520,7 @@
 
             reader.readAsBinaryString(file);
         }
-    </script>
+</script>
 
 <script>
     document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {

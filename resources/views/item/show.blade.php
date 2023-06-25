@@ -177,7 +177,7 @@
                                             </div>
                                             <!--end::Item-->
                                             <a href="{{ route('requestMatch.create', ['requestMatch' => $item->id]) }}"
-                                                class="btn btn-primary">マッチング申請</a>
+                                                class="btn btn-primary">交換リクエスト</a>
                                         </div>
                                         <!--end::Footer-->
                                     </div>
