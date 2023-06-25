@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>物物交換マッチングアプリ</title>
+    <title>クセ字コンテスト　クセ字交換会</title>
 </head>
 <body>
     <h1>あなたのメールアドレスを確認してください。</h1>

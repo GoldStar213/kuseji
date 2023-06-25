@@ -15,7 +15,7 @@ License: For each use you must have a valid license purchased only from above li
 <!--begin::Head-->
 
 <head>
-    <title>物物交換マッチングアプリ</title>
+    <title>クセ字コンテスト　クセ字交換会</title>
     <meta charset="utf-8" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
