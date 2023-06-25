@@ -63,9 +63,7 @@ License: For each use you must have a valid license purchased only from above li
     </script>
 </head>
 <!--end::Head-->
-
 <!--begin::Body-->
-
 <body>
 
     <!--begin::Basic info-->

@@ -56,7 +56,8 @@ class ProfileController extends Controller
             'firstname' => ['required', 'string', 'max:255'],
             'lastname' => ['required', 'string', 'max:255'],
             'nickname' => ['required', 'string', 'max:255'],
-            'postal_code' => ['required', 'regex:/^\d{7}$/'],
+            'zip1' => ['required', 'regex:/^\d{3}$/'],
+            'zip2' => ['required', 'regex:/^\d{4}$/'],
             'prefectures' => ['required', 'in:北海道,青森県,岩手県,宮城県,秋田県,山形県,福島県,茨城県,栃木県,群馬県,埼玉県,千葉県,東京都,神奈川県,新潟県,富山県,石川県,福井県,山梨県,長野県,岐阜県,静岡県,愛知県,三重県,滋賀県,京都府,大阪府,兵庫県,奈良県,和歌山県,鳥取県,島根県,岡山県,広島県,山口県,徳島県,香川県,愛媛県,高知県,福岡県,佐賀県,長崎県,熊本県,大分県,宮崎県,鹿児島県,沖縄県'],
             'house_number' => ['required'],
             'phone_number' => ['regex:/^0\d{1,3}-\d{1,4}-\d{4}$/'],
@@ -66,8 +67,8 @@ class ProfileController extends Controller
             'lastname.required' => '名は必須項目です。',
             'nickname.required' => '表示用の名前は必須項目です。',
             'nickname.unique' => 'この表示用の名前は既に使用されています。',
-            'postal_code.required' => '郵便番号は必須項目です。',
-            'postal_code.regex' => '郵便番号は「0000000」の形式で入力してください。',
+            'zip1.required' => '必須項目です。',
+            'zip2.required' => '必須項目です。',
             'prefectures.required' => '都道府県は必須項目です。',
             'prefectures.in' => '都道府県が正確ではありません。',
             'house_number.required' => '住所（番地まで）は必須項目です。',
@@ -97,7 +98,7 @@ class ProfileController extends Controller
         Auth::user()->firstname = $request->firstname;
         Auth::user()->lastname = $request->lastname;
         Auth::user()->nickname = $request->nickname;
-        Auth::user()->postal_code = $request->postal_code;
+        Auth::user()->postal_code = $request->zip1 . $request->zip2;
         Auth::user()->prefectures = $request->prefectures;
         Auth::user()->house_number = $request->house_number;
         Auth::user()->building_name = $request->building_name;

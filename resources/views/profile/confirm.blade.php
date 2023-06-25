@@ -112,7 +112,7 @@
 
                         <!--begin::Col-->
                         <div class="col-lg-8">
-                            <label class="fw-semibold fs-6 text-gray-800">{{ Auth::user()->postal_code }}</label>
+                            <label class="fw-semibold fs-6 text-gray-800">{{ substr(Auth::user()->postal_code, 0, 3) }} - {{ substr(Auth::user()->postal_code, 3, 7) }}</label>
                         </div>
                         <!--end::Col-->
                     </div>
