@@ -639,7 +639,7 @@ use Carbon\Carbon;
                                             <!--begin::Symbol-->
                                             <div class="symbol symbol-35px me-4">
                                                 <span class="symbol-label bg-light-primary">
-                                                    <i class="ki-duotone ki-arrow-up-right fs-2 text-primary">
+                                                    <i class="ki-duotone ki-arrow-down-left fs-2 text-danger">
                                                         <span class="path1"></span>
                                                         <span class="path2"></span>
                                                     </i>
@@ -678,7 +678,7 @@ use Carbon\Carbon;
                                             <!--begin::Symbol-->
                                             <div class="symbol symbol-35px me-4">
                                                 <span class="symbol-label bg-light-primary">
-                                                    <i class="ki-duotone ki-arrow-down-left fs-2 text-primary">
+                                                    <i class="ki-duotone ki-arrow-up-right fs-2 text-primary">
                                                         <span class="path1"></span>
                                                         <span class="path2"></span>
                                                     </i>
@@ -688,7 +688,7 @@ use Carbon\Carbon;
 
                                             <!--begin::Title-->
                                             <div class="mb-0 me-2">
-                                                <div class="fs-6 text-primary fw-bold" style="line-height: 1;">{{ User::find($request_match->items_second->user_id)->nickname }}さんに交換リクエストを送りました。</div>
+                                                <p class="fs-6 text-primary fw-bold" style="line-height: 1;">{{ User::find($request_match->items_second->user_id)->nickname }}さんに交換リクエストを送りました。</p>
                                                 <div class="fs-6">{{ User::find($request_match->items_second->user_id)->nickname }}の作品名：{{ $request_match->items_second->title }} -> {{ User::find($request_match->items_first->user_id)->nickname }}の作品名：{{ $request_match->items_first->title }}</div>
                                             </div>
                                             <!--end::Title-->
