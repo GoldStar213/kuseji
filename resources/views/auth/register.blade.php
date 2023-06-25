@@ -161,7 +161,7 @@
                                 </label> --}}
                                 <div class="form-check">
                                     <input type="checkbox" class="form-check-input" id="terms" name="terms">
-                                    <label for="terms"><a href="#" class="ms-1 link-primary">利用規約</a>に同意します。</label>
+                                    <label for="terms"><a href="{{ route('terms') }}" class="ms-1 link-primary">利用規約</a>に同意します。</label>
                                 </div>
                                 @error('terms')
                                     <span class="invalid-feedback d-block" role="alert">
@@ -210,7 +210,7 @@
 
                     <!--begin::Links-->
                     <div class="d-flex fw-semibold text-primary fs-base gap-5">
-                        <a href="/terms" target="_blank">利用規約</a>
+                        <a href="/terms">利用規約</a>
                         <a href="/#contact">お問い合わせ</a>
                     </div>
                     <!--end::Links-->

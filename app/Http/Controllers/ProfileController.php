@@ -138,4 +138,12 @@ class ProfileController extends Controller
     public function confirm() {
         return view('profile.confirm');
     }
+
+    public function terms() {
+        return view('terms');
+    }
+
+    public function use_method() {
+        return view('use_method');;
+    }
 }

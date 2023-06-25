@@ -185,7 +185,7 @@
 
                     <!--begin::Links-->
                     <div class="d-flex fw-semibold text-primary fs-base gap-5">
-                        <a href="/terms" target="_blank">利用規約</a>
+                        <a href="{{ route('terms') }}">利用規約</a>
                         <a href="/#contact">お問い合わせ</a>
                     </div>
                     <!--end::Links-->

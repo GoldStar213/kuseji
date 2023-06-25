@@ -479,6 +479,22 @@ use App\Models\RequestMatch;
                                         </div>
                                         <!--end:Menu item-->
                                         @endif
+
+                                        <!--begin:Menu item-->
+                                        <div class="menu-item">
+                                            <!--begin:Menu link-->
+                                            <a class="menu-link" href="{{ route('use_method') }}">
+                                                <span class="menu-icon">
+                                                    <i class="ki-duotone ki-abstract-26 fs-2">
+                                                        <span class="path1"></span>
+                                                        <span class="path2"></span>
+                                                    </i>
+                                                </span>
+                                                <span class="menu-title">使い方</span></a>
+                                            <!--end:Menu link-->
+                                        </div>
+                                        <!--end:Menu item-->
+
                                     </div>
                                     <!--end::Menu-->
                                 </div>
@@ -487,7 +503,7 @@ use App\Models\RequestMatch;
                             <!--end::sidebar menu-->
                             <!--begin::Footer-->
                             <div class="app-sidebar-footer flex-column-auto pt-2 pb-6 px-6" id="kt_app_sidebar_footer">
-                                <a href=""
+                                <a href="/terms"
                                     class="btn btn-flex flex-center btn-custom btn-primary overflow-hidden text-nowrap px-0 h-40px w-100"
                                     data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss-="click"
                                     title="200+ in-house components and 3rd-party plugins">

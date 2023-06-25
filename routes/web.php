@@ -78,3 +78,6 @@ Route::get('/register_csv', [\App\Http\Controllers\CsvController::class, 'regist
 Route::get('/matching_csv', [\App\Http\Controllers\CsvController::class, 'matching_csv'])->name('matching_csv');
 
 Route::post('/changePaypemtState', [UserManaController::class, 'changePaypemtState'])->middleware('auth');
+
+Route::get('/terms', [ProfileController::class, 'terms'])->name('terms');
+Route::get('/use_method', [ProfileController::class, 'use_method'])->name('use_method');
