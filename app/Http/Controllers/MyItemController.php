@@ -89,7 +89,6 @@ class MyItemController extends Controller
             $provider = new PayPalClient();
             $provider->setApiCredentials(config('paypal'));
             $paypalToken = $provider->getAccessToken();
-            dd(config('paypal'));
             $response = $provider->createOrder([
                 "intent" => "CAPTURE",
                 "application_context" => [
