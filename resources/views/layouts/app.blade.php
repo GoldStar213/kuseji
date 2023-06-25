@@ -4,6 +4,8 @@ use Illuminate\Support\Str;
 use App\Models\User;
 use App\Models\Item;
 use App\Models\RequestMatch;
+
+use Carbon\Carbon;
 @endphp
 
 <!DOCTYPE html>
@@ -170,11 +172,11 @@ use App\Models\RequestMatch;
                         <!--end::Menu wrapper-->
 
                         @php
-                            $request_matches = RequestMatch::all();
-                            // print_r($request_matches_inbox->count());
-                            foreach ($request_matches as $request_match) {
-                                // if($request_match->items_second->user_id)
-                            }
+                        $request_matches = RequestMatch::all();
+                        // print_r($request_matches_inbox->count());
+                        foreach ($request_matches as $request_match) {
+                        // if($request_match->items_second->user_id)
+                        }
                         @endphp
 
 
@@ -183,13 +185,27 @@ use App\Models\RequestMatch;
 
                             <div class="app-navbar-item ms-1 ms-md-3">
                                 <!--begin::Menu wrapper-->
-                                <div class="btn btn-icon btn-custom btn-icon-muted btn-active-light btn-active-color-primary w-30px h-30px w-md-40px h-md-40px position-relative" id="kt_activities_toggle">
+                                <div class="btn btn-icon btn-custom btn-icon-muted btn-active-light btn-active-color-primary w-30px h-30px w-md-40px h-md-40px position-relative"
+                                    id="kt_activities_toggle">
                                     <i class="ki-duotone ki-message-text-2 fs-2 fs-lg-1">
                                         <span class="path1"></span>
                                         <span class="path2"></span>
                                         <span class="path3"></span>
                                     </i>
-                                    <span class="bullet bullet-dot bg-success h-6px w-6px position-absolute translate-middle top-0 start-50 animation-blink"></span>
+                                    @if($request_matches->where('receive_date', null)->count() > 0)
+                                    @php
+                                    $flag = 0;
+                                    foreach ($request_matches as $request_match) {
+                                    if($request_match->items_second->user_id == Auth::user()->id) {
+                                    $flag = 1;
+                                    }
+                                    }
+                                    @endphp
+                                    @if($flag == 1)
+                                    <span
+                                        class="bullet bullet-dot bg-success h-6px w-6px position-absolute translate-middle top-0 start-50 animation-blink"></span>
+                                    @endif
+                                    @endif
                                 </div>
                                 <!--end::Menu wrapper-->
                             </div>
@@ -581,7 +597,8 @@ use App\Models\RequestMatch;
             <!--end::Scrolltop-->
 
             <!--begin::Activities drawer-->
-            <div id="kt_activities" class="bg-body" data-kt-drawer="true" data-kt-drawer-name="activities" data-kt-drawer-activate="true" data-kt-drawer-overlay="true"
+            <div id="kt_activities" class="bg-body" data-kt-drawer="true" data-kt-drawer-name="activities"
+                data-kt-drawer-activate="true" data-kt-drawer-overlay="true"
                 data-kt-drawer-width="{default:'300px', 'lg': '900px'}" data-kt-drawer-direction="end"
                 data-kt-drawer-toggle="#kt_activities_toggle" data-kt-drawer-close="#kt_activities_close">
 
@@ -591,7 +608,8 @@ use App\Models\RequestMatch;
                         <h3 class="card-title fw-bold text-dark">マッチング通知状態（送信、受信）</h3>
 
                         <div class="card-toolbar">
-                            <button type="button" class="btn btn-sm btn-icon btn-active-light-primary me-n5" id="kt_activities_close">
+                            <button type="button" class="btn btn-sm btn-icon btn-active-light-primary me-n5"
+                                id="kt_activities_close">
                                 <i class="ki-duotone ki-cross fs-1">
                                     <span class="path1"></span>
                                     <span class="path2"></span>
@@ -604,10 +622,14 @@ use App\Models\RequestMatch;
                     <!--begin::Body-->
                     <div class="card-body position-relative" id="kt_activities_body">
                         <!--begin::Content-->
-                        <div id="kt_activities_scroll" class="position-relative scroll-y me-n5 pe-5" data-kt-scroll="true" data-kt-scroll-height="auto" data-kt-scroll-wrappers="#kt_activities_body" data-kt-scroll-dependencies="#kt_activities_header, #kt_activities_footer" data-kt-scroll-offset="5px">
-                            
+                        <div id="kt_activities_scroll" class="position-relative scroll-y me-n5 pe-5"
+                            data-kt-scroll="true" data-kt-scroll-height="auto"
+                            data-kt-scroll-wrappers="#kt_activities_body"
+                            data-kt-scroll-dependencies="#kt_activities_header, #kt_activities_footer"
+                            data-kt-scroll-offset="5px">
+
                             @foreach($request_matches as $request_match)
-                                @if($request_match->items_first->user_id == Auth::user()->id || $request_match->items_second->user_id == Auth::user()->id)
+                                @if($request_match->items_first->user_id == Auth::user()->id)
                                 <!--begin::Items-->
                                 <div class="scroll-y mh-100vh my-5 px-8">
                                     <!--begin::Item-->
@@ -617,7 +639,7 @@ use App\Models\RequestMatch;
                                             <!--begin::Symbol-->
                                             <div class="symbol symbol-35px me-4">
                                                 <span class="symbol-label bg-light-primary">
-                                                    <i class="ki-duotone ki-abstract-28 fs-2 text-primary">
+                                                    <i class="ki-duotone ki-arrow-up-right fs-2 text-primary">
                                                         <span class="path1"></span>
                                                         <span class="path2"></span>
                                                     </i>
@@ -627,16 +649,57 @@ use App\Models\RequestMatch;
 
                                             <!--begin::Title-->
                                             <div class="mb-0 me-2">
-                                                <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-bold">Project Alice</a>
-                                                <div class="text-gray-400 fs-7">Phase 1 development</div>
+                                                <p href="" class="fs-6 text-danger fw-bold" style="line-height: 1;">{{ User::find($request_match->items_first->user_id)->nickname }}さんから交換リクエストが届きました。</p>
+                                                <div class="fs-6">{{ User::find($request_match->items_first->user_id)->nickname }}の作品名：{{ $request_match->items_first->title }} -> {{ User::find($request_match->items_second->user_id)->nickname }}の作品名：{{ $request_match->items_second->title }}</div>
                                             </div>
                                             <!--end::Title-->
+                                            @if($request_match->receive_date == null)
                                             <span class="badge badge-success me-2">New</span>
+                                            @endif
                                         </div>
                                         <!--end::Section-->
 
                                         <!--begin::Label-->
-                                        <span class="badge badge-light fs-8">1 hr</span>
+                                        {{ $request_match->updated_at->diff(now())->format('%d日 %h時間 %i分') }}
+                                        <!--end::Label-->
+                                    </div>
+                                    <!--end::Item-->
+                                </div>
+                                <!--end::Items-->
+                                @endif
+
+                                @if($request_match->items_second->user_id == Auth::user()->id)
+                                <!--begin::Items-->
+                                <div class="scroll-y mh-100vh my-5 px-8">
+                                    <!--begin::Item-->
+                                    <div class="d-flex flex-stack py-4">
+                                        <!--begin::Section-->
+                                        <div class="d-flex align-items-center">
+                                            <!--begin::Symbol-->
+                                            <div class="symbol symbol-35px me-4">
+                                                <span class="symbol-label bg-light-primary">
+                                                    <i class="ki-duotone ki-arrow-down-left fs-2 text-primary">
+                                                        <span class="path1"></span>
+                                                        <span class="path2"></span>
+                                                    </i>
+                                                </span>
+                                            </div>
+                                            <!--end::Symbol-->
+
+                                            <!--begin::Title-->
+                                            <div class="mb-0 me-2">
+                                                <div class="fs-6 text-primary fw-bold" style="line-height: 1;">{{ User::find($request_match->items_second->user_id)->nickname }}さんに交換リクエストを送りました。</div>
+                                                <div class="fs-6">{{ User::find($request_match->items_second->user_id)->nickname }}の作品名：{{ $request_match->items_second->title }} -> {{ User::find($request_match->items_first->user_id)->nickname }}の作品名：{{ $request_match->items_first->title }}</div>
+                                            </div>
+                                            <!--end::Title-->
+                                            @if($request_match->receive_date == null)
+                                            <span class="badge badge-success me-2">New</span>
+                                            @endif
+                                        </div>
+                                        <!--end::Section-->
+
+                                        <!--begin::Label-->
+                                        {{ $request_match->created_at->diff(now())->format('%d日 %h時間 %i分') }}
                                         <!--end::Label-->
                                     </div>
                                     <!--end::Item-->
@@ -651,7 +714,8 @@ use App\Models\RequestMatch;
 
                     <!--begin::Footer-->
                     <div class="card-footer py-5 text-center" id="kt_activities_footer">
-                        <a href="/metronic8/demo1/../demo1/pages/user-profile/activity.html" class="btn btn-bg-body text-primary">
+                        <a href="{{ route('requestMatch_inbox') }}"
+                            class="btn btn-bg-body text-primary">
                             全て見る
                             <i class="ki-duotone ki-arrow-right fs-3 text-primary">
                                 <span class="path1"></span>

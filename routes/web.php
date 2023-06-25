@@ -80,4 +80,4 @@ Route::get('/matching_csv', [\App\Http\Controllers\CsvController::class, 'matchi
 Route::post('/changePaypemtState', [UserManaController::class, 'changePaypemtState'])->middleware('auth');
 
 Route::get('/terms', [ProfileController::class, 'terms'])->name('terms');
-Route::get('/use_method', [ProfileController::class, 'use_method'])->name('use_method');
+Route::get('/use_method', [ProfileController::class, 'use_method'])->middleware('auth')->name('use_method');
