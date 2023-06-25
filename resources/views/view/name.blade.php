@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Email Verification</title>
+    <title>物物交換マッチングアプリ</title>
 </head>
 <body>
     <h1>あなたのメールアドレスを確認してください。</h1>

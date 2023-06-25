@@ -254,6 +254,26 @@
                         </div>
                         @enderror
 
+                        @error('error')
+                        <div class="alert alert-danger d-flex align-items-center px-5 py-3">
+                            <!--begin::Icon-->
+                            <i class="ki-duotone ki-information-2 fs-2hx text-danger me-4">
+                                <span class="path1"></span>
+                                <span class="path2"></span>
+                                <span class="path3"></span>
+                            </i>
+                            <!--end::Icon-->
+
+                            <!--begin::Wrapper-->
+                            <div class="d-flex flex-column">
+                                <!--begin::Content-->
+                                <span>{{ $message }}</span>
+                                <!--end::Content-->
+                            </div>
+                            <!--end::Wrapper-->
+                        </div>
+                        @enderror
+
                         @if(session('myItem_Update_Success'))
                         <div class="alert alert-success d-flex align-items-center px-5 py-3">
                             <!--begin::Icon-->
@@ -272,26 +292,6 @@
                             <!--end::Wrapper-->
                         </div>
                         @endif
-
-                        @if(session('myItem_Update_Success'))
-                        <div class="alert alert-success d-flex align-items-center px-5 py-3">
-                            <!--begin::Icon-->
-                            <i class="ki-duotone ki-shield-tick fs-2hx text-success me-4">
-                                <span class="path1"></span>
-                                <span class="path2"></span>
-                            </i>
-                            <!--end::Icon-->
-
-                            <!--begin::Wrapper-->
-                            <div class="d-flex flex-column">
-                                <!--begin::Content-->
-                                <span>{{ session('myItem_Update_Success') }}</span>
-                                <!--end::Content-->
-                            </div>
-                            <!--end::Wrapper-->
-                        </div>
-                        @endif
-                        <!--end::Alert-->
                         
                         <!--begin::Section-->
                         <form class="mb-17" method="POST" action="{{ route('myItem.update', ['myItem' => $myItem->id]) }}" id="myForm">

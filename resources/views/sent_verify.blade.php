@@ -3,7 +3,7 @@
 <!--begin::Head-->
 
 <head>
-    <title>メール確認</title>
+    <title>物物交換マッチングアプリ</title>
     <meta charset="utf-8" />
     <meta name="description" content="" />
     <meta name="keywords" content="

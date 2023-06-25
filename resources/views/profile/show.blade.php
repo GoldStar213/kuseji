@@ -160,7 +160,7 @@
 
                         <!--begin::Col-->
                         <div class="col-lg-8 fv-row">
-                            <input type="text" name="postal_code" class="form-control form-control-lg form-control-solid" placeholder="" value="{{ old('postal_code', Auth::user()->postal_code) }}" onKeyUp="AjaxZip3.zip2addr('postal_code','','prefectures','house_number','building_name');" />
+                            <input type="text" name="postal_code" class="form-control form-control-lg form-control-solid" placeholder="" value="{{ old('postal_code', Auth::user()->postal_code) }}" onKeyUp="AjaxZip3.zip2addr('postal_code','','prefectures','house_number');" />
                             @error('postal_code')
                                 <span class="invalid-feedback d-block" role="alert">
                                     <strong>{{ $message }}</strong>

@@ -10,7 +10,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
     <link rel="shortcut icon" href="{{ asset('/favicon.png') }}" />
 
-    <title>クセ字マッチング</title>
+    <title>物物交換マッチングアプリ</title>
 
     <!--     Fonts and icons     -->
     <link rel="stylesheet" type="text/css"

@@ -89,6 +89,7 @@ class MyItemController extends Controller
             $provider = new PayPalClient();
             $provider->setApiCredentials(config('paypal'));
             $paypalToken = $provider->getAccessToken();
+            dd(config('paypal'));
             $response = $provider->createOrder([
                 "intent" => "CAPTURE",
                 "application_context" => [
@@ -117,7 +118,7 @@ class MyItemController extends Controller
             } else {
                 return redirect()
                     ->route('myItem.index')
-                    ->with('error', $response['message'] ?? 'Something went wrong.');
+                    ->with('error', 'Something went wrong.');
             }
         } 
         if($request->register_type == 'nopay') {
@@ -225,7 +226,7 @@ class MyItemController extends Controller
                 ]);
             }
 
-            return redirect()->route('myItem.edit', ['myItem' => $id])->with('myItem_Register_Success', 'データは正常に保存されました。');
+            return redirect()->route('myItem.edit', ['myItem' => $id])->with('myItem_Update_Success', 'データは正常に保存されました。');
         }
 
         if($request->register_type == 'pay') {

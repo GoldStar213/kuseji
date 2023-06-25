@@ -4,7 +4,7 @@
 <!--begin::Head-->
 
 <head>
-    <title>Verify Email</title>
+    <title>物物交換マッチングアプリ</title>
     <meta charset="utf-8" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />

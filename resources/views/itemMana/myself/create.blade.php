@@ -393,6 +393,7 @@
                                             </option>
                                             @endforeach
                                         </select>
+                                        <span class="text-info px-3">最大3つのカテゴリを選択できます。</span>
                                     </div>
                                     <!--end::Col-->
                                 </div>
@@ -424,8 +425,7 @@
                         <div class="card-footer d-flex justify-content-end py-6 px-0">
                             <button type="button" onclick="submitForm('nopay')" class="btn btn-primary py-2 me-2"
                                 id="kt_account_profile_details_submit"> 一時保存 </button>
-                            <button type="button" onclick="submitForm('pay')" class="btn btn-primary py-2 ms-2"
-                                id="kt_account_profile_details_submit"> 決 済 </button>
+                            <button type="button" class="btn btn-primary py-2 ms-2" id="" data-bs-toggle="modal" data-bs-target="#kt_modal_stacked_2"> 決 済 </button>
                         </div>
                         <div class="row">
                             <span class="text-right" style="text-align: end;">「決済＝出品可能」なので、一旦仮入力で決済後に編集してください」</span>
@@ -442,8 +442,36 @@
     </div>
     <!--end::Content-->
 </div>
+
+<div class="modal fade" tabindex="-1" id="kt_modal_stacked_2">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">決済方法の確認</h3>
+                <!--begin::Close-->
+                <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
+                    aria-label="Close">
+                    <i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span class="path2"></span></i>
+                </div>
+                <!--end::Close-->
+            </div>
+
+            <div class="modal-body">
+                <p>マッチングに参加するには3000円を支払わなければなりません。</p>
+                <p>お支払いはPaypalを利用したクレカ決済で行っております。</p>
+                <p>Paypal登録画面でクレカ決済ボタンをクリックして決済をお試しください。</p>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal">キャンセル</button>
+                <button type="button" onclick="submitForm('pay')" class="btn btn-primary">決済ページへ</button>
+            </div>
+        </div>
+    </div>
+</div>
 <script src="{{ asset('/metronic/assets/plugins/custom/fslightbox/fslightbox.bundle.js') }}"></script>
 <script src="{{ asset('/metronic/assets/plugins/custom/datatables/datatables.bundle.js') }}"></script>
+<script src="https://preview.keenthemes.com/html/metronic/docs/assets/js/custom/documentation/base/modal.js"></script>
 
 <script>
     var divWidth = $('.image-input-wrapper').width(); 
