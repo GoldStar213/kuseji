@@ -1,4 +1,4 @@
-<x-mail::message :title="Reset">
+<x-mail::message>
 {{-- Greeting --}}
 @if (! empty($greeting))
 # {{ $greeting }}
