@@ -338,7 +338,7 @@
 
     <header class="header-2 mt-8">
         <div class="container d-flex justify-content-center">
-            <img src="{{ asset('./assets/img/bg7.png') }}" alt="" class="w-80">
+            <img src="{{ asset('./assets/img/bg4.jpg') }}" alt="" class="w-80">
         </div>
     </header>
 
@@ -398,24 +398,40 @@
             <div class="container">
                 <div class="row flex-wrap-reverse">
                     <div class="col-md-7 col-12 my-auto">
-                        <h3 class="text-gradient text-primary mb-0 mt-4">クセ字マッチングとは？</h3>
+                        <h3 class="text-gradient text-primary mb-0 mt-4">クセ字コンテストとは？</h3>
                         <p class="pe-md-5 mb-4">
-                            クセ字コンテストの出品者作品同士を交換する仕組みです。
+                            「個性ある手書き文字を美術館で鑑賞し合おう」という文化企画。<br>
+                            今までの「キレイな字じゃないとダメ」ではなく「キレイな字じゃなくてイイ」という個性を重視しています。
+                        </p>
+                        <h3 class="text-gradient text-primary mb-0 mt-4">クセ字交換会とは？</h3>
+                        <p class="pe-md-5 mb-4">
+                            クセ字コンテストの応募者同士限定のクセ字作品の交換会。<br>
+                            会場、オンラインで作品をチェックして交換リクエスト。<br>
+                            マッチングが成立したら、作品を交換し、返送します。
                         </p>
                         <p class="pe-md-5 mb-4">
-                            ■マッチングの流れ<br>
-                            ①出品者はお気に入りの作品を探して作品ごとに交換リクエストを実施(希望順１～５位)<br>
-                            ②交換リクエストは出品者にメールで通知
+                            ■参加資格<br>
+                            クセ字コンテスト参加者のみ。<br>
+                        </p>
+                        <p class="pe-md-5 mb-4">
+                            ■参加の流れ<br>
+                            出品登録(仮でOK)→決済→出品資格Get!→〆切までに手続き、作品送付→交換会スタート！(8/5-11)→交換リクエスト送受信→8/11確定→8/12交換して返送<br>
+                            ※希望順位は1～5位<br>
                         </p>
                         <p class="pe-md-5 mb-4">
                             ■マッチング成立<br>
-                            ①交換リクエスト順位１位同士→マッチング成立<br>
-                            ②マッチング〆切時点で交換リクエストの順位が上位同士→マッチング成立<br>
-                            ③複数マッチングの場合、①リクエスト順位合計の小さい方②申請が早い方
+                            ２つの成立<br>
+                            ・即成立→1位同士<br>
+                            ・締切で成立(8/11)<br>
+                            【成立のアルゴリズム】<br>
+                            1：nの複数成立の場合<br>
+                            ①リクエスト順位の高い方<br>
+                            ②双方のリクエスト順位が小さい方　例A：1位＋3位＝4　B:2位＋1位＝3点<br>
+                            ③申請が早い方
                         </p>
                     </div>
                     <div class="col-md-5 col-12 my-auto">
-                        <img class="w-100 border-radius-lg shadow-lg" src="{{ asset('./assets/img/company.png') }}"
+                        <img class="w-100 border-radius-lg shadow-lg" src="{{ asset('./assets/img/bg7.png') }}"
                             alt="Product Image">
                     </div>
                 </div>
