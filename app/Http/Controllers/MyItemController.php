@@ -126,7 +126,6 @@ class MyItemController extends Controller
 
             $item->title = $title;
             $item->description = $description;
-            $item->front_img = $this->saveImage('front', $front_img);
 
             if($front_img != null) {
                 $item->front_img = $this->saveImage('front', $front_img);
