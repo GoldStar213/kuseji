@@ -144,6 +144,17 @@ class MyItemController extends Controller
             $item->join_type = $request->join_type;
 
             $item->save();
+
+            $max_item_id = DB::table('items')->max('id');
+
+            foreach($request->category as $category) {
+                DB::table('category_item')->insert([
+                    'item_id' => $max_item_id,
+                    'category_id' => $category,
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ]);
+            }
         }
 
         return redirect()->route('myItem.create')->with('myItem_Register_Success', 'データは正常に保存されました。 引き続き新しいアイテムを登録できます。');
