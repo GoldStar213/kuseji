@@ -459,6 +459,7 @@
                 <img src="{{ asset('/assets/img/modal.png') }}" class="w-100" alt="">
                 <p>クセ字コンテスト　出品料　3000円(込)</p>
                 <p>次画面のPaypal登録画面の下部の「カードで支払う」ボタンをクリックして決済をしてください。</p>
+                <p>次画面のPaypal画面でボタンをクリックして決済に進んでください。(端末、OSで違う場合があります)</p>
             </div>
 
             <div class="modal-footer">
