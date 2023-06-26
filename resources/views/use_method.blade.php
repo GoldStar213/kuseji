@@ -66,6 +66,16 @@
                                         </a>
                                         <!--end::Title-->
 
+                                        <!--begin::Description-->
+                                        <div class="fs-5 fw-semibold text-gray-600">
+                                            <!--begin::Text-->
+                                            <p class="mt-8 mb-5">
+                                                登録したメールに届いたメールで「メールアドレス確認」を行なってください。
+                                            </p>
+                                            <!--end::Text-->
+                                        </div>
+                                        <!--end::Description-->
+
                                         <!--begin::Container-->
                                         <div class="overlay mt-8">
                                             <!--begin::Image-->
@@ -77,15 +87,6 @@
                                         <!--end::Container-->
                                     </div>
                                     <!--end::Wrapper-->
-                                    <!--begin::Description-->
-                                    <div class="fs-5 fw-semibold text-gray-600">
-                                        <!--begin::Text-->
-                                        <p class="mb-8">
-                                            登録したメールに届いたメールで「メールアドレス確認」を行なってください。
-                                        </p>
-                                        <!--end::Text-->
-                                    </div>
-                                    <!--end::Description-->
                                 </div>
 
                                 <div class="mb-10">
@@ -96,6 +97,16 @@
                                             3. 個人情報編集
                                         </a>
                                         <!--end::Title-->
+
+                                        <!--begin::Description-->
+                                        <div class="fs-5 fw-semibold text-gray-600">
+                                            <!--begin::Text-->
+                                            <p class="mt-8 mb-5">
+                                                必要事項を入れてください。(後に編集可能)
+                                            </p>
+                                            <!--end::Text-->
+                                        </div>
+                                        <!--end::Description-->
 
                                         <!--begin::Container-->
                                         <div class="overlay mt-8">
@@ -117,16 +128,6 @@
                                         <!--end::Container-->
                                     </div>
                                     <!--end::Wrapper-->
-
-                                    <!--begin::Description-->
-                                    <div class="fs-5 fw-semibold text-gray-600">
-                                        <!--begin::Text-->
-                                        <p class="mb-8">
-                                            必要事項を入れてください。(後に編集可能)
-                                        </p>
-                                        <!--end::Text-->
-                                    </div>
-                                    <!--end::Description-->
                                 </div>
 
                                 <div class="mb-10">
@@ -137,6 +138,19 @@
                                             4. 作品登録
                                         </a>
                                         <!--end::Title-->
+
+                                        <!--begin::Description-->
+                                        <div class="fs-5 fw-semibold text-gray-600">
+                                            <!--begin::Text-->
+                                            <p class="mt-8 mb-5">
+                                                作品登録をしてください。 仮登録だけして、先に「決済」に進んでください。(編集も可能)
+                                            </p>
+                                            <p class="mb-5">
+                                                ※決済を先にしないと出品(+クセ字交換会)できません。
+                                            </p>
+                                            <!--end::Text-->
+                                        </div>
+                                        <!--end::Description-->
 
                                         <!--begin::Container-->
                                         <div class="overlay mt-8">
@@ -158,19 +172,6 @@
                                         <!--end::Container-->
                                     </div>
                                     <!--end::Wrapper-->
-
-                                    <!--begin::Description-->
-                                    <div class="fs-5 fw-semibold text-gray-600">
-                                        <!--begin::Text-->
-                                        <p class="mb-8">
-                                            作品登録をしてください。 仮登録だけして、先に「決済」に進んでください。(編集も可能)
-                                        </p>
-                                        <p class="mb-8">
-                                            ※決済を先にしないと出品(+クセ字交換会)できません。
-                                        </p>
-                                        <!--end::Text-->
-                                    </div>
-                                    <!--end::Description-->
                                 </div>
                                 <!--end::Post content-->
                             </div>
