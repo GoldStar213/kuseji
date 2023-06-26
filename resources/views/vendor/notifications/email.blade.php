@@ -1,4 +1,4 @@
-<x-mail::message>
+<x-mail::message :title="Reset">
 {{-- Greeting --}}
 @if (! empty($greeting))
 # {{ $greeting }}
@@ -41,7 +41,6 @@
 @if (! empty($salutation))
 {{ $salutation }}
 @else
-@lang('よろしくお願いいたします。'),<br>
 {{ config('app.name') }}
 @endif
 

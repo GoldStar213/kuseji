@@ -44,10 +44,20 @@
                                         </a>
                                         <!--end::Title-->
 
+                                        <!--begin::Description-->
+                                        <div class="fs-5 fw-semibold text-gray-600">
+                                            <!--begin::Text-->
+                                            <p class="mt-8 mb-5">
+                                                メールアドレス、パスワードを設定して、利用規約に☑して「登録」を押してください。
+                                            </p>
+                                            <!--end::Text-->
+                                        </div>
+                                        <!--end::Description-->
+
                                         <!--begin::Container-->
                                         <div class="overlay mt-8">
                                             <!--begin::Image-->
-                                            <div class="bgi-no-repeat bgi-position-center bgi-size-cover card-rounded border w-100 w-lg-50 mx-auto">
+                                            <div class="bgi-no-repeat bgi-position-center bgi-size-cover card-rounded border border-dark w-100 w-lg-50 mx-auto">
                                                 <img class="w-100 rounded" src="{{ asset('/assets/img/use_method/01.png') }}" alt="">
                                             </div>
                                             <!--end::Image-->
