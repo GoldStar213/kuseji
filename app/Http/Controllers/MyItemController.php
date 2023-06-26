@@ -157,7 +157,7 @@ class MyItemController extends Controller
             }
         }
 
-        return redirect()->route('myItem.create')->with('myItem_Register_Success', 'データは正常に保存されました。 引き続き新しいアイテムを登録できます。');
+        return redirect()->route('myItem.create')->with('myItem_Register_Success', 'データは正常に保存されました。 引き続き新しい作品を登録できます。');
     }
 
     /**
