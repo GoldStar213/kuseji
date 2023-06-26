@@ -4,15 +4,16 @@
 # {{ $greeting }}
 @else
 @if ($level === 'error')
-# @lang('Whoops!')
+# @lang('おっと！')
 @else
-# @lang('asd!')
+# @lang('こんにちは！')
 @endif
 @endif
 
 {{-- Intro Lines --}}
 @foreach ($introLines as $line)
-{{ $line }}
+
+お客様のアカウントのパスワードリセットをリクエストしたため、このメールをお送りしております。
 
 @endforeach
 
@@ -25,21 +26,22 @@
     };
 ?>
 <x-mail::button :url="$actionUrl" :color="$color">
-{{ $actionText }}
+パスワードをリセット
 </x-mail::button>
 @endisset
 
 {{-- Outro Lines --}}
-@foreach ($outroLines as $line)
-{{ $line }}
 
-@endforeach
+
+このパスワードリセットリンクは、60分後に有効期限切れとなります。<br>
+パスワードリセットをリクエストしていない場合は、何もする必要はありません。
+
 
 {{-- Salutation --}}
 @if (! empty($salutation))
 {{ $salutation }}
 @else
-@lang('Regards'),<br>
+@lang('よろしくお願いいたします。'),<br>
 {{ config('app.name') }}
 @endif
 
@@ -47,8 +49,8 @@
 @isset($actionText)
 <x-slot:subcopy>
 @lang(
-    "If you're having trouble clicking the \":actionText\" button, copy and paste the URL below\n".
-    'into your web browser:',
+    "ボタンがクリックできない場合は、下のURLをコピーしてブラウザのアドレス欄に貼り付け、直接アクセスしてください。\n".
+    'ブラウザでアクセス：',
     [
         'actionText' => $actionText,
     ]
