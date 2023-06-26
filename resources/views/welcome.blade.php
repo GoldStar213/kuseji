@@ -387,8 +387,9 @@
                 <div class="row align-items-center">
                     <div class="col-lg-8 col-10 mx-auto text-center">
                         <div class="mb-md-5">
-                            <h3>クセコン同士の作品マッチング！</h3>
-                            <p>成立したらマッチング作品が手元に届く！</p>
+                            <h3>クセ字コンテストとは？</h3>
+                            <p>「個性ある手書き文字を美術館で鑑賞し合おう」という文化企画。</p>
+                            <p>今までの「キレイな字じゃないとダメ」ではなく「キレイな字じゃなくてイイ」という個性を重視しています。</p>
                         </div>
 
                         <a href="https://wayoh.jp/pen" class="btn btn-primary">詳 細</a>
@@ -398,11 +399,6 @@
             <div class="container">
                 <div class="row flex-wrap-reverse">
                     <div class="col-md-7 col-12 my-auto">
-                        <h3 class="text-gradient text-primary mb-0 mt-4">クセ字コンテストとは？</h3>
-                        <p class="pe-md-5 mb-4">
-                            「個性ある手書き文字を美術館で鑑賞し合おう」という文化企画。<br>
-                            今までの「キレイな字じゃないとダメ」ではなく「キレイな字じゃなくてイイ」という個性を重視しています。
-                        </p>
                         <h3 class="text-gradient text-primary mb-0 mt-4">クセ字交換会とは？</h3>
                         <p class="pe-md-5 mb-4">
                             クセ字コンテストの応募者同士限定のクセ字作品の交換会。<br>
