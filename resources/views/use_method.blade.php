@@ -10,9 +10,6 @@
 
             <!--begin::Toolbar container-->
             <div id="kt_app_toolbar_container" class="app-container  container-xxl d-flex flex-stack ">
-
-
-
                 <!--begin::Page title-->
                 <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3 ">
                     <!--begin::Title-->
@@ -50,7 +47,7 @@
                                         <!--begin::Container-->
                                         <div class="overlay mt-8">
                                             <!--begin::Image-->
-                                            <div class="bgi-no-repeat bgi-position-center bgi-size-cover card-rounded border">
+                                            <div class="bgi-no-repeat bgi-position-center bgi-size-cover card-rounded border w-100 w-lg-50 mx-auto">
                                                 <img class="w-100 rounded" src="{{ asset('/assets/img/use_method/01.png') }}" alt="">
                                             </div>
                                             <!--end::Image-->
@@ -72,7 +69,7 @@
                                         <!--begin::Container-->
                                         <div class="overlay mt-8">
                                             <!--begin::Image-->
-                                            <div class="bgi-no-repeat bgi-position-center bgi-size-cover card-rounded border w-50 mx-auto">
+                                            <div class="bgi-no-repeat bgi-position-center bgi-size-cover card-rounded border w-100 w-lg-50 mx-auto">
                                                 <img class="w-100 rounded" src="{{ asset('/assets/img/use_method/02.png') }}" alt="">
                                             </div>
                                             <!--end::Image-->
@@ -80,6 +77,15 @@
                                         <!--end::Container-->
                                     </div>
                                     <!--end::Wrapper-->
+                                    <!--begin::Description-->
+                                    <div class="fs-5 fw-semibold text-gray-600">
+                                        <!--begin::Text-->
+                                        <p class="mb-8">
+                                            登録したメールに届いたメールで「メールアドレス確認」を行なってください。
+                                        </p>
+                                        <!--end::Text-->
+                                    </div>
+                                    <!--end::Description-->
                                 </div>
 
                                 <div class="mb-10">
