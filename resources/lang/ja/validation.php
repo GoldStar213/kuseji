@@ -4,145 +4,144 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | バリデーションの言語行
+    | バリデーション言語行
     |--------------------------------------------------------------------------
     |
-    | 次の言語行には、バリデータクラスで使用されるデフォルトの
-    | エラーメッセージが含まれています。これらのルールの一部には、
-    | サイズルールなどの複数のバージョンがあります。 
-    | ここでこれらの各メッセージを自由に調整してください。
+    | 以下の言語行はバリデタークラスにより使用されるデフォルトのエラー
+    | メッセージです。サイズルールのようにいくつかのバリデーションを
+    | 持っているものもあります。メッセージはご自由に調整してください。
     |
     */
 
-    'accepted' => ':attributeを承認してください。',
-    'active_url' => ':attributeには有効なURLを指定してください。',
-    'after' => ':attributeには:date以降の日付を指定してください。',
-    'after_or_equal' => ':attributeには:dateかそれ以降の日付を指定してください。',
-    'alpha' => ':attributeには英字のみからなる文字列を指定してください。',
-    'alpha_dash' => ':attributeには英数字・ハイフン・アンダースコアのみからなる文字列を指定してください。',
-    'alpha_num' => ':attributeには英数字のみからなる文字列を指定してください。',
-    'array' => ':attributeには配列を指定してください。',
-    'before' => ':attributeには:date以前の日付を指定してください。',
-    'before_or_equal' => ':attributeには:dateかそれ以前の日付を指定してください。',
-    'between' => [
-        'numeric' => ':attributeには:min〜:maxまでの数値を指定してください。',
-        'file' => ':attributeには:min〜:max KBのファイルを指定してください。',
-        'string' => ':attributeには:min〜:max文字の文字列を指定してください。',
-        'array' => ':attributeには:min〜:max個の要素を持つ配列を指定してください。',
+    'accepted'             => ':attributeを承認してください。',
+    'active_url'           => ':attributeが有効なURLではありません。',
+    'after'                => ':attributeには、:dateより後の日付を指定してください。',
+    'after_or_equal'       => ':attributeには、:date以降の日付を指定してください。',
+    'alpha'                => ':attributeはアルファベットのみがご利用できます。',
+    'alpha_dash'           => ':attributeはアルファベットとダッシュ(-)及び下線(_)がご利用できます。',
+    'alpha_num'            => ':attributeはアルファベット数字がご利用できます。',
+    'array'                => ':attributeは配列でなくてはなりません。',
+    'before'               => ':attributeには、:dateより前の日付をご利用ください。',
+    'before_or_equal'      => ':attributeには、:date以前の日付をご利用ください。',
+    'between'              => [
+        'numeric' => ':attributeは、:minから:maxの間で指定してください。',
+        'file'    => ':attributeは、:min kBから、:max kBの間で指定してください。',
+        'string'  => ':attributeは、:min文字から、:max文字の間で指定してください。',
+        'array'   => ':attributeは、:min個から:max個の間で指定してください。',
     ],
-    'boolean' => ':attributeには真偽値を指定してください。',
-    'confirmed' => ':attributeが確認用の値と一致しません。',
-    'date' => ':attributeは有効な日付ではありません。',
-    'date_equals' => ':attributeは:dateと同じ日付でなければなりません。',
-    'date_format' => ':attributeは:format形式と一致しません。',
-    'different' => ':attributeには:otherとは異なる値を指定してください。',
-    'digits' => ':attributeは:digits桁の数字でなければなりません。',
-    'digits_between' => ':attributeは:min〜:max桁の数字である必要があります。',
-    'dimensions' => ':attributeの画像サイズが無効です。',
-    'distinct' => ':attributeに指定された値は重複しています。',
-    'email' => ':attributeは有効なメールアドレスでなければなりません。',
-    'ends_with' => ':attributeは、:valuesのいずれかで終了する必要があります。',
-    'exists' => '選択された:attributeは無効です。',
-    'file' => ':attributeはファイルでなければなりません。',
-    'filled' => ':attributeには値が必要です。',
-    'gt' => [
-        'numeric' => ':attributeは:valueより大きくなければなりません。',
-        'file' => ':attributeは:valueキロバイトより大きくなければなりません。',
-        'string' => ':attributeは:value文字より大きくなければなりません。',
-        'array' => ':attributeには:valueより多くの作品が必要です。',
+    'boolean'              => ':attributeは、trueかfalseを指定してください。',
+    'confirmed'            => ':attributeと、確認フィールドとが、一致していません。',
+    'date'                 => ':attributeには有効な日付を指定してください。',
+    'date_equals'          => ':attributeには、:dateと同じ日付けを指定してください。',
+    'date_format'          => ':attributeは:format形式で指定してください。',
+    'different'            => ':attributeと:otherには、異なった内容を指定してください。',
+    'digits'               => ':attributeは:digits桁で指定してください。',
+    'digits_between'       => ':attributeは:min桁から:max桁の間で指定してください。',
+    'dimensions'           => ':attributeの図形サイズが正しくありません。',
+    'distinct'             => ':attributeには異なった値を指定してください。',
+    'email'                => ':attributeには、有効なメールアドレスを指定してください。',
+    'ends_with'            => ':attributeには、:valuesのどれかで終わる値を指定してください。',
+    'exists'               => '選択された:attributeは正しくありません。',
+    'file'                 => ':attributeにはファイルを指定してください。',
+    'filled'               => ':attributeに値を指定してください。',
+    'gt'                   => [
+        'numeric' => ':attributeには、:valueより大きな値を指定してください。',
+        'file'    => ':attributeには、:value kBより大きなファイルを指定してください。',
+        'string'  => ':attributeは、:value文字より長く指定してください。',
+        'array'   => ':attributeには、:value個より多くのアイテムを指定してください。',
     ],
-    'gte' => [
-        'numeric' => ':attributeは:value以上でなければなりません。',
-        'file' => ':attributeは:valueキロバイト以上でなければなりません。',
-        'string' => ':attributeは:value文字以上でなければなりません。',
-        'array' => ':attributeには:value以上の作品が必要です。',
+    'gte'                  => [
+        'numeric' => ':attributeには、:value以上の値を指定してください。',
+        'file'    => ':attributeには、:value kB以上のファイルを指定してください。',
+        'string'  => ':attributeは、:value文字以上で指定してください。',
+        'array'   => ':attributeには、:value個以上のアイテムを指定してください。',
     ],
-    'image' => ':attributeは画像でなければなりません。',
-    'in' => '選択された:attributeは無効です。',
-    'in_array' => ':attributeは:otherに存在しません。',
-    'integer' => ':attributeは整数でなければなりません。',
-    'ip' => ':attributeは有効なIPアドレスでなければなりません。',
-    'ipv4' => ':attributeは有効なIPv4アドレスでなければなりません。',
-    'ipv6' => ':attributeは有効なIPv6アドレスでなければなりません。',
-    'json' => ':attributeは有効なJSON文字列でなければなりません。',
-    'lt' => [
-        'numeric' => ':attributeは:valueより小さくなければなりません。',
-        'file' => ':attributeは:valueキロバイトより小さくなければなりません。',
-        'string' => ':attributeは:value文字より小さくなければなりません。',
-        'array' => ':attributeには:valueより少ない作品が必要です。',
+    'image'                => ':attributeには画像ファイルを指定してください。',
+    'in'                   => '選択された:attributeは正しくありません。',
+    'in_array'             => ':attributeには:otherの値を指定してください。',
+    'integer'              => ':attributeは整数で指定してください。',
+    'ip'                   => ':attributeには、有効なIPアドレスを指定してください。',
+    'ipv4'                 => ':attributeには、有効なIPv4アドレスを指定してください。',
+    'ipv6'                 => ':attributeには、有効なIPv6アドレスを指定してください。',
+    'json'                 => ':attributeには、有効なJSON文字列を指定してください。',
+    'lt'                   => [
+        'numeric' => ':attributeには、:valueより小さな値を指定してください。',
+        'file'    => ':attributeには、:value kBより小さなファイルを指定してください。',
+        'string'  => ':attributeは、:value文字より短く指定してください。',
+        'array'   => ':attributeには、:value個より少ないアイテムを指定してください。',
     ],
-    'lte' => [
-        'numeric' => ':attributeは:value以下でなければなりません。',
-        'file' => ':attributeは:valueキロバイト以下でなければなりません。',
-        'string' => ':attributeは:value文字以下でなければなりません。',
-        'array' => ':attributeには:value以下の作品が必要です。',
+    'lte'                  => [
+        'numeric' => ':attributeには、:value以下の値を指定してください。',
+        'file'    => ':attributeには、:value kB以下のファイルを指定してください。',
+        'string'  => ':attributeは、:value文字以下で指定してください。',
+        'array'   => ':attributeには、:value個以下のアイテムを指定してください。',
     ],
-    'max' => [
-        'numeric' => ':attributeは:maxより大きくてはいけません。',
-        'file' => ':attributeは:maxキロバイトを超えてはいけません。',
-        'string' => ':attributeは:max文字を超えてはいけません。',
-        'array' => ':attributeには:max個を超える作品を含めることはできません。',
+    'max'                  => [
+        'numeric' => ':attributeには、:max以下の数字を指定してください。',
+        'file'    => ':attributeには、:max kB以下のファイルを指定してください。',
+        'string'  => ':attributeは、:max文字以下で指定してください。',
+        'array'   => ':attributeは:max個以下指定してください。',
     ],
-    'mimes' => ':attributeは:valuesタイプのファイルでなければなりません。',
-    'mimetypes' => ':attributeは:valuesタイプのファイルでなければなりません。',
-    'min' => [
-        'numeric' => ':attributeは:maxより小さくてはいけません。',
-        'file' => ':attributeは:maxキロバイトより小さくてはいけません。',
-        'string' => ':attributeは:max文字より小さくてはいけません。',
-        'array' => ':attributeには少なくとも:min個の作品が必要です。',
+    'mimes'                => ':attributeには:valuesタイプのファイルを指定してください。',
+    'mimetypes'            => ':attributeには:valuesタイプのファイルを指定してください。',
+    'min'                  => [
+        'numeric' => ':attributeには、:min以上の数字を指定してください。',
+        'file'    => ':attributeには、:min kB以上のファイルを指定してください。',
+        'string'  => ':attributeは、:min文字以上で指定してください。',
+        'array'   => ':attributeは:min個以上指定してください。',
     ],
-    'not_in' => '選択された:attributeは無効です。',
-    'not_regex' => ':attributeは無効な形式です。',
-    'numeric' => ':attributeは数値でなければなりません。',
-    'password' => 'パスワードが間違っています。',
-    'present' => ':attributeが存在する必要があります。',
-    'regex' => ':attributeは無効な形式です。',
-    'required' => ':attributeは必須です。',
-    'required_if' => ':otherが:valueの場合、:attributeは必須です。',
-    'required_unless' => ':otherが:valueではない場合、:attributeは必須です。',
-    'required_with' => ':valuesのうち一つでも存在する場合、:attributeは必須です。',
-    'required_with_all' => ':valuesのうち全て存在する場合、:attributeは必須です。',
-    'required_without' => ':valuesのうちどれか一つでも存在していない場合、:attributeは必須です。',
-    'required_without_all' => ':valuesのうち全て存在していない場合、:attributeは必須です。',
-    'same' => ':attributeと:otherは一致する必要があります。',
-    'size' => [
-        'numeric' => ':attributeは:sizeでなければなりません。',
-        'file' => ':attributeは:sizeキロバイトでなければなりません。',
-        'string' => ':attributeは:size文字でなければなりません。',
-        'array' => ':attributeには:sizeが含まれている必要があります。',
+    'not_in'               => '選択された:attributeは正しくありません。',
+    'not_regex'            => ':attributeの形式が正しくありません。',
+    'numeric'              => ':attributeには、数字を指定してください。',
+    'present'              => ':attributeが存在していません。',
+    'regex'                => ':attributeに正しい形式を指定してください。',
+    'required'             => ':attributeは必ず指定してください。',
+    'required_if'          => ':otherが:valueの場合、:attributeも指定してください。',
+    'required_unless'      => ':otherが:valuesでない場合、:attributeを指定してください。',
+    'required_with'        => ':valuesを指定する場合は、:attributeも指定してください。',
+    'required_with_all'    => ':valuesを指定する場合は、:attributeも指定してください。',
+    'required_without'     => ':valuesを指定しない場合は、:attributeを指定してください。',
+    'required_without_all' => ':valuesのどれも指定しない場合は、:attributeを指定してください。',
+    'same'                 => ':attributeと:otherには同じ値を指定してください。',
+    'size'                 => [
+        'numeric' => ':attributeは:sizeを指定してください。',
+        'file'    => ':attributeのファイルは、:sizeキロバイトでなくてはなりません。',
+        'string'  => ':attributeは:size文字で指定してください。',
+        'array'   => ':attributeは:size個指定してください。',
     ],
-    'starts_with' => ':attributeは:valuesのいずれかで始まる必要があります。',
-    'string' => ':attributeは文字列でなければなりません。',
-    'timezone' => ':attributeは有効なタイムゾーンでなければなりません。',
-    'unique' => ':attributeはすでに使用されています。',
-    'uploaded' => ':attributeのアップロードに失敗しました。',
-    'url' => ':attributeは無効な形式です。',
-    'uuid' => ':attributeは有効なUUIDでなければなりません。',
+    'starts_with'          => ':attributeには、:valuesのどれかで始まる値を指定してください。',
+    'string'               => ':attributeは文字列を指定してください。',
+    'timezone'             => ':attributeには、有効なゾーンを指定してください。',
+    'unique'               => ':attributeの値は既に存在しています。',
+    'uploaded'             => ':attributeのアップロードに失敗しました。',
+    'url'                  => ':attributeに正しい形式を指定してください。',
+    'uuid'                 => ':attributeに有効なUUIDを指定してください。',
 
     /*
     |--------------------------------------------------------------------------
-    | カスタムバリデーションの言語行
+    | Custom バリデーション言語行
     |--------------------------------------------------------------------------
     |
-    | ここでは、「attribute.rule」という規則を使用して行に名前を付けて、
-    | 属性のカスタム検証メッセージを指定できます。 これにより、特定の属性ルールに
-    | 特定のカスタム言語行をすばやく指定できます。
+    | "属性.ルール"の規約でキーを指定することでカスタムバリデーション
+    | メッセージを定義できます。指定した属性ルールに対する特定の
+    | カスタム言語行を手早く指定できます。
     |
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        '属性名' => [
+            'ルール名' => 'カスタムメッセージ',
         ],
     ],
 
     /*
     |--------------------------------------------------------------------------
-    | カスタムバリデーション属性
+    | カスタムバリデーション属性名
     |--------------------------------------------------------------------------
     |
-    | 次の言語行を使用して、属性プレースホルダーを「email」ではなく「E-Mail Address」などの
-    | 読みやすいものに置き換えます。 これは単にメッセージをより表現力豊かにするのに役立ちます。
+    | 以下の言語行は、例えば"email"の代わりに「メールアドレス」のように、
+    | 読み手にフレンドリーな表現でプレースホルダーを置き換えるために指定する
+    | 言語行です。これはメッセージをよりきれいに表示するために役に立ちます。
     |
     */
 
