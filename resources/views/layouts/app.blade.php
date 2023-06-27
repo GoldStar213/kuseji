@@ -447,6 +447,8 @@ use Carbon\Carbon;
                                         </div>
                                         <!--end:Menu item-->
 
+                                        @if(Auth::user()->id == 1)
+
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
@@ -477,7 +479,6 @@ use Carbon\Carbon;
                                         </div>
                                         <!--end:Menu item-->
 
-                                        @if(Auth::user()->id == 1)
                                         <!--begin:Menu item-->
                                         <div class="menu-item">
                                             <!--begin:Menu link-->
