@@ -94,6 +94,7 @@ class MyItemController extends Controller
                 "application_context" => [
                     "return_url" => route('successTransaction'),
                     "cancel_url" => route('cancelTransaction'),
+                    "LANDINGPAGE" => "Billing",
                 ],
                 "purchase_units" => [
                     0 => [
