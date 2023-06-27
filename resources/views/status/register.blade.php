@@ -42,12 +42,14 @@
                         <span class="card-label fw-bold fs-3 mb-1">{{ $items->count() }} 件の作品が登録されました。</span>
                     </h3>
                     <div class="card-toolbar">
+                        @if(Auth::user()->id == 1)
                         <a href="javascript:;downloadCSV()" class="btn btn-sm btn-light-primary">
                             <i class="ki-duotone ki-cloud-download">
                                 <i class="path1"></i>
                                 <i class="path2"></i>
                             </i> csvファイルダウンロード
                         </a>
+                        @endif
                     </div>
                 </div>
                 <!--end::Header-->
